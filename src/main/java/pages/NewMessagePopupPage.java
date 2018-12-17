@@ -22,7 +22,9 @@ public class NewMessagePopupPage extends BasePage {
     private By attachFileButtonBy = By.xpath("//*[@nxt-title='Nowa wiadomość']//button[@ng-click='fileUploadClick()']");
     private By closeMessagePopupPageButtonBy = By.xpath("//*[@nxt-title='Nowa wiadomość']//*[@data-tooltip='Zamknij']");
     private By messageSentBy = By.xpath("//*[contains(text(),'Wiadomość wysłana')]");
-    private By attachementsAddedBy = By.xpath("//*[contains(text(),'Załączniki zostały dodane.')]");
+    private By attachmentsAddedBy = By.xpath("//*[contains(text(),'Załączniki zostały dodane.')]");
+    private By errorMessageBy = By.xpath("//div[@class='notification-message']");
+
     // *********Page Methods*********
     // Enter Message To Input Field
     public NewMessagePopupPage enterMessageToField(String messageTo) {
@@ -87,8 +89,8 @@ public class NewMessagePopupPage extends BasePage {
 
     // Verify Attachment Added
     public NewMessagePopupPage verifyAttachementsAdded(String expectedText) {
-        waitVisibility(attachementsAddedBy);
-        assertEquals(attachementsAddedBy, expectedText);
+        waitVisibility(attachmentsAddedBy);
+        assertEquals(attachmentsAddedBy, expectedText);
         return this;
     }
 
@@ -96,6 +98,14 @@ public class NewMessagePopupPage extends BasePage {
     public NewMessagePopupPage verifyMessageSent(String expectedText) {
         waitVisibility(messageSentBy);
         assertEquals(messageSentBy, expectedText);
+        return this;
+    }
+
+    // Verify No Recipients Error
+    public NewMessagePopupPage verifyNoRecipientsError(String expectedText) {
+        waitVisibility(errorMessageBy);
+        assertEquals(errorMessageBy, expectedText);
+
         return this;
     }
 }
