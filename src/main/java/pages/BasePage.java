@@ -18,19 +18,18 @@ public class BasePage {
 
     //Wait Wrapper Method
     public void waitVisibility(By elementBy) {
-        boolean result = false;
+        //boolean result = false;
         int attempts = 0;
-        while(attempts < 20 && !result) {
+        while(attempts < 5){// && !result) {
             try {
                 wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(elementBy));
-                result = true;
+                //result = true;
                 break;
             } catch(Exception e) {
                 System.out.println((attempts+1) + ": error: czekam na element: " + elementBy);
             }
             attempts++;
         }
-
     }
 
     //Click Method
@@ -57,6 +56,5 @@ public class BasePage {
     public void assertEquals (By elementBy, String expectedText) {
         waitVisibility(elementBy);
         Assert.assertEquals(readText(elementBy), expectedText);
-
     }
 }

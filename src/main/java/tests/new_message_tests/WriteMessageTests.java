@@ -3,6 +3,7 @@ package tests.new_message_tests;
 import org.testng.annotations.Test;
 import pages.HomePage;
 import pages.InboxPage;
+import pages.NewMessagePopupPage;
 import tests.BaseTest;
 
 public class WriteMessageTests extends BaseTest {
@@ -42,16 +43,28 @@ public class WriteMessageTests extends BaseTest {
 
         //*************PAGE METHODS********************
         InboxPage ip = homePage.goToHomePage()
-                .loginToEmailBox("login.testowy", "haslo.testowe")
+                .enterAccountName("login.login")
+                .enterPassword("haslo.haslo")
                 .acceptCookies()
-                .clickLogInForOK()
+                .clickLogInWithPass()
                 .verifyValidLogin("Dodaj inne konta e-mail");
-        for(int i=0; i<1000000; i++) {
+        for(int i=0; i<10; i++) {
 
-            ip.sendNewEmail("login.testowy@int.pl", "T: "+ (i+1), "T: " + (i+1));
-            //.verifyMessageSent("Wiadomość wysłana");
+            ip.clickNewMessageButton()
+              .enterMessageToField("login.testowy@int.pl")
+              .enterMessageSubjectField("T: "+ (i+1))
+              .enterMessageTextAreaField("T: " + (i+1))
+              .clickAttachFileButton()
+              .verifyAttachementsAdded("Załączniki zostały dodane.")
+              .clickSendButton()
+              .verifyMessageSent("Wiadomość wysłana");
+            try {
+                Thread.sleep(5000);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+            //.clickCloseMessagePopupPageButton();
             System.out.println("T: " + (i+1));
         }
-
     }
 }

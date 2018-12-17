@@ -13,9 +13,10 @@ public class InvalidAccountName extends BaseTest {
 
         //*************PAGE METHODS********************
         homePage.goToHomePage()
-                .loginToEmailBox("login.testowybledny", "haslo.testowe")
+                .enterAccountName("login.testowybledny")
+                .enterPassword("haslo.haslo")
                 .acceptCookies()
-                .clickLogInForNotOK()
-                .verifyInvalidLoginOrPasword("BŁĘDNY LOGIN LUB HASŁO");
+                .clickLogInWithFail()
+                .verifyInvalidLoginOrPassword("BŁĘDNY LOGIN LUB HASŁO");
     }
 }

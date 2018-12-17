@@ -13,10 +13,10 @@ public class InvalidPassword extends BaseTest {
 
         //*************PAGE METHODS********************
         homePage.goToHomePage()
-                .loginToEmailBox("login.testowy", "haslo.nieprawidłowe")
+                .enterAccountName("login.login")
+                .enterPassword("haslo.nieprawidłowe")
                 .acceptCookies()
-                .clickLogInForNotOK()
-                .verifyInvalidLoginOrPasword("BŁĘDNY LOGIN LUB HASŁO");
-        //. POPRAW DANE I PRZEPISZ KOD Z OBRAZKA");
+                .clickLogInWithFail()
+                .verifyInvalidLoginOrPassword("BŁĘDNY LOGIN LUB HASŁO");
     }
 }

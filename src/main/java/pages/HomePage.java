@@ -13,25 +13,25 @@ public class HomePage extends BasePage {
     }
 
     //*********Page Variables*********
-    String baseURL = "https://int.pl";
+    private String baseURL = "https://int.pl";
 
     //*********Web Elements*********
-    By helpButtonBy = By.xpath("//*[contains(text(),'Pomoc')]");
-    By myAccountNameInputBy = By.id("emailId");
-    By passwordInputBy = By.id("passwordId");
-    By cookiesOKButtonBy = By.xpath("//a[contains(text(),'Dowiedz się więcej')]/../span");
-    By logInButtonBy = By.xpath("//*[contains(text(),'loguję się')]");
-    By errorMessageUsernameOrPasswordBy = By.xpath("//div[@ng-if='error']");
-    By errorMessageUsernameBy = By.xpath("//span[contains(@ng-show,'error.pattern')]");
+    private By helpButtonBy = By.xpath("//*[contains(text(),'Pomoc')]");
+    private By myAccountNameInputBy = By.id("emailId");
+    private By passwordInputBy = By.id("passwordId");
+    private By cookiesOKButtonBy = By.xpath("//a[contains(text(),'Dowiedz się więcej')]/../span");
+    private By logInButtonBy = By.xpath("//*[contains(text(),'loguję się')]");
+    private By errorMessageUsernameOrPasswordBy = By.xpath("//div[@ng-if='error']");
+    private By errorMessageUsernameBy = By.xpath("//span[contains(@ng-show,'error.pattern')]");
 
     //*********Page Methods*********
-    //Go to Homepage
+    //Go to Home Page
     public HomePage goToHomePage (){
         driver.get(baseURL);
         return this;
     }
 
-    //Go to LoginPage
+    //Go to Login Page
     public HelpPage goToHelpPage (){
         click(helpButtonBy);
         ArrayList<String> newTab = new ArrayList<String>(driver.getWindowHandles());
@@ -39,40 +39,49 @@ public class HomePage extends BasePage {
         return new HelpPage(driver.switchTo().window(newTab.get(1)));
     }
 
-    public HomePage loginToEmailBox (String username, String password){
-        //Enter Username(Email)
-        writeText(myAccountNameInputBy,username);
+    //Input Account Name
+    public HomePage enterAccountName(String accountName){
+        //Enter Account Name
+        writeText(myAccountNameInputBy,accountName);
+        return this;
+    }
+
+    //Input Password
+    public HomePage enterPassword(String password){
         //Enter Password
         writeText(passwordInputBy, password);
         return this;
     }
 
+    //Accept Cookies
     public HomePage acceptCookies (){
         //Click Cookies OK Button
         click(cookiesOKButtonBy);
         return this;
     }
 
-    public HomePage clickLogInForNotOK (){
+    //Log In Not Successful
+    public HomePage clickLogInWithFail(){
         //Click Login Button
         click(logInButtonBy);
         return this;
     }
 
-    public InboxPage clickLogInForOK (){
+    //Log In Successful
+    public InboxPage clickLogInWithPass(){
         //Click Login Button
         click(logInButtonBy);
         return new InboxPage(driver);
     }
 
-    public HomePage verifyInvalidLoginOrPasword (String expectedText){
-        //Verify Username Or Password Condition
+    //Verify Invalid Login Or Password
+    public HomePage verifyInvalidLoginOrPassword(String expectedText){
         assertEquals(errorMessageUsernameOrPasswordBy, expectedText);
         return this;
     }
 
+    //Verify Invalid Account Name
     public HomePage verifyInvalidLogin (String expectedText){
-        //Verify Username Or Password Condition
         assertEquals(errorMessageUsernameBy, expectedText);
         return this;
     }

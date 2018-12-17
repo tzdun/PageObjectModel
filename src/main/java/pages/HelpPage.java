@@ -12,14 +12,12 @@ public class HelpPage extends BasePage{
     }
 
     //*********Web Elements*********
-    By logInButton = By.xpath("//a[@href='//int.pl/#/login']");
-    By titleBy = By.tagName("title");
+    private By logInButton = By.xpath("//a[@href='//int.pl/#/login']");
+    private By titleBy = By.tagName("title");
 
     //*********Page Methods*********
-
+    //Click LogIn Button
     public HomePage clickLogInButton (){
-
-        //Click LogIn Button
         click(logInButton);
         return new HomePage(driver);
     }
@@ -28,7 +26,6 @@ public class HelpPage extends BasePage{
     public HelpPage verifyHelpPage(String expectedText) {
         waitVisibility(logInButton);
         Assert.assertEquals(driver.findElement(titleBy).getAttribute("innerText"), expectedText);
-
         return this;
     }
 }

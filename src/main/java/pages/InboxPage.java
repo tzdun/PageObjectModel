@@ -14,21 +14,21 @@ public class InboxPage extends BasePage {
     }
 
     // *********Web Elements*********
-    By validLoginBy = By.xpath("//span[@class='icon-add']");
-    By errorMessageBy = By.xpath("//div[@class='notification-message']");
-    By newEmailBy = By.xpath("//a[contains(.,'Nowa')]");
-    By emailToBy = By.xpath("(//*[contains(text(),'Nowa wiadomość')]/../..//input)[1]");
-    By subjectBy = By.xpath("//*[contains(text(),'Nowa wiadomość')]/../..//input[@placeholder=\"Temat:\"]");
-    By frameBy = By.xpath("//iframe[@title]");
-    By sendButtonBy = By.xpath("//*[@nxt-title='Nowa wiadomość']//button[contains(text(),'Wyślij')]");
-    By messageSentBy = By.xpath("//*[contains(text(),'Wiadomość wysłana')]");
-    By notificationMessageBy = By.xpath("//*[@class='notification-message']");
-    By closeButtonBy = By.xpath("//*[@nxt-title='Nowa wiadomość']//*[@data-tooltip='Zamknij']");
-    By attachementButtonBy = By.xpath("//*[@nxt-title='Nowa wiadomość']//button[@ng-click='fileUploadClick()']");
-    By attachementsAddedBy = By.xpath("//*[contains(text(),'Załączniki zostały dodane.')]");
+    private By validLoginBy = By.xpath("//span[@class='icon-add']");
+    private By errorMessageBy = By.xpath("//div[@class='notification-message']");
+    private By newEmailBy = By.xpath("//a[contains(.,'Nowa')]");
+    //private By emailToBy = By.xpath("(//*[contains(text(),'Nowa wiadomość')]/../..//input)[1]");
+   // private By subjectBy = By.xpath("//*[contains(text(),'Nowa wiadomość')]/../..//input[@placeholder=\"Temat:\"]");
+    //private By frameBy = By.xpath("//iframe[@title]");
+    //private By sendButtonBy = By.xpath("//*[@nxt-title='Nowa wiadomość']//button[contains(text(),'Wyślij')]");
+    //private By messageSentBy = By.xpath("//*[contains(text(),'Wiadomość wysłana')]");
+    private By notificationMessageBy = By.xpath("//*[@class='notification-message']");
+   // private By closeButtonBy = By.xpath("//*[@nxt-title='Nowa wiadomość']//*[@data-tooltip='Zamknij']");
+    //private By attachementButtonBy = By.xpath("//*[@nxt-title='Nowa wiadomość']//button[@ng-click='fileUploadClick()']");
+
 
     // *********Page Methods*********
-    public InboxPage sendNewEmail(String emailTo, String subject, String text) {
+   /* public InboxPage sendNewEmail(String emailTo, String subject, String text) {
         try {
             // Click New Message
             click(newEmailBy);
@@ -55,31 +55,31 @@ public class InboxPage extends BasePage {
         }
 
         return this;
-    }
+    }*/
 
     // Click New Message
-    public InboxPage clickNewMessageButton() {
+    public NewMessagePopupPage clickNewMessageButton() {
         click(newEmailBy);
-        return this;
+        return new NewMessagePopupPage(driver);
     }
 
     // Click Send Button
-    public InboxPage clickSendButton() {
+   /* public InboxPage clickSendButton() {
         click(sendButtonBy);
 
         return this;
-    }
+    }*/
 
     // Click Attachement Button
-    public InboxPage addAttachement() {
+   /* public InboxPage addAttachement() {
         waitVisibility(attachementButtonBy);
         click(attachementButtonBy);
-	/*	try {
+	*//*	try {
 			Thread.sleep(3000);
 		} catch (InterruptedException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		}*/
+		}*//*
         StringSelection ss = new StringSelection("C:\\Users\\rb26508\\Desktop\\Test\\Test.bmp");
         Toolkit.getDefaultToolkit().getSystemClipboard().setContents(ss, null);
         try {
@@ -102,7 +102,7 @@ public class InboxPage extends BasePage {
         }
 
         return this;
-    }
+    }*/
 
     // Verify Valid Login
     public InboxPage verifyValidLogin(String expectedText) {
@@ -119,12 +119,6 @@ public class InboxPage extends BasePage {
         return this;
     }
 
-    // Verify Message Sent
-    public InboxPage verifyMessageSent(String expectedText) {
-        waitVisibility(notificationMessageBy);
-        assertEquals(messageSentBy, expectedText);
 
-        return this;
-    }
 
 }

@@ -14,9 +14,10 @@ public class ValidAccountNameAndPassword extends BaseTest {
 
         //*************PAGE METHODS********************
         homePage.goToHomePage()
-                .loginToEmailBox("login.testowy", "haslo.testowe")
+                .enterAccountName("login.login")
+                .enterPassword("haslo.haslo")
                 .acceptCookies()
-                .clickLogInForOK()
+                .clickLogInWithPass()
                 .verifyValidLogin("Dodaj inne konta e-mail");
     }
 }

@@ -7,6 +7,7 @@
             <class name="tests.login_tests.InvalidAccountName"/>
             <class name="tests.login_tests.ValidAccountNameAndPassword"/>
             <class name="tests.login_tests.GoToHelpPage"/>
+            <class name="tests.new_message_tests.WriteMessageTests"/>
         </classes>
     </test>
 </suite>
