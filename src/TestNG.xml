@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Poczta Int.pl_Tests">
+    <test name="LoginTests">
+        <classes>
+            <class name="tests.login_tests.InvalidPassword"/>
+            <class name="tests.login_tests.InvalidAccountName"/>
+            <class name="tests.login_tests.ValidAccountNameAndPassword"/>
+            <class name="tests.login_tests.GoToHelpPage"/>
+        </classes>
+    </test>
+</suite>
