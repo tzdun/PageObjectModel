@@ -6,7 +6,7 @@ import tests.BaseTest;
 
 public class WriteMessageTests extends BaseTest {
 
-    @Test (priority = 1)
+    @Test (priority = 3)
     public void sendEmailWithNoRecipients () {
 
         //*************PAGE INSTANTIATIONS*************
@@ -24,7 +24,7 @@ public class WriteMessageTests extends BaseTest {
                 .verifyNoRecipientsError("Wpisz odbiorców!");
     }
 
-    @Test (priority = 2)
+    @Test (priority = 4)
     public void sendEmailWithoutAttachment () {
 
         //*************PAGE INSTANTIATIONS*************
@@ -45,7 +45,7 @@ public class WriteMessageTests extends BaseTest {
                 .verifyMessageSent("Wiadomość wysłana");
     }
 
-    @Test (priority = 3)
+    @Test (priority = 5)
     public void sendEmailWithAttachment () {
 
         //*************PAGE INSTANTIATIONS*************

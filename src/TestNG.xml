@@ -13,6 +13,7 @@
         <classes>
             <class name="tests.new_message_tests.WriteMessageTests"/>
             <class name="tests.new_message_tests.SaveMessageAsADraft"/>
+            <class name="tests.new_message_tests.ResizeNewMessagePopup"/>
         </classes>
     </test>
 </suite>

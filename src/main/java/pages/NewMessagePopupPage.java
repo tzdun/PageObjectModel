@@ -2,6 +2,7 @@ package pages;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.testng.Assert;
 
 import java.awt.*;
 import java.awt.datatransfer.StringSelection;
@@ -27,7 +28,10 @@ public class NewMessagePopupPage extends BasePage {
     private By messageOptionsButtonBy = By.xpath("(//*[contains(text(),'Napisz z innego')]/../..//*[@data-tooltip = 'Opcje wiadomości'])[last()]");
     private By saveMessageAsADraftButtonBy = By.xpath("(//*[contains(text(),'Napisz z innego')]/../..//*[contains(text(),'Zapisz jako robocze')])[last()]");
     private By messageSavedAsADraftinfoBy = By.xpath("//*[contains(text(),'Wiadomość zapisana w folderze Robocze')]");
-
+    private By minMessagePopupButtonBy = By.xpath("//*[@data-tooltip='Minimalizuj']");
+    private By resMinMessagePopupButtonBy = By.xpath("//*[@data-tooltip='Przywróć okno wiadomości']");
+    private By maxMessagePopupButtonBy = By.xpath("//*[@data-tooltip='Pełny ekran']");
+    private By closeMaxMessagePopupButtonBy = By.xpath("//*[@data-tooltip='Zamknij pełny ekran']");
     // *********Page Methods*********
     // Enter Message To Input Field
     public NewMessagePopupPage enterMessageToField(String messageTo) {
@@ -125,6 +129,53 @@ public class NewMessagePopupPage extends BasePage {
     // Click Save Message As A Draft Button
     public NewMessagePopupPage clickSaveMessageAsADraftButton() {
         click(saveMessageAsADraftButtonBy);
+        return this;
+    }
+
+    // Click Min Message Popup Button
+    public NewMessagePopupPage clickMinMessagePopupButton() {
+        click(minMessagePopupButtonBy);
+        return this;
+    }
+
+    // Click Max Message Popup Button
+    public NewMessagePopupPage clickMaxMessagePopupButton() {
+        click(maxMessagePopupButtonBy);
+        return this;
+    }
+
+    // Click Close Max Message Popup Button
+    public NewMessagePopupPage clickCloseMaxMessagePopupButton() {
+        click(closeMaxMessagePopupButtonBy);
+        return this;
+    }
+
+    // Click Res Min Message Popup Button
+    public NewMessagePopupPage clickResMinMessagePopupButton() {
+        click(resMinMessagePopupButtonBy);
+        return this;
+    }
+
+    // Verify Message Popup Is Max
+    public NewMessagePopupPage verifyMessagePopupIsMax(String expectedText) {
+        waitVisibility(closeMaxMessagePopupButtonBy);
+        Assert.assertEquals(driver.findElement(closeMaxMessagePopupButtonBy).getAttribute("data-tooltip"), expectedText);
+        return this;
+    }
+
+    // Verify Message Popup Is Min
+    public NewMessagePopupPage verifyMessagePopupIsMin(String expectedText) {
+        waitVisibility(resMinMessagePopupButtonBy);
+        Assert.assertEquals(driver.findElement(resMinMessagePopupButtonBy).getAttribute("data-tooltip"), expectedText);
+        return this;
+    }
+
+    // Verify Message Popup Is Res
+    public NewMessagePopupPage verifyMessagePopupIsRes(String expectedTextMin, String expectedTextMax) {
+        waitVisibility(minMessagePopupButtonBy);
+        Assert.assertEquals(driver.findElement(minMessagePopupButtonBy).getAttribute("data-tooltip"), expectedTextMin);
+        waitVisibility(maxMessagePopupButtonBy);
+        Assert.assertEquals(driver.findElement(maxMessagePopupButtonBy).getAttribute("data-tooltip"), expectedTextMax);
         return this;
     }
 }

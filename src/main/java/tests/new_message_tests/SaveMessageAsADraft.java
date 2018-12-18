@@ -6,7 +6,7 @@ import tests.BaseTest;
 
 public class SaveMessageAsADraft extends BaseTest {
 
-    @Test (priority = 1)
+    @Test (priority = 2)
     public void saveMessageAsADraft() {
 
         //*************PAGE INSTANTIATIONS*************
