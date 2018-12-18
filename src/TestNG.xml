@@ -16,6 +16,7 @@
             <class name="tests.new_message_tests.SendEmailWithNoRecipients"/>
             <class name="tests.new_message_tests.SendEmailWithoutAttachment"/>
             <class name="tests.new_message_tests.SendEmailWithAttachment"/>
+            <class name="tests.new_message_tests.SendEmailWithCCandBCC"/>
         </classes>
     </test>
 </suite>

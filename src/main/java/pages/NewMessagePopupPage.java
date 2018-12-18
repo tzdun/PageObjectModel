@@ -17,6 +17,8 @@ public class NewMessagePopupPage extends BasePage {
 
     // *********Web Elements*********
     private By messageToInputBy = By.xpath("(//*[contains(text(),'Nowa wiadomość')]/../..//input)[1]");
+    private By ccInputBy = By.xpath("(//*[contains(text(),'Nowa wiadomość')]/../..//input)[2]");
+    private By bccInputBy = By.xpath("(//*[contains(text(),'Nowa wiadomość')]/../..//input)[3]");
     private By messageSubjectInputBy = By.xpath("//*[contains(text(),'Nowa wiadomość')]/../..//input[@placeholder=\"Temat:\"]");
     private By messageTextFrameBy = By.xpath("//iframe[@title]");
     private By sendMessageButtonBy = By.xpath("//*[@nxt-title='Nowa wiadomość']//button[contains(text(),'Wyślij')]");
@@ -27,15 +29,30 @@ public class NewMessagePopupPage extends BasePage {
     private By errorMessageInfoBy = By.xpath("//div[@class='notification-message']");
     private By messageOptionsButtonBy = By.xpath("(//*[contains(text(),'Napisz z innego')]/../..//*[@data-tooltip = 'Opcje wiadomości'])[last()]");
     private By saveMessageAsADraftButtonBy = By.xpath("(//*[contains(text(),'Napisz z innego')]/../..//*[contains(text(),'Zapisz jako robocze')])[last()]");
-    private By messageSavedAsADraftinfoBy = By.xpath("//*[contains(text(),'Wiadomość zapisana w folderze Robocze')]");
+    private By messageSavedAsADraftInfoBy = By.xpath("//*[contains(text(),'Wiadomość zapisana w folderze Robocze')]");
     private By minMessagePopupButtonBy = By.xpath("//*[@data-tooltip='Minimalizuj']");
     private By resMinMessagePopupButtonBy = By.xpath("//*[@data-tooltip='Przywróć okno wiadomości']");
     private By maxMessagePopupButtonBy = By.xpath("//*[@data-tooltip='Pełny ekran']");
     private By closeMaxMessagePopupButtonBy = By.xpath("//*[@data-tooltip='Zamknij pełny ekran']");
+    private By ccButtonBy = By.xpath("//*[contains(text(),'Nowa wiadomość')]/../..//*[text()='DW']");
+    private By bccButtonBy = By.xpath("//*[contains(text(),'Nowa wiadomość')]/../..//*[text()='UDW']");
+
     // *********Page Methods*********
     // Enter Message To Input Field
     public NewMessagePopupPage enterMessageToField(String messageTo) {
         writeText(messageToInputBy, messageTo);
+        return this;
+    }
+
+    // Enter CC Input Field
+    public NewMessagePopupPage enterCCInputField(String ccRecipient) {
+        writeText(ccInputBy, ccRecipient);
+        return this;
+    }
+
+    // Enter BCC Input Field
+    public NewMessagePopupPage enterBCCInputField(String bccRecipient) {
+        writeText(bccInputBy, bccRecipient);
         return this;
     }
 
@@ -115,8 +132,8 @@ public class NewMessagePopupPage extends BasePage {
 
     // Verify Message Saved As A Draft
     public NewMessagePopupPage verifyMessageSavedAsADraft(String expectedText) {
-        waitVisibility(messageSavedAsADraftinfoBy);
-        assertEquals(messageSavedAsADraftinfoBy, expectedText);
+        waitVisibility(messageSavedAsADraftInfoBy);
+        assertEquals(messageSavedAsADraftInfoBy, expectedText);
         return this;
     }
 
@@ -153,6 +170,18 @@ public class NewMessagePopupPage extends BasePage {
     // Click Res Min Message Popup Button
     public NewMessagePopupPage clickResMinMessagePopupButton() {
         click(resMinMessagePopupButtonBy);
+        return this;
+    }
+
+    // Click CC Message Button
+    public NewMessagePopupPage clickCCButton() {
+        click(ccButtonBy);
+        return this;
+    }
+
+    // Click BCC Message Button
+    public NewMessagePopupPage clickBCCButton() {
+        click(bccButtonBy);
         return this;
     }
 
