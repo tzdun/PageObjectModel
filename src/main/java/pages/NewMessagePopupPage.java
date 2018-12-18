@@ -1,6 +1,7 @@
 package pages;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 
@@ -36,6 +37,8 @@ public class NewMessagePopupPage extends BasePage {
     private By closeMaxMessagePopupButtonBy = By.xpath("//*[@data-tooltip='Zamknij pełny ekran']");
     private By ccButtonBy = By.xpath("//*[contains(text(),'Nowa wiadomość')]/../..//*[text()='DW']");
     private By bccButtonBy = By.xpath("//*[contains(text(),'Nowa wiadomość')]/../..//*[text()='UDW']");
+    private By boldButtonBy = By.xpath("//button[@data-tooltip='Pogrubienie']");
+    private By italicButtonBy = By.xpath("//button[@data-tooltip='Kursywa']");
 
     // *********Page Methods*********
     // Enter Message To Input Field
@@ -83,22 +86,31 @@ public class NewMessagePopupPage extends BasePage {
         click(attachFileButtonBy);
         StringSelection stringSelection = new StringSelection(pathToLocalFile);
         try {
-            Thread.sleep(2000);
+            Thread.sleep(8000);
             Toolkit.getDefaultToolkit().getSystemClipboard().setContents(stringSelection, null);
             // native key strokes for CTRL, V and ENTER keys
-            Thread.sleep(2000);
             Robot robot = new Robot();
             robot.keyPress(KeyEvent.VK_CONTROL);
             robot.keyPress(KeyEvent.VK_V);
             robot.keyRelease(KeyEvent.VK_V);
             robot.keyRelease(KeyEvent.VK_CONTROL);
-            Thread.sleep(2000);
+            Thread.sleep(1500);
             robot.keyPress(KeyEvent.VK_ENTER);
             robot.keyRelease(KeyEvent.VK_ENTER);
         } catch (Exception e) {
             System.out.println("Problem z załączeniem pliku: " + pathToLocalFile);
         }
 
+        return this;
+    }
+
+    // KeyPress Ctrl + A
+    public NewMessagePopupPage keyPress_Ctrl_A() {
+        waitVisibility(messageTextFrameBy);
+        driver.switchTo().frame(driver.findElement(messageTextFrameBy));
+        By messageTextAreaBy = By.xpath("//body");
+        driver.findElement(messageTextAreaBy).sendKeys(Keys.LEFT_CONTROL + "a");
+        driver.switchTo().defaultContent();
         return this;
     }
 
@@ -205,6 +217,38 @@ public class NewMessagePopupPage extends BasePage {
         Assert.assertEquals(driver.findElement(minMessagePopupButtonBy).getAttribute("data-tooltip"), expectedTextMin);
         waitVisibility(maxMessagePopupButtonBy);
         Assert.assertEquals(driver.findElement(maxMessagePopupButtonBy).getAttribute("data-tooltip"), expectedTextMax);
+        return this;
+    }
+
+    // Click Bold Button
+    public NewMessagePopupPage clickBoldButton() {
+        click(boldButtonBy);
+        return this;
+    }
+
+    // Click Italic Button
+    public NewMessagePopupPage clickItalicButton() {
+        click(italicButtonBy);
+        return this;
+    }
+
+    // Verify Text Is Bold
+    public NewMessagePopupPage verifyTextIsBold(String expectedText) {
+        waitVisibility(messageTextFrameBy);
+        driver.switchTo().frame(driver.findElement(messageTextFrameBy));
+        By messageTextAreaBy = By.xpath("//*[contains(text(),'Czcionka')]");
+        Assert.assertEquals(driver.findElement(messageTextAreaBy).getTagName(), expectedText);
+        driver.switchTo().defaultContent();
+        return this;
+    }
+
+    // Verify Text Is Italic
+    public NewMessagePopupPage verifyTextIsItalic(String expectedText) {
+        waitVisibility(messageTextFrameBy);
+        driver.switchTo().frame(driver.findElement(messageTextFrameBy));
+        By messageTextAreaBy = By.xpath("//*[contains(text(),'Czcionka')]");
+        Assert.assertEquals(driver.findElement(messageTextAreaBy).getTagName(), expectedText);
+        driver.switchTo().defaultContent();
         return this;
     }
 }
