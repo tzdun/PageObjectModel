@@ -4,10 +4,10 @@ import org.testng.annotations.Test;
 import pages.HomePage;
 import tests.BaseTest;
 
-public class SaveMessageAsADraft extends BaseTest {
+public class SendEmailWithoutAttachment extends BaseTest {
 
     @Test (priority = 1)
-    public void saveMessageAsADraft() {
+    public void sendEmailWithoutAttachment () {
 
         //*************PAGE INSTANTIATIONS*************
         HomePage homePage = new HomePage(driver);
@@ -23,10 +23,7 @@ public class SaveMessageAsADraft extends BaseTest {
                 .enterMessageToField("login.testowy@int.pl")
                 .enterMessageSubjectField("Temat wiadomości")
                 .enterMessageTextAreaField("Treść wiadomości")
-                .clickAttachFileButton("C:\\Users\\rb26508\\Desktop\\Test\\Test.bmp")
-                .verifyAttachmentsAdded("Załączniki zostały dodane.")
-                .clickMessageOptionsButton()
-                .clickSaveMessageAsADraftButton()
-                .verifyMessageSavedAsADraft("Wiadomość zapisana w folderze Robocze");
+                .clickSendButton()
+                .verifyMessageSent("Wiadomość wysłana");
     }
 }

@@ -29,6 +29,7 @@ public class ResizeNewMessagePopup extends BaseTest {
                 .clickResMinMessagePopupButton()
                 .verifyMessagePopupIsRes("Minimalizuj","Pełny ekran")
                 .clickMinMessagePopupButton()
-                .clickMaxMessagePopupButton();
+                .clickMaxMessagePopupButton()
+                .clickCloseNewMessagePopupButton();
     }
 }

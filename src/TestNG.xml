@@ -11,9 +11,11 @@
     </test>
     <test name="NewMessageTests">
         <classes>
-            <class name="tests.new_message_tests.WriteMessageTests"/>
-            <class name="tests.new_message_tests.SaveMessageAsADraft"/>
             <class name="tests.new_message_tests.ResizeNewMessagePopup"/>
+            <class name="tests.new_message_tests.SaveMessageAsADraft"/>
+            <class name="tests.new_message_tests.SendEmailWithNoRecipients"/>
+            <class name="tests.new_message_tests.SendEmailWithoutAttachment"/>
+            <class name="tests.new_message_tests.SendEmailWithAttachment"/>
         </classes>
     </test>
 </suite>

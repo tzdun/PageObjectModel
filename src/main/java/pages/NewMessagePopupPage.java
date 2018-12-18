@@ -21,7 +21,7 @@ public class NewMessagePopupPage extends BasePage {
     private By messageTextFrameBy = By.xpath("//iframe[@title]");
     private By sendMessageButtonBy = By.xpath("//*[@nxt-title='Nowa wiadomość']//button[contains(text(),'Wyślij')]");
     private By attachFileButtonBy = By.xpath("//*[@nxt-title='Nowa wiadomość']//button[@ng-click='fileUploadClick()']");
-    private By closeMessagePopupPageButtonBy = By.xpath("//*[@nxt-title='Nowa wiadomość']//*[@data-tooltip='Zamknij']");
+    private By closeNewMessagePopupButtonBy = By.xpath("//*[@nxt-title='Nowa wiadomość']//*[@data-tooltip='Zamknij']");
     private By messageSentInfoBy = By.xpath("//*[contains(text(),'Wiadomość wysłana')]");
     private By attachmentsAddedInfoBy = By.xpath("//*[contains(text(),'Załączniki zostały dodane.')]");
     private By errorMessageInfoBy = By.xpath("//div[@class='notification-message']");
@@ -86,13 +86,13 @@ public class NewMessagePopupPage extends BasePage {
     }
 
     // Click Close Button
-    public InboxPage clickCloseMessagePopupPageButton() {
-        click(closeMessagePopupPageButtonBy);
+    public InboxPage clickCloseNewMessagePopupButton() {
+        click(closeNewMessagePopupButtonBy);
         return new InboxPage(driver);
     }
 
     // Verify Attachment Added
-    public NewMessagePopupPage verifyAttachementsAdded(String expectedText) {
+    public NewMessagePopupPage verifyAttachmentsAdded(String expectedText) {
         waitVisibility(attachmentsAddedInfoBy);
         assertEquals(attachmentsAddedInfoBy, expectedText);
         return this;
