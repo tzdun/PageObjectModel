@@ -21,9 +21,12 @@ public class NewMessagePopupPage extends BasePage {
     private By sendMessageButtonBy = By.xpath("//*[@nxt-title='Nowa wiadomość']//button[contains(text(),'Wyślij')]");
     private By attachFileButtonBy = By.xpath("//*[@nxt-title='Nowa wiadomość']//button[@ng-click='fileUploadClick()']");
     private By closeMessagePopupPageButtonBy = By.xpath("//*[@nxt-title='Nowa wiadomość']//*[@data-tooltip='Zamknij']");
-    private By messageSentBy = By.xpath("//*[contains(text(),'Wiadomość wysłana')]");
-    private By attachmentsAddedBy = By.xpath("//*[contains(text(),'Załączniki zostały dodane.')]");
-    private By errorMessageBy = By.xpath("//div[@class='notification-message']");
+    private By messageSentInfoBy = By.xpath("//*[contains(text(),'Wiadomość wysłana')]");
+    private By attachmentsAddedInfoBy = By.xpath("//*[contains(text(),'Załączniki zostały dodane.')]");
+    private By errorMessageInfoBy = By.xpath("//div[@class='notification-message']");
+    private By messageOptionsButtonBy = By.xpath("(//*[contains(text(),'Napisz z innego')]/../..//*[@data-tooltip = 'Opcje wiadomości'])[last()]");
+    private By saveMessageAsADraftButtonBy = By.xpath("(//*[contains(text(),'Napisz z innego')]/../..//*[contains(text(),'Zapisz jako robocze')])[last()]");
+    private By messageSavedAsADraftinfoBy = By.xpath("//*[contains(text(),'Wiadomość zapisana w folderze Robocze')]");
 
     // *********Page Methods*********
     // Enter Message To Input Field
@@ -55,27 +58,24 @@ public class NewMessagePopupPage extends BasePage {
     }
 
     // Click Attach File Button
-    public NewMessagePopupPage clickAttachFileButton() {
+    public NewMessagePopupPage clickAttachFileButton(String pathToLocalFile) {
         click(attachFileButtonBy);
-        StringSelection ss = new StringSelection("C:\\Users\\rb26508\\Desktop\\Test\\Test.bmp");
+        StringSelection stringSelection = new StringSelection(pathToLocalFile);
         try {
-            Thread.sleep(1000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-        Toolkit.getDefaultToolkit().getSystemClipboard().setContents(ss, null);
-        // native key strokes for CTRL, V and ENTER keys
-        try {
-            Thread.sleep(1000);
+            Thread.sleep(2000);
+            Toolkit.getDefaultToolkit().getSystemClipboard().setContents(stringSelection, null);
+            // native key strokes for CTRL, V and ENTER keys
+            Thread.sleep(2000);
             Robot robot = new Robot();
             robot.keyPress(KeyEvent.VK_CONTROL);
             robot.keyPress(KeyEvent.VK_V);
             robot.keyRelease(KeyEvent.VK_V);
             robot.keyRelease(KeyEvent.VK_CONTROL);
+            Thread.sleep(2000);
             robot.keyPress(KeyEvent.VK_ENTER);
             robot.keyRelease(KeyEvent.VK_ENTER);
         } catch (Exception e) {
-            System.out.println("Problem z robotem.");
+            System.out.println("Problem z załączeniem pliku: " + pathToLocalFile);
         }
 
         return this;
@@ -89,23 +89,42 @@ public class NewMessagePopupPage extends BasePage {
 
     // Verify Attachment Added
     public NewMessagePopupPage verifyAttachementsAdded(String expectedText) {
-        waitVisibility(attachmentsAddedBy);
-        assertEquals(attachmentsAddedBy, expectedText);
+        waitVisibility(attachmentsAddedInfoBy);
+        assertEquals(attachmentsAddedInfoBy, expectedText);
         return this;
     }
 
     // Verify Message Sent
     public NewMessagePopupPage verifyMessageSent(String expectedText) {
-        waitVisibility(messageSentBy);
-        assertEquals(messageSentBy, expectedText);
+        waitVisibility(messageSentInfoBy);
+        assertEquals(messageSentInfoBy, expectedText);
         return this;
     }
 
     // Verify No Recipients Error
     public NewMessagePopupPage verifyNoRecipientsError(String expectedText) {
-        waitVisibility(errorMessageBy);
-        assertEquals(errorMessageBy, expectedText);
+        waitVisibility(errorMessageInfoBy);
+        assertEquals(errorMessageInfoBy, expectedText);
 
+        return this;
+    }
+
+    // Verify Message Saved As A Draft
+    public NewMessagePopupPage verifyMessageSavedAsADraft(String expectedText) {
+        waitVisibility(messageSavedAsADraftinfoBy);
+        assertEquals(messageSavedAsADraftinfoBy, expectedText);
+        return this;
+    }
+
+    // Click Message Options Button
+    public NewMessagePopupPage clickMessageOptionsButton() {
+        click(messageOptionsButtonBy);
+        return this;
+    }
+
+    // Click Save Message As A Draft Button
+    public NewMessagePopupPage clickSaveMessageAsADraftButton() {
+        click(saveMessageAsADraftButtonBy);
         return this;
     }
 }

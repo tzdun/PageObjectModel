@@ -62,7 +62,7 @@ public class WriteMessageTests extends BaseTest {
                 .enterMessageToField("login.testowy@int.pl")
                 .enterMessageSubjectField("Temat wiadomości")
                 .enterMessageTextAreaField("Treść wiadomości")
-                .clickAttachFileButton()
+                .clickAttachFileButton("C:\\Users\\rb26508\\Desktop\\Test\\Test.bmp")
                 .verifyAttachementsAdded("Załączniki zostały dodane.")
                 .clickSendButton()
                 .verifyMessageSent("Wiadomość wysłana");
