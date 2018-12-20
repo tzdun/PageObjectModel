@@ -17,7 +17,6 @@
             <class name="tests.new_message_tests.SendEmailWithoutAttachment"/>
             <class name="tests.new_message_tests.SendEmailWithAttachment"/>
             <class name="tests.new_message_tests.SendEmailWithCCandBCC"/>
-            <class name="tests.new_message_tests.SendEmailWithCCandBCC"/>
             <class name="tests.new_message_tests.TextStyle"/>
         </classes>
     </test>

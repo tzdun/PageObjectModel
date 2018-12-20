@@ -39,6 +39,13 @@ public class NewMessagePopupPage extends BasePage {
     private By bccButtonBy = By.xpath("//*[contains(text(),'Nowa wiadomość')]/../..//*[text()='UDW']");
     private By boldButtonBy = By.xpath("//button[@data-tooltip='Pogrubienie']");
     private By italicButtonBy = By.xpath("//button[@data-tooltip='Kursywa']");
+    private By underlineButtonBy = By.xpath("//button[@data-tooltip='Podkreślenie']");
+    private By fontColorButtonBy = By.xpath("//button[@data-tooltip='Kolor tekstu']");
+    private By redFontColorButtonBy = By.xpath("//div[@style='background-color: #F90000']");
+    private By blackFontColorButtonBy = By.xpath("//div[@style='background-color: #000000']");
+    private By styleAndSizeButtonBy = By.xpath("//button[@data-tooltip='Rodzaj i wielkość czcionki']");
+    private By georgiaFontBy = By.xpath("//span[text()='Georgia']");
+    private By hugeFontBy = By.xpath("//span[text()='Wielki']");
 
     // *********Page Methods*********
     // Enter Message To Input Field
@@ -84,11 +91,12 @@ public class NewMessagePopupPage extends BasePage {
     // Click Attach File Button
     public NewMessagePopupPage clickAttachFileButton(String pathToLocalFile) {
         click(attachFileButtonBy);
-        StringSelection stringSelection = new StringSelection(pathToLocalFile);
         try {
-            Thread.sleep(8000);
+            Thread.sleep(10000);
+            StringSelection stringSelection = new StringSelection(pathToLocalFile);
             Toolkit.getDefaultToolkit().getSystemClipboard().setContents(stringSelection, null);
-            // native key strokes for CTRL, V and ENTER keys
+            Thread.sleep(2000);
+            //native key strokes for CTRL, V and ENTER keys
             Robot robot = new Robot();
             robot.keyPress(KeyEvent.VK_CONTROL);
             robot.keyPress(KeyEvent.VK_V);
@@ -100,7 +108,6 @@ public class NewMessagePopupPage extends BasePage {
         } catch (Exception e) {
             System.out.println("Problem z załączeniem pliku: " + pathToLocalFile);
         }
-
         return this;
     }
 
@@ -232,6 +239,48 @@ public class NewMessagePopupPage extends BasePage {
         return this;
     }
 
+    // Click Style And Size Button
+    public NewMessagePopupPage clickFontStyleAndSizeButton() {
+        click(styleAndSizeButtonBy);
+        return this;
+    }
+
+    // Click Georgia Font
+    public NewMessagePopupPage clickGeorgiaFontStyle() {
+        click(georgiaFontBy);
+        return this;
+    }
+
+    // Click Huge Font
+    public NewMessagePopupPage clickHugeFontSize() {
+        click(hugeFontBy);
+        return this;
+    }
+
+    // Click Underline Button
+    public NewMessagePopupPage clickUnderlineButton() {
+        click(underlineButtonBy);
+        return this;
+    }
+
+    // Click Font Color Button
+    public NewMessagePopupPage clickFontColorButton() {
+        click(fontColorButtonBy);
+        return this;
+    }
+
+    // Click Red Font Color Button
+    public NewMessagePopupPage clickRedFontColorButton() {
+        click(redFontColorButtonBy);
+        return this;
+    }
+
+    // Click Black Font Color Button
+    public NewMessagePopupPage clickBlackFontColorButton() {
+        click(blackFontColorButtonBy);
+        return this;
+    }
+
     // Verify Text Is Bold
     public NewMessagePopupPage verifyTextIsBold(String expectedText) {
         waitVisibility(messageTextFrameBy);
@@ -248,6 +297,46 @@ public class NewMessagePopupPage extends BasePage {
         driver.switchTo().frame(driver.findElement(messageTextFrameBy));
         By messageTextAreaBy = By.xpath("//*[contains(text(),'Czcionka')]");
         Assert.assertEquals(driver.findElement(messageTextAreaBy).getTagName(), expectedText);
+        driver.switchTo().defaultContent();
+        return this;
+    }
+
+    // Verify Text Font Style
+    public NewMessagePopupPage verifyTextFontStyle(String expectedText) {
+        waitVisibility(messageTextFrameBy);
+        driver.switchTo().frame(driver.findElement(messageTextFrameBy));
+        By messageTextAreaBy = By.xpath("//*[contains(text(),'Czcionka')]");
+        Assert.assertEquals(driver.findElement(messageTextAreaBy).getAttribute("style"), expectedText);
+        driver.switchTo().defaultContent();
+        return this;
+    }
+
+    // Verify Text Font Size
+    public NewMessagePopupPage verifyTextFontSize(String expectedText) {
+        waitVisibility(messageTextFrameBy);
+        driver.switchTo().frame(driver.findElement(messageTextFrameBy));
+        By messageTextAreaBy = By.xpath("//*[contains(text(),'Czcionka')]");
+        Assert.assertEquals(driver.findElement(messageTextAreaBy).getAttribute("style"), expectedText);
+        driver.switchTo().defaultContent();
+        return this;
+    }
+
+    // Verify Text Is Underlined
+    public NewMessagePopupPage verifyTextIsUnderlined(String expectedText) {
+        waitVisibility(messageTextFrameBy);
+        driver.switchTo().frame(driver.findElement(messageTextFrameBy));
+        By messageTextAreaBy = By.xpath("//*[contains(text(),'Czcionka')]");
+        Assert.assertEquals(driver.findElement(messageTextAreaBy).getAttribute("style"), expectedText);
+        driver.switchTo().defaultContent();
+        return this;
+    }
+
+    // Verify Text Is Colored
+    public NewMessagePopupPage verifyTextIsColored(String expectedText) {
+        waitVisibility(messageTextFrameBy);
+        driver.switchTo().frame(driver.findElement(messageTextFrameBy));
+        By messageTextAreaBy = By.xpath("//*[contains(text(),'Czcionka')]");
+        Assert.assertEquals(driver.findElement(messageTextAreaBy).getAttribute("style"), expectedText);
         driver.switchTo().defaultContent();
         return this;
     }
