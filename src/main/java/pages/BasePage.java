@@ -20,7 +20,7 @@ public class BasePage {
     public void waitVisibility(By elementBy) {
         //boolean result = false;
         int attempts = 0;
-        while(attempts < 5){// && !result) {
+        while(attempts < 2){// && !result) {
             try {
                 wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(elementBy));
                 //result = true;

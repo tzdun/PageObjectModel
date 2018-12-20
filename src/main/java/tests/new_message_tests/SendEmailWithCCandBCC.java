@@ -6,8 +6,8 @@ import tests.BaseTest;
 
 public class SendEmailWithCCandBCC extends BaseTest {
 
-    @Test (priority = 1)
-    public void sendEmailWithCCandBCC () {
+    @Test(priority = 1)
+    public void sendEmailWithCCandBCC() {
 
         //*************PAGE INSTANTIATIONS*************
         HomePage homePage = new HomePage(driver);

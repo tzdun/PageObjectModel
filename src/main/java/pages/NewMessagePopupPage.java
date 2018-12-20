@@ -1,13 +1,16 @@
 package pages;
 
-import org.openqa.selenium.By;
-import org.openqa.selenium.Keys;
-import org.openqa.selenium.WebDriver;
+import org.apache.commons.io.FileUtils;
+import org.openqa.selenium.*;
 import org.testng.Assert;
 
 import java.awt.*;
 import java.awt.datatransfer.StringSelection;
 import java.awt.event.KeyEvent;
+import java.io.File;
+import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 public class NewMessagePopupPage extends BasePage {
 
@@ -130,29 +133,44 @@ public class NewMessagePopupPage extends BasePage {
     // Verify Attachment Added
     public NewMessagePopupPage verifyAttachmentsAdded(String expectedText) {
         waitVisibility(attachmentsAddedInfoBy);
-        assertEquals(attachmentsAddedInfoBy, expectedText);
+        try {
+            assertEquals(attachmentsAddedInfoBy, expectedText);
+        } catch (AssertionError e) {
+            new PrintScreen(e, driver);
+        }
         return this;
     }
 
     // Verify Message Sent
     public NewMessagePopupPage verifyMessageSent(String expectedText) {
         waitVisibility(messageSentInfoBy);
-        assertEquals(messageSentInfoBy, expectedText);
+        try {
+            assertEquals(messageSentInfoBy, expectedText);
+        } catch (AssertionError e) {
+            new PrintScreen(e, driver);
+        }
         return this;
     }
 
     // Verify No Recipients Error
     public NewMessagePopupPage verifyNoRecipientsError(String expectedText) {
         waitVisibility(errorMessageInfoBy);
-        assertEquals(errorMessageInfoBy, expectedText);
-
+        try {
+            assertEquals(errorMessageInfoBy, expectedText);
+        } catch (AssertionError e) {
+            new PrintScreen(e, driver);
+        }
         return this;
     }
 
     // Verify Message Saved As A Draft
     public NewMessagePopupPage verifyMessageSavedAsADraft(String expectedText) {
         waitVisibility(messageSavedAsADraftInfoBy);
-        assertEquals(messageSavedAsADraftInfoBy, expectedText);
+        try {
+            assertEquals(messageSavedAsADraftInfoBy, expectedText);
+        } catch (AssertionError e) {
+            new PrintScreen(e, driver);
+        }
         return this;
     }
 
@@ -207,23 +225,39 @@ public class NewMessagePopupPage extends BasePage {
     // Verify Message Popup Is Max
     public NewMessagePopupPage verifyMessagePopupIsMax(String expectedText) {
         waitVisibility(closeMaxMessagePopupButtonBy);
-        Assert.assertEquals(driver.findElement(closeMaxMessagePopupButtonBy).getAttribute("data-tooltip"), expectedText);
+        try {
+            Assert.assertEquals(driver.findElement(closeMaxMessagePopupButtonBy).getAttribute("data-tooltip"), expectedText);
+        } catch (AssertionError e) {
+            new PrintScreen(e, driver);
+        }
         return this;
     }
 
     // Verify Message Popup Is Min
     public NewMessagePopupPage verifyMessagePopupIsMin(String expectedText) {
         waitVisibility(resMinMessagePopupButtonBy);
-        Assert.assertEquals(driver.findElement(resMinMessagePopupButtonBy).getAttribute("data-tooltip"), expectedText);
+        try {
+            Assert.assertEquals(driver.findElement(resMinMessagePopupButtonBy).getAttribute("data-tooltip"), expectedText);
+        } catch (AssertionError e) {
+            new PrintScreen(e, driver);
+        }
         return this;
     }
 
     // Verify Message Popup Is Res
     public NewMessagePopupPage verifyMessagePopupIsRes(String expectedTextMin, String expectedTextMax) {
         waitVisibility(minMessagePopupButtonBy);
-        Assert.assertEquals(driver.findElement(minMessagePopupButtonBy).getAttribute("data-tooltip"), expectedTextMin);
+        try {
+            Assert.assertEquals(driver.findElement(minMessagePopupButtonBy).getAttribute("data-tooltip"), expectedTextMin);
+        } catch (AssertionError e) {
+            new PrintScreen(e, driver);
+        }
         waitVisibility(maxMessagePopupButtonBy);
-        Assert.assertEquals(driver.findElement(maxMessagePopupButtonBy).getAttribute("data-tooltip"), expectedTextMax);
+        try {
+            Assert.assertEquals(driver.findElement(maxMessagePopupButtonBy).getAttribute("data-tooltip"), expectedTextMax);
+        } catch (AssertionError e) {
+            new PrintScreen(e, driver);
+        }
         return this;
     }
 
@@ -286,7 +320,11 @@ public class NewMessagePopupPage extends BasePage {
         waitVisibility(messageTextFrameBy);
         driver.switchTo().frame(driver.findElement(messageTextFrameBy));
         By messageTextAreaBy = By.xpath("//*[contains(text(),'Czcionka')]");
-        Assert.assertEquals(driver.findElement(messageTextAreaBy).getTagName(), expectedText);
+        try {
+            Assert.assertEquals(driver.findElement(messageTextAreaBy).getTagName(), expectedText);
+        } catch (AssertionError e) {
+            new PrintScreen(e, driver);
+        }
         driver.switchTo().defaultContent();
         return this;
     }
@@ -296,7 +334,11 @@ public class NewMessagePopupPage extends BasePage {
         waitVisibility(messageTextFrameBy);
         driver.switchTo().frame(driver.findElement(messageTextFrameBy));
         By messageTextAreaBy = By.xpath("//*[contains(text(),'Czcionka')]");
-        Assert.assertEquals(driver.findElement(messageTextAreaBy).getTagName(), expectedText);
+        try {
+            Assert.assertEquals(driver.findElement(messageTextAreaBy).getTagName(), expectedText);
+        } catch (AssertionError e) {
+            new PrintScreen(e, driver);
+        }
         driver.switchTo().defaultContent();
         return this;
     }
@@ -306,7 +348,11 @@ public class NewMessagePopupPage extends BasePage {
         waitVisibility(messageTextFrameBy);
         driver.switchTo().frame(driver.findElement(messageTextFrameBy));
         By messageTextAreaBy = By.xpath("//*[contains(text(),'Czcionka')]");
-        Assert.assertEquals(driver.findElement(messageTextAreaBy).getAttribute("style"), expectedText);
+        try {
+            Assert.assertEquals(driver.findElement(messageTextAreaBy).getAttribute("style"), expectedText);
+        } catch (AssertionError e) {
+            new PrintScreen(e, driver);
+        }
         driver.switchTo().defaultContent();
         return this;
     }
@@ -316,7 +362,11 @@ public class NewMessagePopupPage extends BasePage {
         waitVisibility(messageTextFrameBy);
         driver.switchTo().frame(driver.findElement(messageTextFrameBy));
         By messageTextAreaBy = By.xpath("//*[contains(text(),'Czcionka')]");
-        Assert.assertEquals(driver.findElement(messageTextAreaBy).getAttribute("style"), expectedText);
+        try {
+            Assert.assertEquals(driver.findElement(messageTextAreaBy).getAttribute("style"), expectedText);
+        } catch (AssertionError e) {
+            new PrintScreen(e, driver);
+        }
         driver.switchTo().defaultContent();
         return this;
     }
@@ -326,7 +376,11 @@ public class NewMessagePopupPage extends BasePage {
         waitVisibility(messageTextFrameBy);
         driver.switchTo().frame(driver.findElement(messageTextFrameBy));
         By messageTextAreaBy = By.xpath("//*[contains(text(),'Czcionka')]");
-        Assert.assertEquals(driver.findElement(messageTextAreaBy).getAttribute("style"), expectedText);
+        try {
+            Assert.assertEquals(driver.findElement(messageTextAreaBy).getAttribute("style"), expectedText);
+        } catch (AssertionError e) {
+            new PrintScreen(e, driver);
+        }
         driver.switchTo().defaultContent();
         return this;
     }
@@ -336,7 +390,11 @@ public class NewMessagePopupPage extends BasePage {
         waitVisibility(messageTextFrameBy);
         driver.switchTo().frame(driver.findElement(messageTextFrameBy));
         By messageTextAreaBy = By.xpath("//*[contains(text(),'Czcionka')]");
-        Assert.assertEquals(driver.findElement(messageTextAreaBy).getAttribute("style"), expectedText);
+        try {
+            Assert.assertEquals(driver.findElement(messageTextAreaBy).getAttribute("style"), expectedText);
+        } catch (AssertionError e) {
+            new PrintScreen(e, driver);
+        }
         driver.switchTo().defaultContent();
         return this;
     }

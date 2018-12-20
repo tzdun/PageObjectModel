@@ -2,9 +2,7 @@ package pages;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import java.awt.*;
-import java.awt.datatransfer.StringSelection;
-import java.awt.event.KeyEvent;
+import org.testng.Assert;
 
 public class InboxPage extends BasePage {
 
@@ -26,7 +24,11 @@ public class InboxPage extends BasePage {
 
     // Verify Valid Login
     public InboxPage verifyValidLogin(String expectedText) {
-        assertEquals(validLoginBy, expectedText);
+        try {
+            Assert.assertEquals(validLoginBy, expectedText);
+        } catch (AssertionError e) {
+            new PrintScreen(e, driver);
+        }
         return this;
     }
 }

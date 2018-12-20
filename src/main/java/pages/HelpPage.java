@@ -31,21 +31,13 @@ public class HelpPage extends BasePage{
     }
 
     // Verify Help Page
-    public HelpPage verifyHelpPage(String expectedText) {
+    public HelpPage verifyHelpPage(String expectedText){
         waitVisibility(logInButton);
         try {
             Assert.assertEquals(driver.findElement(titleBy).getAttribute("innerText"), expectedText);
         }
         catch(AssertionError e) {
-            e.printStackTrace();
-            File dir = new File("C:\\Users\\rb26508\\PageObjectModel\\reports\\" + new SimpleDateFormat("yyyyMMdd").format(new Date()));
-            dir.mkdir();
-            File scrFile = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
-            try {
-                FileUtils.copyFile(scrFile, new File(dir.toString()+"\\"+new SimpleDateFormat("yyyyMMdd_HHmmss").format(new Date())+".png"));
-            } catch (IOException e1) {
-                e1.printStackTrace();
-            }
+            new PrintScreen(e, driver);
         }
         return this;
     }

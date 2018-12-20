@@ -7,7 +7,7 @@ import tests.BaseTest;
 public class GoToHelpPage extends BaseTest {
 
     @Test(priority = 3)
-    public void goToHelpPage () {
+    public void goToHelpPage (){
 
         //*************PAGE INSTANTIATIONS*************
         HomePage homePage = new HomePage(driver);
@@ -15,6 +15,6 @@ public class GoToHelpPage extends BaseTest {
         //*************PAGE METHODS********************
         homePage.goToHomePage()
                 .goToHelpPage()
-                .verifyHelpPage("Pierwsze kroki na poczcie - Podstawy - Pomoc - Poczta w int.pl");
+                .verifyHelpPage("Pierwszej kroki na poczcie - Podstawy - Pomoc - Poczta w int.pl");
     }
 }

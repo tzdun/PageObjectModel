@@ -6,8 +6,8 @@ import tests.BaseTest;
 
 public class SendEmailWithAttachment extends BaseTest {
 
-    @Test (priority = 1)
-    public void sendEmailWithAttachment () {
+    @Test(priority = 1)
+    public void sendEmailWithAttachment() {
 
         //*************PAGE INSTANTIATIONS*************
         HomePage homePage = new HomePage(driver);

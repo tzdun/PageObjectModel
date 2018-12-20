@@ -6,8 +6,8 @@ import tests.BaseTest;
 
 public class SendEmailWithoutAttachment extends BaseTest {
 
-    @Test (priority = 1)
-    public void sendEmailWithoutAttachment () {
+    @Test(priority = 1)
+    public void sendEmailWithoutAttachment() {
 
         //*************PAGE INSTANTIATIONS*************
         HomePage homePage = new HomePage(driver);
