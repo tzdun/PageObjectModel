@@ -48,6 +48,10 @@ public class NewMessagePopupPage extends BasePage {
     private By hugeFontBy = By.xpath("//span[text()='Wielki']");
     private By listAndAlignmentTextButtonBy = By.xpath("//button[@data-tooltip='Tworzenie list i wyrównanie tekstu']");
     private By numericListBy = By.xpath("//span[text()='Lista numerowana']");
+    private By pointedListBy = By.xpath("//span[text()='Lista punktowa']");
+    private By leftAlignmentBy = By.xpath("//span[text()='Do lewej']");
+    private By centerAlignmentBy = By.xpath("//span[text()='Do środka']");
+    private By rightAlignmentBy = By.xpath("//span[text()='Do prawej']");
 
     // *********Page Methods*********
     // Enter Message To Input Field
@@ -334,6 +338,30 @@ public class NewMessagePopupPage extends BasePage {
         return this;
     }
 
+    // Click Point List Option
+    public NewMessagePopupPage clickPointListOption() {
+        click(pointedListBy);
+        return this;
+    }
+
+    // Click Left Alignment Option
+    public NewMessagePopupPage clickLeftAlignmentOption() {
+        click(leftAlignmentBy);
+        return this;
+    }
+
+    // Click Center Alignment Option
+    public NewMessagePopupPage clickCenterAlignmentOption() {
+        click(centerAlignmentBy);
+        return this;
+    }
+
+    // Click Right Alignment Option
+    public NewMessagePopupPage clickRightAlignmentOption() {
+        click(rightAlignmentBy);
+        return this;
+    }
+
     // Verify Text Is Bold
     public NewMessagePopupPage verifyTextIsBold(String expectedText) {
         waitVisibility(messageTextFrameBy);
@@ -433,6 +461,38 @@ public class NewMessagePopupPage extends BasePage {
         try {
             Assert.assertEquals(driver.findElement(messageTextAreaLiBy).getTagName(), liExpectedText);
             Assert.assertEquals(driver.findElement(messageTextAreaOlBy).getTagName(), olExpectedText);
+        } catch (AssertionError e) {
+            e.printStackTrace();
+            printScreen(driver);
+        }
+        driver.switchTo().defaultContent();
+        return this;
+    }
+
+    // Verify Pointed List
+    public NewMessagePopupPage verifyPointedList(String liExpectedText, String ulExpectedText) {
+        waitVisibility(messageTextFrameBy);
+        driver.switchTo().frame(driver.findElement(messageTextFrameBy));
+        By messageTextAreaLiBy = By.xpath("//*[contains(text(),'Czcionka')]");
+        By messageTextAreaOlBy = By.xpath("//*[contains(text(),'Czcionka')]/..");
+        try {
+            Assert.assertEquals(driver.findElement(messageTextAreaLiBy).getTagName(), liExpectedText);
+            Assert.assertEquals(driver.findElement(messageTextAreaOlBy).getTagName(), ulExpectedText);
+        } catch (AssertionError e) {
+            e.printStackTrace();
+            printScreen(driver);
+        }
+        driver.switchTo().defaultContent();
+        return this;
+    }
+
+    // Verify Text Left Alignment
+    public NewMessagePopupPage verifyTextAlignment(String expectedText) {
+        waitVisibility(messageTextFrameBy);
+        driver.switchTo().frame(driver.findElement(messageTextFrameBy));
+        By messageTextAreaBy = By.xpath("//*[contains(text(),'Czcionka')]");
+        try {
+            Assert.assertEquals(driver.findElement(messageTextAreaBy).getAttribute("style"), expectedText);
         } catch (AssertionError e) {
             e.printStackTrace();
             printScreen(driver);
