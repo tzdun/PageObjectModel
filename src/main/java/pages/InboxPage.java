@@ -25,9 +25,10 @@ public class InboxPage extends BasePage {
     // Verify Valid Login
     public InboxPage verifyValidLogin(String expectedText) {
         try {
-            Assert.assertEquals(validLoginBy, expectedText);
+            Assert.assertEquals(driver.findElement(validLoginBy).getText(), expectedText);
         } catch (AssertionError e) {
-            new PrintScreen(e, driver);
+            e.printStackTrace();
+            printScreen(driver);
         }
         return this;
     }

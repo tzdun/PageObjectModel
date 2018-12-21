@@ -136,7 +136,8 @@ public class NewMessagePopupPage extends BasePage {
         try {
             assertEquals(attachmentsAddedInfoBy, expectedText);
         } catch (AssertionError e) {
-            new PrintScreen(e, driver);
+            e.printStackTrace();
+            printScreen(driver);
         }
         return this;
     }
@@ -147,7 +148,8 @@ public class NewMessagePopupPage extends BasePage {
         try {
             assertEquals(messageSentInfoBy, expectedText);
         } catch (AssertionError e) {
-            new PrintScreen(e, driver);
+            e.printStackTrace();
+            printScreen(driver);
         }
         return this;
     }
@@ -158,7 +160,8 @@ public class NewMessagePopupPage extends BasePage {
         try {
             assertEquals(errorMessageInfoBy, expectedText);
         } catch (AssertionError e) {
-            new PrintScreen(e, driver);
+            e.printStackTrace();
+            printScreen(driver);
         }
         return this;
     }
@@ -169,7 +172,8 @@ public class NewMessagePopupPage extends BasePage {
         try {
             assertEquals(messageSavedAsADraftInfoBy, expectedText);
         } catch (AssertionError e) {
-            new PrintScreen(e, driver);
+            e.printStackTrace();
+            printScreen(driver);
         }
         return this;
     }
@@ -228,7 +232,8 @@ public class NewMessagePopupPage extends BasePage {
         try {
             Assert.assertEquals(driver.findElement(closeMaxMessagePopupButtonBy).getAttribute("data-tooltip"), expectedText);
         } catch (AssertionError e) {
-            new PrintScreen(e, driver);
+            e.printStackTrace();
+            printScreen(driver);
         }
         return this;
     }
@@ -239,7 +244,8 @@ public class NewMessagePopupPage extends BasePage {
         try {
             Assert.assertEquals(driver.findElement(resMinMessagePopupButtonBy).getAttribute("data-tooltip"), expectedText);
         } catch (AssertionError e) {
-            new PrintScreen(e, driver);
+            e.printStackTrace();
+            printScreen(driver);
         }
         return this;
     }
@@ -250,13 +256,15 @@ public class NewMessagePopupPage extends BasePage {
         try {
             Assert.assertEquals(driver.findElement(minMessagePopupButtonBy).getAttribute("data-tooltip"), expectedTextMin);
         } catch (AssertionError e) {
-            new PrintScreen(e, driver);
+            e.printStackTrace();
+            printScreen(driver);
         }
         waitVisibility(maxMessagePopupButtonBy);
         try {
             Assert.assertEquals(driver.findElement(maxMessagePopupButtonBy).getAttribute("data-tooltip"), expectedTextMax);
         } catch (AssertionError e) {
-            new PrintScreen(e, driver);
+            e.printStackTrace();
+            printScreen(driver);
         }
         return this;
     }
@@ -323,7 +331,8 @@ public class NewMessagePopupPage extends BasePage {
         try {
             Assert.assertEquals(driver.findElement(messageTextAreaBy).getTagName(), expectedText);
         } catch (AssertionError e) {
-            new PrintScreen(e, driver);
+            e.printStackTrace();
+            printScreen(driver);
         }
         driver.switchTo().defaultContent();
         return this;
@@ -337,7 +346,8 @@ public class NewMessagePopupPage extends BasePage {
         try {
             Assert.assertEquals(driver.findElement(messageTextAreaBy).getTagName(), expectedText);
         } catch (AssertionError e) {
-            new PrintScreen(e, driver);
+            e.printStackTrace();
+            printScreen(driver);
         }
         driver.switchTo().defaultContent();
         return this;
@@ -351,7 +361,8 @@ public class NewMessagePopupPage extends BasePage {
         try {
             Assert.assertEquals(driver.findElement(messageTextAreaBy).getAttribute("style"), expectedText);
         } catch (AssertionError e) {
-            new PrintScreen(e, driver);
+            e.printStackTrace();
+            printScreen(driver);
         }
         driver.switchTo().defaultContent();
         return this;
@@ -365,7 +376,8 @@ public class NewMessagePopupPage extends BasePage {
         try {
             Assert.assertEquals(driver.findElement(messageTextAreaBy).getAttribute("style"), expectedText);
         } catch (AssertionError e) {
-            new PrintScreen(e, driver);
+            e.printStackTrace();
+            printScreen(driver);
         }
         driver.switchTo().defaultContent();
         return this;
@@ -379,7 +391,8 @@ public class NewMessagePopupPage extends BasePage {
         try {
             Assert.assertEquals(driver.findElement(messageTextAreaBy).getAttribute("style"), expectedText);
         } catch (AssertionError e) {
-            new PrintScreen(e, driver);
+            e.printStackTrace();
+            printScreen(driver);
         }
         driver.switchTo().defaultContent();
         return this;
@@ -393,7 +406,8 @@ public class NewMessagePopupPage extends BasePage {
         try {
             Assert.assertEquals(driver.findElement(messageTextAreaBy).getAttribute("style"), expectedText);
         } catch (AssertionError e) {
-            new PrintScreen(e, driver);
+            e.printStackTrace();
+            printScreen(driver);
         }
         driver.switchTo().defaultContent();
         return this;

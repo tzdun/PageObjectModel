@@ -1,14 +1,23 @@
 package pages;
 
+import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.By;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 
+import java.io.File;
+import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 public class BasePage {
     public WebDriver driver;
     public WebDriverWait wait;
+    private final String PRINT_SCREEN_PATH = "C:\\Users\\rb26508\\PageObjectModel\\reports\\";
 
     //Constructor
     public BasePage (WebDriver driver){
@@ -18,18 +27,13 @@ public class BasePage {
 
     //Wait Wrapper Method
     public void waitVisibility(By elementBy) {
-        //boolean result = false;
-        int attempts = 0;
-        while(attempts < 2){// && !result) {
             try {
                 wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(elementBy));
-                //result = true;
-                break;
-            } catch(Exception e) {
-                System.out.println((attempts+1) + ": error: czekam na element: " + elementBy);
+             } catch(Exception e) {
+                System.out.println("Error: czekam na element: " + elementBy);
+                e.printStackTrace();
+                printScreen(driver);
             }
-            attempts++;
-        }
     }
 
     //Click Method
@@ -56,5 +60,17 @@ public class BasePage {
     public void assertEquals (By elementBy, String expectedText) {
         waitVisibility(elementBy);
         Assert.assertEquals(readText(elementBy), expectedText);
+    }
+
+    //PrintScreen
+    public void printScreen(WebDriver driver){
+        File dir = new File(PRINT_SCREEN_PATH + new SimpleDateFormat("yyyyMMdd").format(new Date()));
+        dir.mkdir();
+        File scrFile = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
+        try {
+            FileUtils.copyFile(scrFile, new File(dir.toString() + "\\" + new SimpleDateFormat("yyyyMMdd_HHmmss").format(new Date()) + ".png"));
+        } catch (IOException e1) {
+            e1.printStackTrace();
+        }
     }
 }

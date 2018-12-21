@@ -37,7 +37,8 @@ public class HelpPage extends BasePage{
             Assert.assertEquals(driver.findElement(titleBy).getAttribute("innerText"), expectedText);
         }
         catch(AssertionError e) {
-            new PrintScreen(e, driver);
+            e.printStackTrace();
+            printScreen(driver);
         }
         return this;
     }

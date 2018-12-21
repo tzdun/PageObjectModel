@@ -86,7 +86,8 @@ public class HomePage extends BasePage {
         try {
             assertEquals(errorMessageUsernameOrPasswordBy, expectedText);
         } catch (AssertionError e) {
-            new PrintScreen(e, driver);
+            e.printStackTrace();
+            printScreen(driver);
         }
         return this;
     }
@@ -96,7 +97,8 @@ public class HomePage extends BasePage {
         try {
             assertEquals(errorMessageUsernameBy, expectedText);
         } catch (AssertionError e) {
-            new PrintScreen(e, driver);
+            e.printStackTrace();
+            printScreen(driver);
         }
         return this;
     }

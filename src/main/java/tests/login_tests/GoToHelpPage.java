@@ -15,6 +15,6 @@ public class GoToHelpPage extends BaseTest {
         //*************PAGE METHODS********************
         homePage.goToHomePage()
                 .goToHelpPage()
-                .verifyHelpPage("Pierwszej kroki na poczcie - Podstawy - Pomoc - Poczta w int.pl");
+                .verifyHelpPage("Pierwsze kroki na poczcie - Podstawy - Pomoc - Poczta w int.pl");
     }
 }
