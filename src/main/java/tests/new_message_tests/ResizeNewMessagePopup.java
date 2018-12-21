@@ -1,10 +1,19 @@
 package tests.new_message_tests;
 
+import org.testng.annotations.Factory;
 import org.testng.annotations.Test;
 import pages.HomePage;
 import tests.BaseTest;
 
 public class ResizeNewMessagePopup extends BaseTest {
+
+    private String accountName = "login.login";
+    private String password = "haslo.haslo";
+    private String validLogin = "Dodaj inne konta e-mail";
+    private String popupIsMax = "Zamknij pełny ekran";
+    private String popupIsMin = "Przywróć okno wiadomości";
+    private String popupIsResMin = "Minimalizuj";
+    private String popupIsResMax = "Pełny ekran";
 
     @Test (priority = 1)
     public void resizeNewMessagePopup() {
@@ -14,20 +23,20 @@ public class ResizeNewMessagePopup extends BaseTest {
 
         //*************PAGE METHODS********************
         homePage.goToHomePage()
-                .enterAccountName("login.login")
-                .enterPassword("haslo.haslo")
+                .enterAccountName(accountName)
+                .enterPassword(password)
                 .acceptCookies()
                 .clickLogInWithPass()
-                .verifyValidLogin("Dodaj inne konta e-mail")
+                .verifyValidLogin(validLogin)
                 .clickNewMessageButton()
                 .clickMaxMessagePopupButton()
-                .verifyMessagePopupIsMax("Zamknij pełny ekran")
+                .verifyMessagePopupIsMax(popupIsMax)
                 .clickCloseMaxMessagePopupButton()
                 .clickMaxMessagePopupButton()
                 .clickMinMessagePopupButton()
-                .verifyMessagePopupIsMin("Przywróć okno wiadomości")
+                .verifyMessagePopupIsMin(popupIsMin)
                 .clickResMinMessagePopupButton()
-                .verifyMessagePopupIsRes("Minimalizuj","Pełny ekran")
+                .verifyMessagePopupIsRes(popupIsResMin,popupIsResMax)
                 .clickMinMessagePopupButton()
                 .clickMaxMessagePopupButton()
                 .clickCloseNewMessagePopupButton();

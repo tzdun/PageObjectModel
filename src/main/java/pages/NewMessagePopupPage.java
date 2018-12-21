@@ -1,16 +1,13 @@
 package pages;
 
-import org.apache.commons.io.FileUtils;
-import org.openqa.selenium.*;
+import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 
 import java.awt.*;
 import java.awt.datatransfer.StringSelection;
 import java.awt.event.KeyEvent;
-import java.io.File;
-import java.io.IOException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
 
 public class NewMessagePopupPage extends BasePage {
 
@@ -49,6 +46,8 @@ public class NewMessagePopupPage extends BasePage {
     private By styleAndSizeButtonBy = By.xpath("//button[@data-tooltip='Rodzaj i wielkość czcionki']");
     private By georgiaFontBy = By.xpath("//span[text()='Georgia']");
     private By hugeFontBy = By.xpath("//span[text()='Wielki']");
+    private By listAndAlignmentTextButtonBy = By.xpath("//button[@data-tooltip='Tworzenie list i wyrównanie tekstu']");
+    private By numericListBy = By.xpath("//span[text()='Lista numerowana']");
 
     // *********Page Methods*********
     // Enter Message To Input Field
@@ -323,6 +322,18 @@ public class NewMessagePopupPage extends BasePage {
         return this;
     }
 
+    // Click List And Alignment Text Button
+    public NewMessagePopupPage clickListAndAlignmentTextButton() {
+        click(listAndAlignmentTextButtonBy);
+        return this;
+    }
+
+    // Click Numeric List Option
+    public NewMessagePopupPage clickNumericListOption() {
+        click(numericListBy);
+        return this;
+    }
+
     // Verify Text Is Bold
     public NewMessagePopupPage verifyTextIsBold(String expectedText) {
         waitVisibility(messageTextFrameBy);
@@ -405,6 +416,23 @@ public class NewMessagePopupPage extends BasePage {
         By messageTextAreaBy = By.xpath("//*[contains(text(),'Czcionka')]");
         try {
             Assert.assertEquals(driver.findElement(messageTextAreaBy).getAttribute("style"), expectedText);
+        } catch (AssertionError e) {
+            e.printStackTrace();
+            printScreen(driver);
+        }
+        driver.switchTo().defaultContent();
+        return this;
+    }
+
+    // Verify Numeric List
+    public NewMessagePopupPage verifyNumericList(String liExpectedText, String olExpectedText) {
+        waitVisibility(messageTextFrameBy);
+        driver.switchTo().frame(driver.findElement(messageTextFrameBy));
+        By messageTextAreaLiBy = By.xpath("//*[contains(text(),'Czcionka')]");
+        By messageTextAreaOlBy = By.xpath("//*[contains(text(),'Czcionka')]/..");
+        try {
+            Assert.assertEquals(driver.findElement(messageTextAreaLiBy).getTagName(), liExpectedText);
+            Assert.assertEquals(driver.findElement(messageTextAreaOlBy).getTagName(), olExpectedText);
         } catch (AssertionError e) {
             e.printStackTrace();
             printScreen(driver);

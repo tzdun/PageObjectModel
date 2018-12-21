@@ -58,6 +58,13 @@ public class TextStyle extends BaseTest {
                 .verifyTextFontStyle("color: rgb(249, 0, 0);")
                 .keyPress_Ctrl_A()
                 .clickFontColorButton()
-                .clickBlackFontColorButton();
+                .clickBlackFontColorButton()
+                .keyPress_Ctrl_A()
+                .clickListAndAlignmentTextButton()
+                .clickNumericListOption()
+                .verifyNumericList("li","ol")
+                .keyPress_Ctrl_A()
+                .clickListAndAlignmentTextButton()
+                .clickNumericListOption();
     }
 }
