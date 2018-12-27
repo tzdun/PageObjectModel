@@ -27,6 +27,7 @@ public class SaveMessageAsADraft extends BaseTest {
                 .verifyAttachmentsAdded("Załączniki zostały dodane.")
                 .clickMessageOptionsButton()
                 .clickSaveMessageAsADraftButton()
-                .verifyMessageSavedAsADraft("Wiadomość zapisana w folderze Robocze");
+                .verifyMessageSavedAsADraft("Wiadomość zapisana w folderze Robocze")
+                .logOut();
     }
 }

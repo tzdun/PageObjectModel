@@ -24,6 +24,7 @@ public class SendEmailWithoutAttachment extends BaseTest {
                 .enterMessageSubjectField("Temat wiadomości")
                 .enterMessageTextAreaField("Treść wiadomości")
                 .clickSendButton()
-                .verifyMessageSent("Wiadomość wysłana");
+                .verifyMessageSent("Wiadomość wysłana")
+                .logOut();
     }
 }

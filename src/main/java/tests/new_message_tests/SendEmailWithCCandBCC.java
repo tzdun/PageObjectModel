@@ -30,6 +30,7 @@ public class SendEmailWithCCandBCC extends BaseTest {
                 .clickAttachFileButton("C:\\Users\\rb26508\\Desktop\\Test\\Test.bmp")
                 .verifyAttachmentsAdded("Załączniki zostały dodane.")
                 .clickSendButton()
-                .verifyMessageSent("Wiadomość wysłana");
+                .verifyMessageSent("Wiadomość wysłana")
+                .logOut();
     }
 }

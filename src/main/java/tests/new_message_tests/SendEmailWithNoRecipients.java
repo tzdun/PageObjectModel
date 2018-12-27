@@ -21,6 +21,7 @@ public class SendEmailWithNoRecipients extends BaseTest {
                 .verifyValidLogin("Dodaj inne konta e-mail")
                 .clickNewMessageButton()
                 .clickSendButton()
-                .verifyNoRecipientsError("Wpisz odbiorców!");
+                .verifyNoRecipientsError("Wpisz odbiorców!")
+                .logOut();
     }
 }

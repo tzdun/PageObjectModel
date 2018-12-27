@@ -39,6 +39,7 @@ public class ResizeNewMessagePopup extends BaseTest {
                 .verifyMessagePopupIsRes(popupIsResMin,popupIsResMax)
                 .clickMinMessagePopupButton()
                 .clickMaxMessagePopupButton()
-                .clickCloseNewMessagePopupButton();
+                .clickCloseNewMessagePopupButton()
+                .logOut();
     }
 }

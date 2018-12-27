@@ -55,6 +55,7 @@ public class NewMessagePopupPage extends BasePage {
     private By mailContentStationeryButtonBy = By.xpath("//button[@data-tooltip='Papeterie']");
     private By mailContentStationeryOptionBy = By.xpath("//img[@src='https://o.iplsc.com/n/st/thumb_56.png']");
     private By mailContentStationeryResetBy = By.xpath("//img[@src='https://o.iplsc.com/n/st/empty.png']");
+    private By mailContentInsImgButtonBy = By.xpath("//button[@data-tooltip='Wstaw obrazek']");
 
     // *********Page Methods*********
     // Enter Message To Input Field
@@ -386,6 +387,29 @@ public class NewMessagePopupPage extends BasePage {
     // Click Message Text Frame
     public NewMessagePopupPage clickMessageTextFrame() {
         click(messageTextFrameBy);
+        return this;
+    }
+
+    // Click Insert Image Button
+    public NewMessagePopupPage clickInsertImageButton(String pathToLocalFile) {
+        click(attachFileButtonBy);
+        try {
+            Thread.sleep(9000);
+            StringSelection stringSelection = new StringSelection(pathToLocalFile);
+            Toolkit.getDefaultToolkit().getSystemClipboard().setContents(stringSelection, null);
+            Thread.sleep(2000);
+            //native key strokes for CTRL, V and ENTER keys
+            Robot robot = new Robot();
+            robot.keyPress(KeyEvent.VK_CONTROL);
+            robot.keyPress(KeyEvent.VK_V);
+            robot.keyRelease(KeyEvent.VK_V);
+            robot.keyRelease(KeyEvent.VK_CONTROL);
+            Thread.sleep(1500);
+            robot.keyPress(KeyEvent.VK_ENTER);
+            robot.keyRelease(KeyEvent.VK_ENTER);
+        } catch (Exception e) {
+            System.out.println("Problem ze wstawieniem obrazka: " + pathToLocalFile);
+        }
         return this;
     }
 
