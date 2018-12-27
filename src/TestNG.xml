@@ -17,7 +17,15 @@
             <class name="tests.new_message_tests.SendEmailWithoutAttachment"/>
             <class name="tests.new_message_tests.SendEmailWithAttachment"/>
             <class name="tests.new_message_tests.SendEmailWithCCandBCC"/>
-            <class name="tests.new_message_tests.TextStyle"/>
+            <class name="tests.new_message_tests.AlignmentText"/>
+            <class name="tests.new_message_tests.BoldText"/>
+            <class name="tests.new_message_tests.ColorText"/>
+            <class name="tests.new_message_tests.FontSize"/>
+            <class name="tests.new_message_tests.FontStyle"/>
+            <class name="tests.new_message_tests.ItalicText"/>
+            <class name="tests.new_message_tests.ListText"/>
+            <class name="tests.new_message_tests.MailContentStationery"/>
+            <class name="tests.new_message_tests.UnderlineText"/>
         </classes>
     </test>
 </suite>
