@@ -26,6 +26,7 @@
             <class name="tests.new_message_tests.ListText"/>
             <class name="tests.new_message_tests.MailContentStationery"/>
             <class name="tests.new_message_tests.UnderlineText"/>
+            <class name="tests.new_message_tests.AttachFile"/>
         </classes>
     </test>
 </suite>
