@@ -18,6 +18,8 @@ public class BasePage {
     public WebDriver driver;
     public WebDriverWait wait;
     private final String PRINT_SCREEN_PATH = "C:\\Users\\rb26508\\PageObjectModel\\reports\\";
+    private By contactPanelExpandButtonBy = By.xpath("//li[@data-tooltip='Rozwiń panel kontaktów']");
+    private By logoutButtonBy = By.xpath("//a[@class='link icon-logout']");
 
     //Constructor
     public BasePage (WebDriver driver){
@@ -54,6 +56,16 @@ public class BasePage {
     public String readText (By elementBy) {
         waitVisibility(elementBy);
         return driver.findElement(elementBy).getText();
+    }
+
+    //LogOut
+    public HomePage logOut() {
+        waitVisibility(contactPanelExpandButtonBy);
+        click(contactPanelExpandButtonBy);
+        waitVisibility(logoutButtonBy);
+        click(logoutButtonBy);
+        assertEquals(By.xpath("//button[contains(text(),'loguję się')]"),"LOGUJĘ SIĘ");
+        return new HomePage(driver);
     }
 
     //Assert

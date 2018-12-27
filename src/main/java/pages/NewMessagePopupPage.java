@@ -52,6 +52,9 @@ public class NewMessagePopupPage extends BasePage {
     private By leftAlignmentBy = By.xpath("//span[text()='Do lewej']");
     private By centerAlignmentBy = By.xpath("//span[text()='Do środka']");
     private By rightAlignmentBy = By.xpath("//span[text()='Do prawej']");
+    private By mailContentStationeryButtonBy = By.xpath("//button[@data-tooltip='Papeterie']");
+    private By mailContentStationeryOptionBy = By.xpath("//img[@src='https://o.iplsc.com/n/st/thumb_56.png']");
+    private By mailContentStationeryResetBy = By.xpath("//img[@src='https://o.iplsc.com/n/st/empty.png']");
 
     // *********Page Methods*********
     // Enter Message To Input Field
@@ -362,6 +365,30 @@ public class NewMessagePopupPage extends BasePage {
         return this;
     }
 
+    // Click Stationery Button
+    public NewMessagePopupPage clickStationeryButton() {
+        click(mailContentStationeryButtonBy);
+        return this;
+    }
+
+    // Click Stationery Option
+    public NewMessagePopupPage clickStationeryOption() {
+        click(mailContentStationeryOptionBy);
+        return this;
+    }
+
+    // Click Stationery Reset Option
+    public NewMessagePopupPage clickStationeryResetOption() {
+        click(mailContentStationeryResetBy);
+        return this;
+    }
+
+    // Click Message Text Frame
+    public NewMessagePopupPage clickMessageTextFrame() {
+        click(messageTextFrameBy);
+        return this;
+    }
+
     // Verify Text Is Bold
     public NewMessagePopupPage verifyTextIsBold(String expectedText) {
         waitVisibility(messageTextFrameBy);
@@ -498,6 +525,20 @@ public class NewMessagePopupPage extends BasePage {
             printScreen(driver);
         }
         driver.switchTo().defaultContent();
+        return this;
+    }
+
+    // Verify Stationery Option
+    public NewMessagePopupPage verifyStationeryOption(String expectedText) {
+        waitVisibility(messageTextFrameBy);
+        try {
+            driver.switchTo().frame(driver.findElement(messageTextFrameBy));
+            Assert.assertEquals(driver.findElement(By.xpath("//body")).getAttribute("class"), expectedText);
+            driver.switchTo().defaultContent();
+        } catch (AssertionError e) {
+            e.printStackTrace();
+            printScreen(driver);
+        }
         return this;
     }
 }

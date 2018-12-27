@@ -1,13 +1,13 @@
-package tests.login_tests;
+package tests.new_message_tests;
 
 import org.testng.annotations.Test;
 import pages.HomePage;
 import tests.BaseTest;
 
-public class ValidAccountNameAndPassword extends BaseTest {
+public class MailContentStationery extends BaseTest {
 
-    @Test (priority = 2)
-    public void validAccountNameAndPassword () {
+    @Test (priority = 1)
+    public void mailContentStationery() {
 
         //*************PAGE INSTANTIATIONS*************
         HomePage homePage = new HomePage(driver);
@@ -19,6 +19,11 @@ public class ValidAccountNameAndPassword extends BaseTest {
                 .acceptCookies()
                 .clickLogInWithPass()
                 .verifyValidLogin("Dodaj inne konta e-mail")
-                .logOut();
+                .clickNewMessageButton()
+                .clickStationeryButton()
+                .clickStationeryOption()
+                .verifyStationeryOption("mce-content-body inpl-mail-template_56")
+                .clickStationeryButton()
+                .clickStationeryResetOption();
     }
 }
