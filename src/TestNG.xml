@@ -3,13 +3,13 @@
 <suite name="Poczta Int.pl Tests">
     <test name="LoginTests">
         <classes>
-            <class name="tests.login_tests.InvalidPassword"/>
-            <class name="tests.login_tests.InvalidAccountName"/>
-            <class name="tests.login_tests.ValidAccountNameAndPassword"/>
-            <class name="tests.login_tests.GoToHelpPage"/>
+            <class name="tests.login_tests.InvalidPasswordTC"/>
+  <!--          <class name="tests.login_tests.InvalidAccountNameTCTC"/>
+            <class name="tests.login_tests.ValidAccountNameAndPasswordTCTC"/>
+            <class name="tests.login_tests.GoToHelpPageTCTC"/>-->
         </classes>
     </test>
-    <test name="NewMessageTests">
+   <!-- <test name="NewMessageTests">
         <classes>
             <class name="tests.new_message_tests.ResizeNewMessagePopup"/>
             <class name="tests.new_message_tests.SaveMessageAsADraft"/>
@@ -29,5 +29,5 @@
             <class name="tests.new_message_tests.AttachFile"/>
             <class name="tests.new_message_tests.MailContentInsertImage"/>
         </classes>
-    </test>
+    </test>-->
 </suite>

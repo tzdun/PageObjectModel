@@ -2,11 +2,12 @@ package tests.login_tests;
 
 import org.testng.annotations.Test;
 import pages.HomePage;
-import tests.BaseTest;
-import utilities.InvalidAccountNamePM;
+import tests.BaseTestTC;
+import tests_property_managers.InvalidAccountNamePM;
 
-public class InvalidAccountName extends BaseTest {
+public class InvalidAccountNameTC extends BaseTestTC {
     private InvalidAccountNamePM testData = new InvalidAccountNamePM();
+
     @Test(priority = 1)
     public void invalidAccountName() {
 

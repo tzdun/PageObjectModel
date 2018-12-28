@@ -2,10 +2,11 @@ package tests.login_tests;
 
 import org.testng.annotations.Test;
 import pages.HomePage;
-import tests.BaseTest;
+import tests.BaseTestTC;
+import tests_property_managers.ValidAccountNameAndPasswordPM;
 
-public class ValidAccountNameAndPassword extends BaseTest {
-
+public class ValidAccountNameAndPasswordTC extends BaseTestTC {
+    private ValidAccountNameAndPasswordPM testData = new ValidAccountNameAndPasswordPM();
     @Test (priority = 2)
     public void validAccountNameAndPassword () {
 
@@ -14,11 +15,11 @@ public class ValidAccountNameAndPassword extends BaseTest {
 
         //*************PAGE METHODS********************
         homePage.goToHomePage()
-                .enterAccountName("login.login")
-                .enterPassword("haslo.haslo")
+                .enterAccountName(testData.getAccountName())
+                .enterPassword(testData.getPassword())
                 .acceptCookies()
                 .clickLogInWithPass()
-                .verifyValidLogin("Dodaj inne konta e-mail")
+                .verifyValidLogin(testData.getValidLoginAndPasswordAssert())
                 .logOut();
     }
 }

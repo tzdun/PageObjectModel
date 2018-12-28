@@ -1,11 +1,10 @@
 package tests.new_message_tests;
 
-import org.testng.annotations.Factory;
 import org.testng.annotations.Test;
 import pages.HomePage;
-import tests.BaseTest;
+import tests.BaseTestTC;
 
-public class ResizeNewMessagePopup extends BaseTest {
+public class ResizeNewMessagePopup extends BaseTestTC {
 
     private String accountName = "login.login";
     private String password = "haslo.haslo";

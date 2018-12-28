@@ -2,9 +2,9 @@ package tests.new_message_tests;
 
 import org.testng.annotations.Test;
 import pages.HomePage;
-import tests.BaseTest;
+import tests.BaseTestTC;
 
-public class AlignmentText extends BaseTest {
+public class AlignmentText extends BaseTestTC {
 
     @Test (priority = 1)
     public void alignmentText() {

@@ -2,9 +2,9 @@ package tests.new_message_tests;
 
 import org.testng.annotations.Test;
 import pages.HomePage;
-import tests.BaseTest;
+import tests.BaseTestTC;
 
-public class AttachFile extends BaseTest {
+public class AttachFile extends BaseTestTC {
 
     @Test (priority = 1)
     public void attachFile() {

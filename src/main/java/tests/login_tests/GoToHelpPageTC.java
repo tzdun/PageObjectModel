@@ -2,10 +2,10 @@ package tests.login_tests;
 
 import org.testng.annotations.Test;
 import pages.HomePage;
-import tests.BaseTest;
-import utilities.GoToHelpPagePM;
+import tests.BaseTestTC;
+import tests_property_managers.GoToHelpPagePM;
 
-public class GoToHelpPage extends BaseTest {
+public class GoToHelpPageTC extends BaseTestTC {
     private GoToHelpPagePM testData = new GoToHelpPagePM();
 
     @Test(priority = 3)

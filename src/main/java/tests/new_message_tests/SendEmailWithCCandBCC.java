@@ -2,9 +2,9 @@ package tests.new_message_tests;
 
 import org.testng.annotations.Test;
 import pages.HomePage;
-import tests.BaseTest;
+import tests.BaseTestTC;
 
-public class SendEmailWithCCandBCC extends BaseTest {
+public class SendEmailWithCCandBCC extends BaseTestTC {
 
     @Test(priority = 1)
     public void sendEmailWithCCandBCC() {

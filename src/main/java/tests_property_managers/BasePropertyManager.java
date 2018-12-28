@@ -1,4 +1,4 @@
-package utilities;
+package tests_property_managers;
 
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -46,7 +46,7 @@ public class BasePropertyManager {
     }
 
     //Get properties
-    public Properties getProperties(){
+    public Properties getProperties() {
         return properties;
     }
 }

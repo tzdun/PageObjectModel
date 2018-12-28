@@ -2,9 +2,9 @@ package tests.new_message_tests;
 
 import org.testng.annotations.Test;
 import pages.HomePage;
-import tests.BaseTest;
+import tests.BaseTestTC;
 
-public class ItalicText extends BaseTest {
+public class ItalicText extends BaseTestTC {
 
     @Test (priority = 1)
     public void italicText() {
