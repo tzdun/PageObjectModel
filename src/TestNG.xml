@@ -27,6 +27,7 @@
             <class name="tests.new_message_tests.MailContentStationery"/>
             <class name="tests.new_message_tests.UnderlineText"/>
             <class name="tests.new_message_tests.AttachFile"/>
+            <class name="tests.new_message_tests.MailContentInsertImage"/>
         </classes>
     </test>
 </suite>
