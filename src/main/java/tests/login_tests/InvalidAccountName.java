@@ -3,8 +3,10 @@ package tests.login_tests;
 import org.testng.annotations.Test;
 import pages.HomePage;
 import tests.BaseTest;
+import utilities.InvalidAccountNamePM;
 
 public class InvalidAccountName extends BaseTest {
+    private InvalidAccountNamePM testData = new InvalidAccountNamePM();
     @Test(priority = 1)
     public void invalidAccountName() {
 
@@ -13,10 +15,10 @@ public class InvalidAccountName extends BaseTest {
 
         //*************PAGE METHODS********************
         homePage.goToHomePage()
-                .enterAccountName("login.testowybledny")
-                .enterPassword("haslo.haslo")
+                .enterAccountName(testData.getAccountName())
+                .enterPassword(testData.getPassword())
                 .acceptCookies()
                 .clickLogInWithFail()
-                .verifyInvalidLoginOrPassword("BŁĘDNY LOGIN LUB HASŁO");
+                .verifyInvalidLoginOrPassword(testData.getInvalidLoginOrPasswordError());
     }
 }

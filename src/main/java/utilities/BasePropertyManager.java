@@ -6,24 +6,24 @@ import java.util.Properties;
 
 //**********************************************************************************************************
 //Author: Onur Baskirt
-//Description: PropertyManager class reads global configurations and use them during test execution.
+//Description: BasePropertyManager class reads global configurations and use them during test execution.
 //**********************************************************************************************************
-public class PropertyManager {
+public class BasePropertyManager {
 
-    private static PropertyManager instance;
+    private static BasePropertyManager instance;
     private static final Object lock = new Object();
     private static String propertyFilePath;
     private static Properties properties;
 
-    public PropertyManager(String propertyFilePath) {
-        PropertyManager.propertyFilePath = propertyFilePath;
+    public BasePropertyManager(String propertyFilePath) {
+        BasePropertyManager.propertyFilePath = propertyFilePath;
     }
 
     //Create a Singleton instance. We need only one instance of Property Manager.
-    public static PropertyManager getInstance(String propertyFilePath) {
+    public static BasePropertyManager getInstance(String propertyFilePath) {
         if (instance == null) {
             synchronized (lock) {
-                instance = new PropertyManager(propertyFilePath);
+                instance = new BasePropertyManager(propertyFilePath);
                 instance.loadData();
             }
         }

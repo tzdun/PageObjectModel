@@ -88,6 +88,7 @@ public class HomePage extends BasePage {
         } catch (AssertionError e) {
             e.printStackTrace();
             printScreen(driver);
+            throw e;
         }
         return this;
     }
