@@ -1,13 +1,13 @@
-package tests.new_message_tests;
+package tests.new_message_tests_TC;
 
 import org.testng.annotations.Test;
 import pages.HomePage;
 import tests.BaseTestTC;
 
-public class UnderlineText extends BaseTestTC {
+public class MailContentStationery extends BaseTestTC {
 
     @Test (priority = 1)
-    public void underlineText() {
+    public void mailContentStationery() {
 
         //*************PAGE INSTANTIATIONS*************
         HomePage homePage = new HomePage(driver);
@@ -20,15 +20,10 @@ public class UnderlineText extends BaseTestTC {
                 .clickLogInWithPass()
                 .verifyValidLogin("Dodaj inne konta e-mail")
                 .clickNewMessageButton()
-                .enterMessageTextAreaField("Czcionka")
-                .keyPress_Ctrl_A()
-                .clickUnderlineButton()
-                .clickMessageTextFrame()
-                .verifyTextIsUnderlined("text-decoration: underline;")
-                .clickMessageTextFrame()
-                .keyPress_Ctrl_A()
-                .clickUnderlineButton()
-                .clickMessageTextFrame()
-                .logOut();
+                .clickStationeryButton()
+                .clickStationeryOption()
+                .verifyStationeryOption("mce-content-body inpl-mail-template_56")
+                .clickStationeryButton()
+                .clickStationeryResetOption();
     }
 }

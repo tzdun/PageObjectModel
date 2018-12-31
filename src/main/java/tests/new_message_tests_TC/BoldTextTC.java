@@ -1,24 +1,25 @@
-package tests.new_message_tests;
+package tests.new_message_tests_TC;
 
 import org.testng.annotations.Test;
 import pages.HomePage;
 import tests.BaseTestTC;
-import tests_property_managers.AttachFilePM;
-import tests_property_managers.ValidAccountNameAndPasswordPM;
+import tests_property_managers.login_tests_PM.ValidAccountNameAndPasswordPM;
+import tests_property_managers.new_message_tests_PM.BoldTextPM;
 
-public class AttachFileTC extends BaseTestTC {
-    private static class TestData{
+public class BoldTextTC extends BaseTestTC {
+    private static class TestData {
         private static ValidAccountNameAndPasswordPM loginTestDataPM = new ValidAccountNameAndPasswordPM();
         private static String accountName = loginTestDataPM.getAccountName();
         private static String password = loginTestDataPM.getPassword();
         private static String validLoginAndPasswordAssert = loginTestDataPM.getValidLoginAndPasswordAssert();
 
-        private static AttachFilePM testDataPM = new AttachFilePM();
-        private static String pathToFile = testDataPM.getPathToFile();
-        private static String fileAddedAssert = testDataPM.getFileAddedAssert();
+        private static BoldTextPM boldTextTestDataPM = new BoldTextPM();
+        private static String textAreaFieldMessage = boldTextTestDataPM.getTextAreaFieldMessage();
+        private static String textIsBoldAssert = boldTextTestDataPM.getTextIsBoldAssert();
     }
-    @Test (priority = 1)
-    public void attachFile() {
+
+    @Test(priority = 1)
+    public void boldText() {
 
         //*************PAGE INSTANTIATIONS*************
         HomePage homePage = new HomePage(driver);
@@ -31,8 +32,15 @@ public class AttachFileTC extends BaseTestTC {
                 .clickLogInWithPass()
                 .verifyValidLogin(TestData.validLoginAndPasswordAssert)
                 .clickNewMessageButton()
-                .clickAttachFileButton(TestData.pathToFile)
-                .verifyAttachmentsAdded(TestData.fileAddedAssert)
+                .enterMessageTextAreaField(TestData.textAreaFieldMessage)
+                .keyPress_Ctrl_A()
+                .clickBoldButton()
+                .clickMessageTextFrame()
+                .verifyTextIsBold(TestData.textIsBoldAssert)
+                .clickMessageTextFrame()
+                .keyPress_Ctrl_A()
+                .clickBoldButton()
+                .clickMessageTextFrame()
                 .logOut();
     }
 }

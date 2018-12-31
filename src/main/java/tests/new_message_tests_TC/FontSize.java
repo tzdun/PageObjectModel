@@ -1,4 +1,4 @@
-package tests.new_message_tests;
+package tests.new_message_tests_TC;
 
 import org.testng.annotations.Test;
 import pages.HomePage;

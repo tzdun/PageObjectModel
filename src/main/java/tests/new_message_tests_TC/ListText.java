@@ -1,13 +1,13 @@
-package tests.new_message_tests;
+package tests.new_message_tests_TC;
 
 import org.testng.annotations.Test;
 import pages.HomePage;
 import tests.BaseTestTC;
 
-public class AlignmentText extends BaseTestTC {
+public class ListText extends BaseTestTC {
 
     @Test (priority = 1)
-    public void alignmentText() {
+    public void listText() {
 
         //*************PAGE INSTANTIATIONS*************
         HomePage homePage = new HomePage(driver);
@@ -23,32 +23,24 @@ public class AlignmentText extends BaseTestTC {
                 .enterMessageTextAreaField("Czcionka")
                 .keyPress_Ctrl_A()
                 .clickListAndAlignmentTextButton()
-                .clickLeftAlignmentOption()
+                .clickNumericListOption()
                 .clickMessageTextFrame()
-                .verifyTextAlignment("text-align: left;")
-                .clickMessageTextFrame()
-                .keyPress_Ctrl_A()
-                .clickListAndAlignmentTextButton()
-                .clickLeftAlignmentOption()
-                .keyPress_Ctrl_A()
-                .clickListAndAlignmentTextButton()
-                .clickCenterAlignmentOption()
-                .clickMessageTextFrame()
-                .verifyTextAlignment("text-align: center;")
+                .verifyNumericList("li","ol")
                 .clickMessageTextFrame()
                 .keyPress_Ctrl_A()
                 .clickListAndAlignmentTextButton()
-                .clickCenterAlignmentOption()
+                .clickNumericListOption()
                 .keyPress_Ctrl_A()
                 .clickListAndAlignmentTextButton()
-                .clickRightAlignmentOption()
+                .clickPointListOption()
                 .clickMessageTextFrame()
-                .verifyTextAlignment("text-align: right;")
+                .verifyPointedList("li","ul")
                 .clickMessageTextFrame()
                 .keyPress_Ctrl_A()
                 .clickListAndAlignmentTextButton()
-                .clickRightAlignmentOption()
+                .clickPointListOption()
                 .clickMessageTextFrame()
                 .logOut();
+
     }
 }

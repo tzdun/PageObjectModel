@@ -1,13 +1,13 @@
-package tests.new_message_tests;
+package tests.new_message_tests_TC;
 
 import org.testng.annotations.Test;
 import pages.HomePage;
 import tests.BaseTestTC;
 
-public class SaveMessageAsADraft extends BaseTestTC {
+public class MailContentInsertImage extends BaseTestTC {
 
-    @Test (priority = 1)
-    public void saveMessageAsADraft() {
+    @Test(priority = 1)
+    public void mailContentInsertImage() {
 
         //*************PAGE INSTANTIATIONS*************
         HomePage homePage = new HomePage(driver);
@@ -20,14 +20,8 @@ public class SaveMessageAsADraft extends BaseTestTC {
                 .clickLogInWithPass()
                 .verifyValidLogin("Dodaj inne konta e-mail")
                 .clickNewMessageButton()
-                .enterMessageToField("login.testowy@int.pl")
-                .enterMessageSubjectField("Temat wiadomości")
-                .enterMessageTextAreaField("Treść wiadomości")
-                .clickAttachFileButton("C:\\Users\\rb26508\\Desktop\\Test\\Test.bmp")
+                .clickInsertImageButton("C:\\Users\\rb26508\\Desktop\\Test\\Test.bmp")
                 .verifyAttachmentsAdded("Załączniki zostały dodane.")
-                .clickMessageOptionsButton()
-                .clickSaveMessageAsADraftButton()
-                .verifyMessageSavedAsADraft("Wiadomość zapisana w folderze Robocze")
                 .logOut();
     }
 }

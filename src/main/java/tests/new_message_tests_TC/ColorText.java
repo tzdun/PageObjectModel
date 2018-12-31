@@ -1,13 +1,13 @@
-package tests.new_message_tests;
+package tests.new_message_tests_TC;
 
 import org.testng.annotations.Test;
 import pages.HomePage;
 import tests.BaseTestTC;
 
-public class FontStyle extends BaseTestTC {
+public class ColorText extends BaseTestTC {
 
     @Test (priority = 1)
-    public void fontStyle() {
+    public void colorText() {
 
         //*************PAGE INSTANTIATIONS*************
         HomePage homePage = new HomePage(driver);
@@ -22,14 +22,14 @@ public class FontStyle extends BaseTestTC {
                 .clickNewMessageButton()
                 .enterMessageTextAreaField("Czcionka")
                 .keyPress_Ctrl_A()
-                .clickFontStyleAndSizeButton()
-                .clickGeorgiaFontStyle()
+                .clickFontColorButton()
+                .clickRedFontColorButton()
                 .clickMessageTextFrame()
-                .verifyTextFontStyle("font-family: georgia, palatino;")
+                .verifyTextFontStyle("color: rgb(249, 0, 0);")
                 .clickMessageTextFrame()
                 .keyPress_Ctrl_A()
-                .clickFontStyleAndSizeButton()
-                .clickGeorgiaFontStyle()
+                .clickFontColorButton()
+                .clickBlackFontColorButton()
                 .clickMessageTextFrame()
                 .logOut();
     }

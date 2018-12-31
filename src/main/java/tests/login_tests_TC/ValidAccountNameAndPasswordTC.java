@@ -1,9 +1,9 @@
-package tests.login_tests;
+package tests.login_tests_TC;
 
 import org.testng.annotations.Test;
 import pages.HomePage;
 import tests.BaseTestTC;
-import tests_property_managers.ValidAccountNameAndPasswordPM;
+import tests_property_managers.login_tests_PM.ValidAccountNameAndPasswordPM;
 
 public class ValidAccountNameAndPasswordTC extends BaseTestTC {
 

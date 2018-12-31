@@ -1,13 +1,13 @@
-package tests.new_message_tests;
+package tests.new_message_tests_TC;
 
 import org.testng.annotations.Test;
 import pages.HomePage;
 import tests.BaseTestTC;
 
-public class BoldText extends BaseTestTC {
+public class SendEmailWithoutAttachment extends BaseTestTC {
 
-    @Test (priority = 1)
-    public void boldText() {
+    @Test(priority = 1)
+    public void sendEmailWithoutAttachment() {
 
         //*************PAGE INSTANTIATIONS*************
         HomePage homePage = new HomePage(driver);
@@ -20,15 +20,11 @@ public class BoldText extends BaseTestTC {
                 .clickLogInWithPass()
                 .verifyValidLogin("Dodaj inne konta e-mail")
                 .clickNewMessageButton()
-                .enterMessageTextAreaField("Czcionka")
-                .keyPress_Ctrl_A()
-                .clickBoldButton()
-                .clickMessageTextFrame()
-                .verifyTextIsBold("strong")
-                .clickMessageTextFrame()
-                .keyPress_Ctrl_A()
-                .clickBoldButton()
-                .clickMessageTextFrame()
+                .enterMessageToField("login.testowy@int.pl")
+                .enterMessageSubjectField("Temat wiadomości")
+                .enterMessageTextAreaField("Treść wiadomości")
+                .clickSendButton()
+                .verifyMessageSent("Wiadomość wysłana")
                 .logOut();
     }
 }

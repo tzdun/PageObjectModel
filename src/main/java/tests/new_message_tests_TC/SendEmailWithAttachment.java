@@ -1,13 +1,13 @@
-package tests.new_message_tests;
+package tests.new_message_tests_TC;
 
 import org.testng.annotations.Test;
 import pages.HomePage;
 import tests.BaseTestTC;
 
-public class MailContentInsertImage extends BaseTestTC {
+public class SendEmailWithAttachment extends BaseTestTC {
 
     @Test(priority = 1)
-    public void mailContentInsertImage() {
+    public void sendEmailWithAttachment() {
 
         //*************PAGE INSTANTIATIONS*************
         HomePage homePage = new HomePage(driver);
@@ -20,8 +20,13 @@ public class MailContentInsertImage extends BaseTestTC {
                 .clickLogInWithPass()
                 .verifyValidLogin("Dodaj inne konta e-mail")
                 .clickNewMessageButton()
-                .clickInsertImageButton("C:\\Users\\rb26508\\Desktop\\Test\\Test.bmp")
+                .enterMessageToField("login.testowy@int.pl")
+                .enterMessageSubjectField("Temat wiadomości")
+                .enterMessageTextAreaField("Treść wiadomości")
+                .clickAttachFileButton("C:\\Users\\rb26508\\Desktop\\Test\\Test.bmp")
                 .verifyAttachmentsAdded("Załączniki zostały dodane.")
+                .clickSendButton()
+                .verifyMessageSent("Wiadomość wysłana")
                 .logOut();
     }
 }

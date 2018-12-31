@@ -1,11 +1,13 @@
-package tests_property_managers;
+package tests_property_managers.login_tests_PM;
 
-public class InvalidPasswordPM extends BasePropertyManager {
-    private static final String propertyFilePath = "C:\\Users\\rb26508\\PageObjectModel\\src\\main\\resources\\invalidPassword.properties";
-    private static String accountName;
-    private static String password;
-    private static String invalidLoginOrPasswordError;
-    public InvalidPasswordPM() {
+import tests_property_managers.BasePropertyManager;
+
+public class InvalidAccountNamePM extends BasePropertyManager {
+    private static final String propertyFilePath = "C:\\Users\\rb26508\\PageObjectModel\\src\\main\\resources\\invalidAccountName.properties";
+    private String accountName;
+    private String password;
+    private String invalidLoginOrPasswordError;
+    public InvalidAccountNamePM() {
         super(propertyFilePath);
         accountName = BasePropertyManager.getInstance(propertyFilePath).getProperties().getProperty("accountName");
         password = BasePropertyManager.getInstance(propertyFilePath).getProperties().getProperty("password");

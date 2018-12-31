@@ -1,13 +1,13 @@
-package tests.new_message_tests;
+package tests.new_message_tests_TC;
 
 import org.testng.annotations.Test;
 import pages.HomePage;
 import tests.BaseTestTC;
 
-public class ItalicText extends BaseTestTC {
+public class FontStyle extends BaseTestTC {
 
     @Test (priority = 1)
-    public void italicText() {
+    public void fontStyle() {
 
         //*************PAGE INSTANTIATIONS*************
         HomePage homePage = new HomePage(driver);
@@ -22,12 +22,14 @@ public class ItalicText extends BaseTestTC {
                 .clickNewMessageButton()
                 .enterMessageTextAreaField("Czcionka")
                 .keyPress_Ctrl_A()
-                .clickItalicButton()
+                .clickFontStyleAndSizeButton()
+                .clickGeorgiaFontStyle()
                 .clickMessageTextFrame()
-                .verifyTextIsItalic("em")
+                .verifyTextFontStyle("font-family: georgia, palatino;")
                 .clickMessageTextFrame()
                 .keyPress_Ctrl_A()
-                .clickItalicButton()
+                .clickFontStyleAndSizeButton()
+                .clickGeorgiaFontStyle()
                 .clickMessageTextFrame()
                 .logOut();
     }

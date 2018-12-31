@@ -1,13 +1,13 @@
-package tests.new_message_tests;
+package tests.new_message_tests_TC;
 
 import org.testng.annotations.Test;
 import pages.HomePage;
 import tests.BaseTestTC;
 
-public class SendEmailWithoutAttachment extends BaseTestTC {
+public class ItalicText extends BaseTestTC {
 
-    @Test(priority = 1)
-    public void sendEmailWithoutAttachment() {
+    @Test (priority = 1)
+    public void italicText() {
 
         //*************PAGE INSTANTIATIONS*************
         HomePage homePage = new HomePage(driver);
@@ -20,11 +20,15 @@ public class SendEmailWithoutAttachment extends BaseTestTC {
                 .clickLogInWithPass()
                 .verifyValidLogin("Dodaj inne konta e-mail")
                 .clickNewMessageButton()
-                .enterMessageToField("login.testowy@int.pl")
-                .enterMessageSubjectField("Temat wiadomości")
-                .enterMessageTextAreaField("Treść wiadomości")
-                .clickSendButton()
-                .verifyMessageSent("Wiadomość wysłana")
+                .enterMessageTextAreaField("Czcionka")
+                .keyPress_Ctrl_A()
+                .clickItalicButton()
+                .clickMessageTextFrame()
+                .verifyTextIsItalic("em")
+                .clickMessageTextFrame()
+                .keyPress_Ctrl_A()
+                .clickItalicButton()
+                .clickMessageTextFrame()
                 .logOut();
     }
 }

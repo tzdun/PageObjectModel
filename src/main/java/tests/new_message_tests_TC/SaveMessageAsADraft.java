@@ -1,13 +1,13 @@
-package tests.new_message_tests;
+package tests.new_message_tests_TC;
 
 import org.testng.annotations.Test;
 import pages.HomePage;
 import tests.BaseTestTC;
 
-public class SendEmailWithAttachment extends BaseTestTC {
+public class SaveMessageAsADraft extends BaseTestTC {
 
-    @Test(priority = 1)
-    public void sendEmailWithAttachment() {
+    @Test (priority = 1)
+    public void saveMessageAsADraft() {
 
         //*************PAGE INSTANTIATIONS*************
         HomePage homePage = new HomePage(driver);
@@ -25,8 +25,9 @@ public class SendEmailWithAttachment extends BaseTestTC {
                 .enterMessageTextAreaField("Treść wiadomości")
                 .clickAttachFileButton("C:\\Users\\rb26508\\Desktop\\Test\\Test.bmp")
                 .verifyAttachmentsAdded("Załączniki zostały dodane.")
-                .clickSendButton()
-                .verifyMessageSent("Wiadomość wysłana")
+                .clickMessageOptionsButton()
+                .clickSaveMessageAsADraftButton()
+                .verifyMessageSavedAsADraft("Wiadomość zapisana w folderze Robocze")
                 .logOut();
     }
 }
