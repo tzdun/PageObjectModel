@@ -11,7 +11,6 @@ import java.util.Properties;
 public class BasePropertyManager {
 
     private static BasePropertyManager instance;
-    private static final Object lock = new Object();
     private static String propertyFilePath;
     private static Properties properties;
 
