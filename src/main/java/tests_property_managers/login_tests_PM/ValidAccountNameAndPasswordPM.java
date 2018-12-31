@@ -9,9 +9,9 @@ public class ValidAccountNameAndPasswordPM extends BasePropertyManager {
     private static String validLoginAndPasswordAssert;
     public ValidAccountNameAndPasswordPM() {
         super(propertyFilePath);
-        accountName = BasePropertyManager.getInstance(propertyFilePath).getProperties().getProperty("accountName");
-        password = BasePropertyManager.getInstance(propertyFilePath).getProperties().getProperty("password");
-        validLoginAndPasswordAssert = BasePropertyManager.getInstance(propertyFilePath).getProperties().getProperty("validLoginAndPasswordAssert");
+        accountName = getProperties().getProperty("accountName");
+        password = getProperties().getProperty("password");
+        validLoginAndPasswordAssert = getProperties().getProperty("validLoginAndPasswordAssert");
     }
 
     public String getAccountName() {

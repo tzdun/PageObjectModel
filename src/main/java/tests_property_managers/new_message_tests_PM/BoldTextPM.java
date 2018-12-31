@@ -9,8 +9,8 @@ public class BoldTextPM extends BasePropertyManager {
 
     public BoldTextPM() {
         super(propertyFilePath);
-        textAreaFieldMessage = BasePropertyManager.getInstance(propertyFilePath).getProperties().getProperty("textAreaFieldMessage");
-        textIsBoldAssert = BasePropertyManager.getInstance(propertyFilePath).getProperties().getProperty("textIsBoldAssert");
+        textAreaFieldMessage = getProperties().getProperty("textAreaFieldMessage");
+        textIsBoldAssert = getProperties().getProperty("textIsBoldAssert");
     }
 
     public String getTextAreaFieldMessage() {

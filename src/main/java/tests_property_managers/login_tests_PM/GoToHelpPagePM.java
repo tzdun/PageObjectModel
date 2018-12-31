@@ -8,7 +8,7 @@ public class GoToHelpPagePM extends BasePropertyManager {
 
     public GoToHelpPagePM() {
         super(propertyFilePath);
-        title = BasePropertyManager.getInstance(propertyFilePath).getProperties().getProperty("title");
+        title = getProperties().getProperty("title");
     }
 
     public String getTitle(){

@@ -11,10 +11,10 @@ public class AlignmentTextPM extends BasePropertyManager {
 
     public AlignmentTextPM() {
         super(propertyFilePath);
-        textAreaFieldMessage = BasePropertyManager.getInstance(propertyFilePath).getProperties().getProperty("textAreaFieldMessage");
-        textAlignmentLeftAssert = BasePropertyManager.getInstance(propertyFilePath).getProperties().getProperty("textAlignmentLeft");
-        textAlignmentCenterAssert = BasePropertyManager.getInstance(propertyFilePath).getProperties().getProperty("textAlignmentCenter");
-        textAlignmentRightAssert = BasePropertyManager.getInstance(propertyFilePath).getProperties().getProperty("textAlignmentRight");
+        textAreaFieldMessage = getProperties().getProperty("textAreaFieldMessage");
+        textAlignmentLeftAssert = getProperties().getProperty("textAlignmentLeft");
+        textAlignmentCenterAssert = getProperties().getProperty("textAlignmentCenter");
+        textAlignmentRightAssert = getProperties().getProperty("textAlignmentRight");
     }
 
     public String getTextAreaFieldMessage() {

@@ -9,9 +9,9 @@ public class InvalidAccountNamePM extends BasePropertyManager {
     private String invalidLoginOrPasswordError;
     public InvalidAccountNamePM() {
         super(propertyFilePath);
-        accountName = BasePropertyManager.getInstance(propertyFilePath).getProperties().getProperty("accountName");
-        password = BasePropertyManager.getInstance(propertyFilePath).getProperties().getProperty("password");
-        invalidLoginOrPasswordError = BasePropertyManager.getInstance(propertyFilePath).getProperties().getProperty("invalidLoginOrPasswordError");
+        accountName = getProperties().getProperty("accountName");
+        password = getProperties().getProperty("password");
+        invalidLoginOrPasswordError = getProperties().getProperty("invalidLoginOrPasswordError");
     }
 
     public String getAccountName() {

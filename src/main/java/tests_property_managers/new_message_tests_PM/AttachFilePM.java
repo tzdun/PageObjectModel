@@ -9,8 +9,8 @@ public class AttachFilePM extends BasePropertyManager {
 
     public AttachFilePM() {
         super(propertyFilePath);
-        pathToFile = BasePropertyManager.getInstance(propertyFilePath).getProperties().getProperty("pathToFile");
-        fileAddedAssert = BasePropertyManager.getInstance(propertyFilePath).getProperties().getProperty("fileAddedAssert");
+        pathToFile = getProperties().getProperty("pathToFile");
+        fileAddedAssert = getProperties().getProperty("fileAddedAssert");
     }
 
     public String getPathToFile() {

@@ -10,18 +10,17 @@ import java.util.Properties;
 //**********************************************************************************************************
 public class BasePropertyManager {
 
-    private static BasePropertyManager instance;
     private static String propertyFilePath;
     private static Properties properties;
 
     public BasePropertyManager(String propertyFilePath) {
         BasePropertyManager.propertyFilePath = propertyFilePath;
+        loadProperties();
     }
 
-    public static BasePropertyManager getInstance(String propertyFilePath) {
-        instance = new BasePropertyManager(propertyFilePath);
-        instance.loadData();
-        return instance;
+    public BasePropertyManager loadProperties() {
+        loadData();
+        return this;
     }
 
     //Get all configuration data and assign to related fields.
