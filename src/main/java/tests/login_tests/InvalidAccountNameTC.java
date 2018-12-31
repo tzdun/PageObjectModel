@@ -6,7 +6,13 @@ import tests.BaseTestTC;
 import tests_property_managers.InvalidAccountNamePM;
 
 public class InvalidAccountNameTC extends BaseTestTC {
-    private InvalidAccountNamePM testData = new InvalidAccountNamePM();
+
+    private static class TestData {
+        private static InvalidAccountNamePM testDataPM = new InvalidAccountNamePM();
+        private static String accountName = testDataPM.getAccountName();
+        private static String password = testDataPM.getPassword();
+        private static String invalidLoginOrPasswordError = testDataPM.getInvalidLoginOrPasswordError();
+    }
 
     @Test(priority = 1)
     public void invalidAccountName() {
@@ -16,10 +22,10 @@ public class InvalidAccountNameTC extends BaseTestTC {
 
         //*************PAGE METHODS********************
         homePage.goToHomePage()
-                .enterAccountName(testData.getAccountName())
-                .enterPassword(testData.getPassword())
+                .enterAccountName(TestData.accountName)
+                .enterPassword(TestData.password)
                 .acceptCookies()
                 .clickLogInWithFail()
-                .verifyInvalidLoginOrPassword(testData.getInvalidLoginOrPasswordError());
+                .verifyInvalidLoginOrPassword(TestData.invalidLoginOrPasswordError);
     }
 }

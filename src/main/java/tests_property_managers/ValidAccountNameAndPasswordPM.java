@@ -1,7 +1,7 @@
 package tests_property_managers;
 
 public class ValidAccountNameAndPasswordPM extends BasePropertyManager {
-    private static final String propertyFilePath = "C:\\Users\\rb26508\\PageObjectModel\\src\\main\\resources\\validAccountNameAndPasswordPM.properties";
+    private static final String propertyFilePath = "C:\\Users\\rb26508\\PageObjectModel\\src\\main\\resources\\validAccountNameAndPassword.properties";
     private static String accountName;
     private static String password;
     private static String validLoginAndPasswordAssert;

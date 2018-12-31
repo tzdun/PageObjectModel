@@ -6,7 +6,11 @@ import tests.BaseTestTC;
 import tests_property_managers.GoToHelpPagePM;
 
 public class GoToHelpPageTC extends BaseTestTC {
-    private GoToHelpPagePM testData = new GoToHelpPagePM();
+
+    private static class TestData {
+        private static GoToHelpPagePM testDataPM = new GoToHelpPagePM();
+        private static String title = testDataPM.getTitle();
+    }
 
     @Test(priority = 3)
     public void goToHelpPage (){
@@ -16,6 +20,6 @@ public class GoToHelpPageTC extends BaseTestTC {
         //*************PAGE METHODS********************
         homePage.goToHomePage()
                 .goToHelpPage()
-                .verifyHelpPage(testData.getTitle());
+                .verifyHelpPage(TestData.title);
     }
 }

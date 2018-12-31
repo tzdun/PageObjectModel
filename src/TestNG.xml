@@ -4,12 +4,12 @@
     <test name="LoginTests">
         <classes>
             <class name="tests.login_tests.InvalidPasswordTC"/>
-  <!--          <class name="tests.login_tests.InvalidAccountNameTCTC"/>
-            <class name="tests.login_tests.ValidAccountNameAndPasswordTCTC"/>
-            <class name="tests.login_tests.GoToHelpPageTCTC"/>-->
+            <class name="tests.login_tests.InvalidAccountNameTC"/>
+            <class name="tests.login_tests.ValidAccountNameAndPasswordTC"/>
+            <class name="tests.login_tests.GoToHelpPageTC"/>
         </classes>
     </test>
-   <!-- <test name="NewMessageTests">
+    <test name="NewMessageTests">
         <classes>
             <class name="tests.new_message_tests.ResizeNewMessagePopup"/>
             <class name="tests.new_message_tests.SaveMessageAsADraft"/>
@@ -26,8 +26,8 @@
             <class name="tests.new_message_tests.ListText"/>
             <class name="tests.new_message_tests.MailContentStationery"/>
             <class name="tests.new_message_tests.UnderlineText"/>
-            <class name="tests.new_message_tests.AttachFile"/>
+            <class name="tests.new_message_tests.AttachFileTC"/>
             <class name="tests.new_message_tests.MailContentInsertImage"/>
         </classes>
-    </test>-->
+    </test>
 </suite>

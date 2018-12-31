@@ -99,7 +99,8 @@ public class NewMessagePopupPage extends BasePage {
     }
 
     // Click Attach File Button
-    public NewMessagePopupPage clickAttachFileButton(String pathToLocalFile) {
+    public NewMessagePopupPage
+    clickAttachFileButton(String pathToLocalFile) {
         click(attachFileButtonBy);
         try {
             Thread.sleep(10000);

@@ -6,7 +6,14 @@ import tests.BaseTestTC;
 import tests_property_managers.ValidAccountNameAndPasswordPM;
 
 public class ValidAccountNameAndPasswordTC extends BaseTestTC {
-    private ValidAccountNameAndPasswordPM testData = new ValidAccountNameAndPasswordPM();
+
+    private static class TestData {
+        private static ValidAccountNameAndPasswordPM testDataPM = new ValidAccountNameAndPasswordPM();
+        private static String accountName = testDataPM.getAccountName();
+        private static String password = testDataPM.getPassword();
+        private static String validLoginAndPasswordAssert = testDataPM.getValidLoginAndPasswordAssert();
+    }
+
     @Test (priority = 2)
     public void validAccountNameAndPassword () {
 
@@ -15,11 +22,11 @@ public class ValidAccountNameAndPasswordTC extends BaseTestTC {
 
         //*************PAGE METHODS********************
         homePage.goToHomePage()
-                .enterAccountName(testData.getAccountName())
-                .enterPassword(testData.getPassword())
+                .enterAccountName(TestData.accountName)
+                .enterPassword(TestData.password)
                 .acceptCookies()
                 .clickLogInWithPass()
-                .verifyValidLogin(testData.getValidLoginAndPasswordAssert())
+                .verifyValidLogin(TestData.validLoginAndPasswordAssert)
                 .logOut();
     }
 }

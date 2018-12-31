@@ -19,14 +19,9 @@ public class BasePropertyManager {
         BasePropertyManager.propertyFilePath = propertyFilePath;
     }
 
-    //Create a Singleton instance. We need only one instance of Property Manager.
     public static BasePropertyManager getInstance(String propertyFilePath) {
-        if (instance == null) {
-            synchronized (lock) {
-                instance = new BasePropertyManager(propertyFilePath);
-                instance.loadData();
-            }
-        }
+        instance = new BasePropertyManager(propertyFilePath);
+        instance.loadData();
         return instance;
     }
 
