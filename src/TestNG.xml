@@ -19,7 +19,7 @@
             <class name="tests.new_message_tests_TC.SendEmailWithCCandBCC"/>
             <class name="tests.new_message_tests_TC.AlignmentTextTC"/>
             <class name="tests.new_message_tests_TC.BoldTextTC"/>
-            <class name="tests.new_message_tests_TC.ColorText"/>
+            <class name="tests.new_message_tests_TC.ColorTextTC"/>
             <class name="tests.new_message_tests_TC.FontSize"/>
             <class name="tests.new_message_tests_TC.FontStyle"/>
             <class name="tests.new_message_tests_TC.ItalicText"/>
