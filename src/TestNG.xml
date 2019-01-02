@@ -23,7 +23,7 @@
             <class name="tests.new_message_tests_TC.FontSizeTC"/>
             <class name="tests.new_message_tests_TC.FontStyleTC"/>
             <class name="tests.new_message_tests_TC.ItalicFontTC"/>
-            <class name="tests.new_message_tests_TC.ListText"/>
+            <class name="tests.new_message_tests_TC.ListTextTC"/>
             <class name="tests.new_message_tests_TC.MailContentStationery"/>
             <class name="tests.new_message_tests_TC.UnderlineFontTC"/>
             <class name="tests.new_message_tests_TC.AttachFileTC"/>
