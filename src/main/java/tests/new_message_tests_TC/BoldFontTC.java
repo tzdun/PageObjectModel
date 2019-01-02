@@ -12,7 +12,6 @@ public class BoldFontTC extends BaseTestTC {
         private static String accountName = loginTestDataPM.getAccountName();
         private static String password = loginTestDataPM.getPassword();
         private static String validLoginAndPasswordAssert = loginTestDataPM.getValidLoginAndPasswordAssert();
-
         private static BoldFontPM boldTextTestDataPM = new BoldFontPM();
         private static String textAreaFieldMessage = boldTextTestDataPM.getTextAreaFieldMessage();
         private static String boldFontAssert = boldTextTestDataPM.getBoldFontAssert();

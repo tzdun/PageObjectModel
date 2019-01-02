@@ -13,7 +13,6 @@ public class AlignTextTC extends BaseTestTC {
         private static String accountName = loginTestDataPM.getAccountName();
         private static String password = loginTestDataPM.getPassword();
         private static String validLoginAndPasswordAssert = loginTestDataPM.getValidLoginAndPasswordAssert();
-
         private static AlignmentTextPM alignmentTextTestDataPM = new AlignmentTextPM();
         private static String textAreaFieldMessage = alignmentTextTestDataPM.getTextAreaFieldMessage();
         private static String leftAlignAssert = alignmentTextTestDataPM.getLeftAlignAssert();

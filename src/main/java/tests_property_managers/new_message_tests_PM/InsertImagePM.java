@@ -7,20 +7,14 @@ import java.io.IOException;
 
 public class InsertImagePM extends BasePropertyManager {
     private static final String propertyFilePath = "src/main/resources/new_message_tests_properties/insertImage.properties";
-    private String textAreaFieldMessage;
     private String relativePathToImage;
     private String canonicalPathToImage;
     private String insertImageAssert;
 
     public InsertImagePM() {
         super(propertyFilePath);
-        textAreaFieldMessage = getProperties().getProperty("textAreaFieldMessage");
         relativePathToImage = getProperties().getProperty("relativePathToImage");
         insertImageAssert = getProperties().getProperty("insertImageAssert");
-    }
-
-    public String getTextAreaFieldMessage() {
-        return textAreaFieldMessage;
     }
 
     public static String getPropertyFilePath() {

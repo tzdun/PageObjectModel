@@ -4,20 +4,19 @@ import org.testng.annotations.Test;
 import pages.HomePage;
 import tests.BaseTestTC;
 import tests_property_managers.login_tests_PM.ValidAccountNameAndPasswordPM;
-import tests_property_managers.new_message_tests_PM.ItalicFontPM;
+import tests_property_managers.new_message_tests_PM.TextStationeryPM;
 
-public class ItalicFontTC extends BaseTestTC {
+public class TextStationeryTC extends BaseTestTC {
     private static class TestData {
         private static ValidAccountNameAndPasswordPM loginTestDataPM = new ValidAccountNameAndPasswordPM();
         private static String accountName = loginTestDataPM.getAccountName();
         private static String password = loginTestDataPM.getPassword();
         private static String validLoginAndPasswordAssert = loginTestDataPM.getValidLoginAndPasswordAssert();
-        private static ItalicFontPM italicFontTestDataPM = new ItalicFontPM();
-        private static String textAreaFieldMessage = italicFontTestDataPM.getTextAreaFieldMessage();
-        private static String italicFontAssert = italicFontTestDataPM.getItalicFontAssert();
+        private static TextStationeryPM textStationeryTestDataPM = new TextStationeryPM();
+        private static String textStationeryAssert = textStationeryTestDataPM.getTextStationeryAssert();
     }
     @Test (priority = 1)
-    public void italicText() {
+    public void mailContentStationery() {
 
         //*************PAGE INSTANTIATIONS*************
         HomePage homePage = new HomePage(driver);
@@ -30,15 +29,10 @@ public class ItalicFontTC extends BaseTestTC {
                 .clickLogInWithPass()
                 .verifyValidLogin(TestData.validLoginAndPasswordAssert)
                 .clickNewMessageButton()
-                .enterMessageTextAreaField(TestData.textAreaFieldMessage)
-                .keyPress_Ctrl_A()
-                .clickItalicButton()
-                .clickMessageTextFrame()
-                .verifyTextIsItalic(TestData.italicFontAssert)
-                .clickMessageTextFrame()
-                .keyPress_Ctrl_A()
-                .clickItalicButton()
-                .clickMessageTextFrame()
-                .logOut();
+                .clickStationeryButton()
+                .clickStationeryOption()
+                .verifyStationeryOption(TestData.textStationeryAssert)
+                .clickStationeryButton()
+                .clickStationeryResetOption();
     }
 }

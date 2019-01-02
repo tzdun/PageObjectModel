@@ -12,7 +12,6 @@ public class ListTextTC extends BaseTestTC {
         private static String accountName = loginTestDataPM.getAccountName();
         private static String password = loginTestDataPM.getPassword();
         private static String validLoginAndPasswordAssert = loginTestDataPM.getValidLoginAndPasswordAssert();
-
         private static ListTextPM listTextTestDataPM = new ListTextPM();
         private static String textAreaFieldMessage = listTextTestDataPM.getTextAreaFieldMessage();
         private static String liListTextAssert = listTextTestDataPM.getLiListAssert();

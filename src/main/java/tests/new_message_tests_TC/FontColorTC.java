@@ -12,7 +12,6 @@ public class FontColorTC extends BaseTestTC {
         private static String accountName = loginTestDataPM.getAccountName();
         private static String password = loginTestDataPM.getPassword();
         private static String validLoginAndPasswordAssert = loginTestDataPM.getValidLoginAndPasswordAssert();
-
         private static FontColorPM colorTextTestDataPM = new FontColorPM();
         private static String textAreaFieldMessage = colorTextTestDataPM.getTextAreaFieldMessage();
         private static String fontColorAssert = colorTextTestDataPM.getFontColorAssert();

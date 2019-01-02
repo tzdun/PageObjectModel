@@ -12,7 +12,6 @@ public class FontSizeTC extends BaseTestTC {
         private static String accountName = loginTestDataPM.getAccountName();
         private static String password = loginTestDataPM.getPassword();
         private static String validLoginAndPasswordAssert = loginTestDataPM.getValidLoginAndPasswordAssert();
-
         private static FontSizePM fontSizeTestDataPM = new FontSizePM();
         private static String textAreaFieldMessage = fontSizeTestDataPM.getTextAreaFieldMessage();
         private static String textFontSizeAssert = fontSizeTestDataPM.getFontSizeAssert();

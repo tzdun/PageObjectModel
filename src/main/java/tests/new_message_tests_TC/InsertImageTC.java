@@ -12,7 +12,6 @@ public class InsertImageTC extends BaseTestTC {
         private static String accountName = loginTestDataPM.getAccountName();
         private static String password = loginTestDataPM.getPassword();
         private static String validLoginAndPasswordAssert = loginTestDataPM.getValidLoginAndPasswordAssert();
-
         private static InsertImagePM insertImageTestDataPM = new InsertImagePM();
         private static String canonicalPathToImage = insertImageTestDataPM.getCanonicalPathToImage();
         private static String insertImageAssert = insertImageTestDataPM.getInsertImageAssert();
