@@ -20,7 +20,7 @@
             <class name="tests.new_message_tests_TC.AlignmentTextTC"/>
             <class name="tests.new_message_tests_TC.BoldTextTC"/>
             <class name="tests.new_message_tests_TC.ColorTextTC"/>
-            <class name="tests.new_message_tests_TC.FontSize"/>
+            <class name="tests.new_message_tests_TC.FontSizeTC"/>
             <class name="tests.new_message_tests_TC.FontStyle"/>
             <class name="tests.new_message_tests_TC.ItalicText"/>
             <class name="tests.new_message_tests_TC.ListText"/>
