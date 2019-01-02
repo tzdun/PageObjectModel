@@ -4,21 +4,21 @@ import org.testng.annotations.Test;
 import pages.HomePage;
 import tests.BaseTestTC;
 import tests_property_managers.login_tests_PM.ValidAccountNameAndPasswordPM;
-import tests_property_managers.new_message_tests_PM.ColorTextPM;
+import tests_property_managers.new_message_tests_PM.ItalicFontPM;
 
-public class ColorTextTC extends BaseTestTC {
+public class ItalicFontTC extends BaseTestTC {
     private static class TestData {
         private static ValidAccountNameAndPasswordPM loginTestDataPM = new ValidAccountNameAndPasswordPM();
         private static String accountName = loginTestDataPM.getAccountName();
         private static String password = loginTestDataPM.getPassword();
         private static String validLoginAndPasswordAssert = loginTestDataPM.getValidLoginAndPasswordAssert();
 
-        private static ColorTextPM colorTextTestDataPM = new ColorTextPM();
-        private static String textAreaFieldMessage = colorTextTestDataPM.getTextAreaFieldMessage();
-        private static String textIsColoredAssert = colorTextTestDataPM.getTextIsColoredAssert();
+        private static ItalicFontPM italicFontTestDataPM = new ItalicFontPM();
+        private static String textAreaFieldMessage = italicFontTestDataPM.getTextAreaFieldMessage();
+        private static String italicFontAssert = italicFontTestDataPM.getItalicFontAssert();
     }
     @Test (priority = 1)
-    public void colorText() {
+    public void italicText() {
 
         //*************PAGE INSTANTIATIONS*************
         HomePage homePage = new HomePage(driver);
@@ -33,14 +33,12 @@ public class ColorTextTC extends BaseTestTC {
                 .clickNewMessageButton()
                 .enterMessageTextAreaField(TestData.textAreaFieldMessage)
                 .keyPress_Ctrl_A()
-                .clickFontColorButton()
-                .clickRedFontColorButton()
+                .clickItalicButton()
                 .clickMessageTextFrame()
-                .verifyTextFontStyle(TestData.textIsColoredAssert)
+                .verifyTextIsItalic(TestData.italicFontAssert)
                 .clickMessageTextFrame()
                 .keyPress_Ctrl_A()
-                .clickFontColorButton()
-                .clickBlackFontColorButton()
+                .clickItalicButton()
                 .clickMessageTextFrame()
                 .logOut();
     }

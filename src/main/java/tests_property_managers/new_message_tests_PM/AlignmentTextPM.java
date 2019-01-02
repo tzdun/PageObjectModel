@@ -3,33 +3,33 @@ package tests_property_managers.new_message_tests_PM;
 import tests_property_managers.BasePropertyManager;
 
 public class AlignmentTextPM extends BasePropertyManager {
-    private static final String propertyFilePath = "src/main/resources/alignmentText.properties";
+    private static final String propertyFilePath = "src/main/resources/new_message_tests_properties/alignText.properties";
     private String textAreaFieldMessage;
-    private String textAlignmentLeftAssert;
-    private String textAlignmentCenterAssert;
-    private String textAlignmentRightAssert;
+    private String leftAlignAssert;
+    private String centerAlignAssert;
+    private String rightAlignAssert;
 
     public AlignmentTextPM() {
         super(propertyFilePath);
         textAreaFieldMessage = getProperties().getProperty("textAreaFieldMessage");
-        textAlignmentLeftAssert = getProperties().getProperty("textAlignmentLeft");
-        textAlignmentCenterAssert = getProperties().getProperty("textAlignmentCenter");
-        textAlignmentRightAssert = getProperties().getProperty("textAlignmentRight");
+        leftAlignAssert = getProperties().getProperty("leftAlignAssert");
+        centerAlignAssert = getProperties().getProperty("centerAlignAssert");
+        rightAlignAssert = getProperties().getProperty("rightAlignAssert");
     }
 
     public String getTextAreaFieldMessage() {
         return textAreaFieldMessage;
     }
 
-    public String getTextAlignmentLeftAssert() {
-        return textAlignmentLeftAssert;
+    public String getLeftAlignAssert() {
+        return leftAlignAssert;
     }
 
-    public String getTextAlignmentCenterAssert() {
-        return textAlignmentCenterAssert;
+    public String getCenterAlignAssert() {
+        return centerAlignAssert;
     }
 
-    public String getTextAlignmentRightAssert() {
-        return textAlignmentRightAssert;
+    public String getRightAlignAssert() {
+        return rightAlignAssert;
     }
 }

@@ -3,21 +3,21 @@ package tests_property_managers.new_message_tests_PM;
 import tests_property_managers.BasePropertyManager;
 
 public class AttachFilePM extends BasePropertyManager {
-    private static final String propertyFilePath = "src/main/resources/attachFile.properties";
+    private static final String propertyFilePath = "src/main/resources/new_message_tests_properties/attachFile.properties";
     private String pathToFile;
-    private String fileAddedAssert;
+    private String attachFileAssert;
 
     public AttachFilePM() {
         super(propertyFilePath);
         pathToFile = getProperties().getProperty("pathToFile");
-        fileAddedAssert = getProperties().getProperty("fileAddedAssert");
+        attachFileAssert = getProperties().getProperty("attachFileAssert");
     }
 
     public String getPathToFile() {
         return pathToFile;
     }
 
-    public String getFileAddedAssert() {
-        return fileAddedAssert;
+    public String getAttachFileAssert() {
+        return attachFileAssert;
     }
 }

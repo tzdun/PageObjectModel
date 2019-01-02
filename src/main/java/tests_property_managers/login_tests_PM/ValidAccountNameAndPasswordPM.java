@@ -3,7 +3,7 @@ package tests_property_managers.login_tests_PM;
 import tests_property_managers.BasePropertyManager;
 
 public class ValidAccountNameAndPasswordPM extends BasePropertyManager {
-    private static final String propertyFilePath = "src/main/resources/validAccountNameAndPassword.properties";
+    private static final String propertyFilePath = "src/main/resources/login_tests_properties/validAccountNameAndPassword.properties";
     private static String accountName;
     private static String password;
     private static String validLoginAndPasswordAssert;

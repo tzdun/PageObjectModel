@@ -4,7 +4,6 @@ import org.testng.annotations.Test;
 import pages.HomePage;
 import tests.BaseTestTC;
 import tests_property_managers.login_tests_PM.ValidAccountNameAndPasswordPM;
-import tests_property_managers.new_message_tests_PM.FontSizePM;
 import tests_property_managers.new_message_tests_PM.FontStylePM;
 
 public class FontStyleTC extends BaseTestTC {
@@ -16,7 +15,7 @@ public class FontStyleTC extends BaseTestTC {
 
         private static FontStylePM fontStyleTestDataPM = new FontStylePM();
         private static String textAreaFieldMessage = fontStyleTestDataPM.getTextAreaFieldMessage();
-        private static String textFontStyleAssert = fontStyleTestDataPM.getTextFontStyleAssert();
+        private static String fontStyleAssert = fontStyleTestDataPM.getFontStyleAssert();
     }
     @Test (priority = 1)
     public void fontStyle() {
@@ -37,7 +36,7 @@ public class FontStyleTC extends BaseTestTC {
                 .clickFontStyleAndSizeButton()
                 .clickGeorgiaFontStyle()
                 .clickMessageTextFrame()
-                .verifyTextFontStyle(TestData.textFontStyleAssert)
+                .verifyTextFontStyle(TestData.fontStyleAssert)
                 .clickMessageTextFrame()
                 .keyPress_Ctrl_A()
                 .clickFontStyleAndSizeButton()

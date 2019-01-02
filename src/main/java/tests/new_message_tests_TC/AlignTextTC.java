@@ -6,7 +6,7 @@ import tests.BaseTestTC;
 import tests_property_managers.login_tests_PM.ValidAccountNameAndPasswordPM;
 import tests_property_managers.new_message_tests_PM.AlignmentTextPM;
 
-public class AlignmentTextTC extends BaseTestTC {
+public class AlignTextTC extends BaseTestTC {
 
     private static class TestData{
         private static ValidAccountNameAndPasswordPM loginTestDataPM = new ValidAccountNameAndPasswordPM();
@@ -16,9 +16,9 @@ public class AlignmentTextTC extends BaseTestTC {
 
         private static AlignmentTextPM alignmentTextTestDataPM = new AlignmentTextPM();
         private static String textAreaFieldMessage = alignmentTextTestDataPM.getTextAreaFieldMessage();
-        private static String textAlignmentLeftAssert = alignmentTextTestDataPM.getTextAlignmentLeftAssert();
-        private static String textAlignmentCenterAssert = alignmentTextTestDataPM.getTextAlignmentCenterAssert();
-        private static String textAlignmentRightAssert = alignmentTextTestDataPM.getTextAlignmentRightAssert();
+        private static String leftAlignAssert = alignmentTextTestDataPM.getLeftAlignAssert();
+        private static String centerAlignAssert = alignmentTextTestDataPM.getCenterAlignAssert();
+        private static String rightAlignAssert = alignmentTextTestDataPM.getRightAlignAssert();
     }
     @Test (priority = 1)
     public void alignmentText() {
@@ -39,7 +39,7 @@ public class AlignmentTextTC extends BaseTestTC {
                 .clickListAndAlignmentTextButton()
                 .clickLeftAlignmentOption()
                 .clickMessageTextFrame()
-                .verifyTextAlignment(TestData.textAlignmentLeftAssert)
+                .verifyTextAlignment(TestData.leftAlignAssert)
                 .clickMessageTextFrame()
                 .keyPress_Ctrl_A()
                 .clickListAndAlignmentTextButton()
@@ -48,7 +48,7 @@ public class AlignmentTextTC extends BaseTestTC {
                 .clickListAndAlignmentTextButton()
                 .clickCenterAlignmentOption()
                 .clickMessageTextFrame()
-                .verifyTextAlignment(TestData.textAlignmentCenterAssert)
+                .verifyTextAlignment(TestData.centerAlignAssert)
                 .clickMessageTextFrame()
                 .keyPress_Ctrl_A()
                 .clickListAndAlignmentTextButton()
@@ -57,7 +57,7 @@ public class AlignmentTextTC extends BaseTestTC {
                 .clickListAndAlignmentTextButton()
                 .clickRightAlignmentOption()
                 .clickMessageTextFrame()
-                .verifyTextAlignment(TestData.textAlignmentRightAssert)
+                .verifyTextAlignment(TestData.rightAlignAssert)
                 .clickMessageTextFrame()
                 .keyPress_Ctrl_A()
                 .clickListAndAlignmentTextButton()

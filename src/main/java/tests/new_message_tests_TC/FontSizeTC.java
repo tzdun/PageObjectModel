@@ -15,7 +15,7 @@ public class FontSizeTC extends BaseTestTC {
 
         private static FontSizePM fontSizeTestDataPM = new FontSizePM();
         private static String textAreaFieldMessage = fontSizeTestDataPM.getTextAreaFieldMessage();
-        private static String textFontSizeAssert = fontSizeTestDataPM.getTextFontSizeAssert();
+        private static String textFontSizeAssert = fontSizeTestDataPM.getFontSizeAssert();
     }
     @Test (priority = 1)
     public void fontSize() {

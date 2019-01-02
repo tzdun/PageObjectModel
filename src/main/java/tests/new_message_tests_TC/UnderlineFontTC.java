@@ -3,22 +3,22 @@ package tests.new_message_tests_TC;
 import org.testng.annotations.Test;
 import pages.HomePage;
 import tests.BaseTestTC;
-import tests_property_managers.new_message_tests_PM.AttachFilePM;
 import tests_property_managers.login_tests_PM.ValidAccountNameAndPasswordPM;
+import tests_property_managers.new_message_tests_PM.UnderlineFontPM;
 
-public class AttachFileTC extends BaseTestTC {
-    private static class TestData{
+public class UnderlineFontTC extends BaseTestTC {
+    private static class TestData {
         private static ValidAccountNameAndPasswordPM loginTestDataPM = new ValidAccountNameAndPasswordPM();
         private static String accountName = loginTestDataPM.getAccountName();
         private static String password = loginTestDataPM.getPassword();
         private static String validLoginAndPasswordAssert = loginTestDataPM.getValidLoginAndPasswordAssert();
 
-        private static AttachFilePM testDataPM = new AttachFilePM();
-        private static String pathToFile = testDataPM.getPathToFile();
-        private static String attachFileAssert = testDataPM.getAttachFileAssert();
+        private static UnderlineFontPM underlineFontTestDataPM = new UnderlineFontPM();
+        private static String textAreaFieldMessage = underlineFontTestDataPM.getTextAreaFieldMessage();
+        private static String underlineFontAssert = underlineFontTestDataPM.getUnderlineFontAssert();
     }
     @Test (priority = 1)
-    public void attachFile() {
+    public void underlineText() {
 
         //*************PAGE INSTANTIATIONS*************
         HomePage homePage = new HomePage(driver);
@@ -31,8 +31,15 @@ public class AttachFileTC extends BaseTestTC {
                 .clickLogInWithPass()
                 .verifyValidLogin(TestData.validLoginAndPasswordAssert)
                 .clickNewMessageButton()
-                .clickAttachFileButton(TestData.pathToFile)
-                .verifyAttachmentsAdded(TestData.attachFileAssert)
+                .enterMessageTextAreaField(TestData.textAreaFieldMessage)
+                .keyPress_Ctrl_A()
+                .clickUnderlineButton()
+                .clickMessageTextFrame()
+                .verifyTextIsUnderlined(TestData.underlineFontAssert)
+                .clickMessageTextFrame()
+                .keyPress_Ctrl_A()
+                .clickUnderlineButton()
+                .clickMessageTextFrame()
                 .logOut();
     }
 }

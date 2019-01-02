@@ -3,7 +3,7 @@ package tests_property_managers.login_tests_PM;
 import tests_property_managers.BasePropertyManager;
 
 public class InvalidAccountNamePM extends BasePropertyManager {
-    private static final String propertyFilePath = "src/main/resources/invalidAccountName.properties";
+    private static final String propertyFilePath = "src/main/resources/login_tests_properties/invalidAccountName.properties";
     private String accountName;
     private String password;
     private String invalidLoginOrPasswordError;

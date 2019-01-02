@@ -17,15 +17,15 @@
             <class name="tests.new_message_tests_TC.SendEmailWithoutAttachment"/>
             <class name="tests.new_message_tests_TC.SendEmailWithAttachment"/>
             <class name="tests.new_message_tests_TC.SendEmailWithCCandBCC"/>
-            <class name="tests.new_message_tests_TC.AlignmentTextTC"/>
-            <class name="tests.new_message_tests_TC.BoldTextTC"/>
-            <class name="tests.new_message_tests_TC.ColorTextTC"/>
+            <class name="tests.new_message_tests_TC.AlignTextTC"/>
+            <class name="tests.new_message_tests_TC.BoldFontTC"/>
+            <class name="tests.new_message_tests_TC.FontColorTC"/>
             <class name="tests.new_message_tests_TC.FontSizeTC"/>
             <class name="tests.new_message_tests_TC.FontStyleTC"/>
-            <class name="tests.new_message_tests_TC.ItalicText"/>
+            <class name="tests.new_message_tests_TC.ItalicFontTC"/>
             <class name="tests.new_message_tests_TC.ListText"/>
             <class name="tests.new_message_tests_TC.MailContentStationery"/>
-            <class name="tests.new_message_tests_TC.UnderlineText"/>
+            <class name="tests.new_message_tests_TC.UnderlineFontTC"/>
             <class name="tests.new_message_tests_TC.AttachFileTC"/>
             <class name="tests.new_message_tests_TC.MailContentInsertImage"/>
         </classes>
