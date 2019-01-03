@@ -8,14 +8,15 @@ import tests_property_managers.new_message_tests_PM.FontStylePM;
 
 public class FontStyleTC extends BaseTestTC {
     private static class TestData {
-        private static ValidLoginAndPasswordPM loginTestDataPM = new ValidLoginAndPasswordPM();
-        private static String accountName = loginTestDataPM.getAccountName();
-        private static String password = loginTestDataPM.getPassword();
-        private static String validLoginAndPasswordAssert = loginTestDataPM.getValidLoginAndPasswordAssert();
-        private static FontStylePM fontStyleTestDataPM = new FontStylePM();
-        private static String textAreaFieldMessage = fontStyleTestDataPM.getTextAreaFieldMessage();
-        private static String fontStyleAssert = fontStyleTestDataPM.getFontStyleAssert();
+        private static ValidLoginAndPasswordPM validLoginAndPasswordPM = new ValidLoginAndPasswordPM();
+        private static String login = validLoginAndPasswordPM.getLogin();
+        private static String password = validLoginAndPasswordPM.getPassword();
+        private static String validLoginAndPasswordAssert = validLoginAndPasswordPM.getValidLoginAndPasswordAssert();
+        private static FontStylePM fontStylePM = new FontStylePM();
+        private static String textAreaFieldMessage = fontStylePM.getTextAreaFieldMessage();
+        private static String fontStyleAssert = fontStylePM.getFontStyleAssert();
     }
+
     @Test (priority = 1)
     public void fontStyle() {
 
@@ -24,7 +25,7 @@ public class FontStyleTC extends BaseTestTC {
 
         //*************PAGE METHODS********************
         homePage.goToHomePage()
-                .enterAccountName(TestData.accountName)
+                .enterAccountName(TestData.login)
                 .enterPassword(TestData.password)
                 .acceptCookies()
                 .clickLogInWithPass()

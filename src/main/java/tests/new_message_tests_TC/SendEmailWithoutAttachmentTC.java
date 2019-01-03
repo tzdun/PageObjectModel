@@ -4,21 +4,23 @@ import org.testng.annotations.Test;
 import pages.HomePage;
 import tests.BaseTestTC;
 import tests_property_managers.login_tests_PM.ValidLoginAndPasswordPM;
-import tests_property_managers.new_message_tests_PM.ItalicFontPM;
+import tests_property_managers.new_message_tests_PM.SendEmailWithoutAttachmentPM;
 
-public class ItalicFontTC extends BaseTestTC {
+public class SendEmailWithoutAttachmentTC extends BaseTestTC {
     private static class TestData {
         private static ValidLoginAndPasswordPM validLoginAndPasswordPM = new ValidLoginAndPasswordPM();
         private static String login = validLoginAndPasswordPM.getLogin();
         private static String password = validLoginAndPasswordPM.getPassword();
         private static String validLoginAndPasswordAssert = validLoginAndPasswordPM.getValidLoginAndPasswordAssert();
-        private static ItalicFontPM italicFontPM = new ItalicFontPM();
-        private static String textAreaFieldMessage = italicFontPM.getTextAreaFieldMessage();
-        private static String italicFontAssert = italicFontPM.getItalicFontAssert();
+        private static SendEmailWithoutAttachmentPM sendEmailWithoutAttachmentPM = new SendEmailWithoutAttachmentPM();
+        private static String messageTo = sendEmailWithoutAttachmentPM.getMessageTo();
+        private static String messageSubject = sendEmailWithoutAttachmentPM.getMessageSubject();
+        private static String messageText = sendEmailWithoutAttachmentPM.getMessageText();
+        private static String sendEmailWithoutAttachmentAssert = sendEmailWithoutAttachmentPM.getSendEmailWithoutAttachmentAssert();
     }
 
     @Test(priority = 1)
-    public void italicFont() {
+    public void sendEmailWithoutAttachment() {
 
         //*************PAGE INSTANTIATIONS*************
         HomePage homePage = new HomePage(driver);
@@ -31,15 +33,11 @@ public class ItalicFontTC extends BaseTestTC {
                 .clickLogInWithPass()
                 .verifyValidLogin(TestData.validLoginAndPasswordAssert)
                 .clickNewMessageButton()
-                .enterMessageTextAreaField(TestData.textAreaFieldMessage)
-                .keyPress_Ctrl_A()
-                .clickItalicButton()
-                .clickMessageTextFrame()
-                .verifyTextIsItalic(TestData.italicFontAssert)
-                .clickMessageTextFrame()
-                .keyPress_Ctrl_A()
-                .clickItalicButton()
-                .clickMessageTextFrame()
+                .enterMessageToField(TestData.messageTo)
+                .enterMessageSubjectField(TestData.messageSubject)
+                .enterMessageTextAreaField(TestData.messageText)
+                .clickSendButton()
+                .verifyMessageSent(TestData.sendEmailWithoutAttachmentAssert)
                 .logOut();
     }
 }

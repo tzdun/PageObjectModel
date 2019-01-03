@@ -8,14 +8,15 @@ import tests_property_managers.new_message_tests_PM.FontColorPM;
 
 public class FontColorTC extends BaseTestTC {
     private static class TestData {
-        private static ValidLoginAndPasswordPM loginTestDataPM = new ValidLoginAndPasswordPM();
-        private static String accountName = loginTestDataPM.getAccountName();
-        private static String password = loginTestDataPM.getPassword();
-        private static String validLoginAndPasswordAssert = loginTestDataPM.getValidLoginAndPasswordAssert();
-        private static FontColorPM colorTextTestDataPM = new FontColorPM();
-        private static String textAreaFieldMessage = colorTextTestDataPM.getTextAreaFieldMessage();
-        private static String fontColorAssert = colorTextTestDataPM.getFontColorAssert();
+        private static ValidLoginAndPasswordPM validLoginAndPasswordPM = new ValidLoginAndPasswordPM();
+        private static String login = validLoginAndPasswordPM.getLogin();
+        private static String password = validLoginAndPasswordPM.getPassword();
+        private static String validLoginAndPasswordAssert = validLoginAndPasswordPM.getValidLoginAndPasswordAssert();
+        private static FontColorPM fontColorPM = new FontColorPM();
+        private static String textAreaFieldMessage = fontColorPM.getTextAreaFieldMessage();
+        private static String fontColorAssert = fontColorPM.getFontColorAssert();
     }
+
     @Test (priority = 1)
     public void fontColor() {
 
@@ -24,7 +25,7 @@ public class FontColorTC extends BaseTestTC {
 
         //*************PAGE METHODS********************
         homePage.goToHomePage()
-                .enterAccountName(TestData.accountName)
+                .enterAccountName(TestData.login)
                 .enterPassword(TestData.password)
                 .acceptCookies()
                 .clickLogInWithPass()

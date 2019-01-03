@@ -8,15 +8,15 @@ import tests_property_managers.new_message_tests_PM.UnderlineFontPM;
 
 public class UnderlineFontTC extends BaseTestTC {
     private static class TestData {
-        private static ValidLoginAndPasswordPM loginTestDataPM = new ValidLoginAndPasswordPM();
-        private static String accountName = loginTestDataPM.getAccountName();
-        private static String password = loginTestDataPM.getPassword();
-        private static String validLoginAndPasswordAssert = loginTestDataPM.getValidLoginAndPasswordAssert();
-
-        private static UnderlineFontPM underlineFontTestDataPM = new UnderlineFontPM();
-        private static String textAreaFieldMessage = underlineFontTestDataPM.getTextAreaFieldMessage();
-        private static String underlineFontAssert = underlineFontTestDataPM.getUnderlineFontAssert();
+        private static ValidLoginAndPasswordPM validLoginAndPasswordPM = new ValidLoginAndPasswordPM();
+        private static String login = validLoginAndPasswordPM.getLogin();
+        private static String password = validLoginAndPasswordPM.getPassword();
+        private static String validLoginAndPasswordAssert = validLoginAndPasswordPM.getValidLoginAndPasswordAssert();
+        private static UnderlineFontPM underlineFontPM = new UnderlineFontPM();
+        private static String textAreaFieldMessage = underlineFontPM.getTextAreaFieldMessage();
+        private static String underlineFontAssert = underlineFontPM.getUnderlineFontAssert();
     }
+
     @Test (priority = 1)
     public void underlineText() {
 
@@ -25,7 +25,7 @@ public class UnderlineFontTC extends BaseTestTC {
 
         //*************PAGE METHODS********************
         homePage.goToHomePage()
-                .enterAccountName(TestData.accountName)
+                .enterAccountName(TestData.login)
                 .enterPassword(TestData.password)
                 .acceptCookies()
                 .clickLogInWithPass()

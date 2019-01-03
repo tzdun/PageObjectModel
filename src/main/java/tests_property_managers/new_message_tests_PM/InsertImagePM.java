@@ -30,7 +30,7 @@ public class InsertImagePM extends BasePropertyManager {
         this.canonicalImagePath = canonicalPathToImage;
     }
 
-    public String getCanonicalImagePath(){
+    public String getCanonicalImagePath() {
         try {
             setCanonicalImagePath(this.relativeImagePath);
         } catch (IOException e) {

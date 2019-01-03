@@ -8,13 +8,13 @@ import tests_property_managers.new_message_tests_PM.BoldFontPM;
 
 public class BoldFontTC extends BaseTestTC {
     private static class TestData {
-        private static ValidLoginAndPasswordPM loginTestDataPM = new ValidLoginAndPasswordPM();
-        private static String accountName = loginTestDataPM.getAccountName();
-        private static String password = loginTestDataPM.getPassword();
-        private static String validLoginAndPasswordAssert = loginTestDataPM.getValidLoginAndPasswordAssert();
-        private static BoldFontPM boldTextTestDataPM = new BoldFontPM();
-        private static String textAreaFieldMessage = boldTextTestDataPM.getTextAreaFieldMessage();
-        private static String boldFontAssert = boldTextTestDataPM.getBoldFontAssert();
+        private static ValidLoginAndPasswordPM validLoginAndPasswordPM = new ValidLoginAndPasswordPM();
+        private static String login = validLoginAndPasswordPM.getLogin();
+        private static String password = validLoginAndPasswordPM.getPassword();
+        private static String validLoginAndPasswordAssert = validLoginAndPasswordPM.getValidLoginAndPasswordAssert();
+        private static BoldFontPM boldFontPM = new BoldFontPM();
+        private static String textAreaFieldMessage = boldFontPM.getTextAreaFieldMessage();
+        private static String boldFontAssert = boldFontPM.getBoldFontAssert();
     }
 
     @Test(priority = 1)
@@ -25,7 +25,7 @@ public class BoldFontTC extends BaseTestTC {
 
         //*************PAGE METHODS********************
         homePage.goToHomePage()
-                .enterAccountName(TestData.accountName)
+                .enterAccountName(TestData.login)
                 .enterPassword(TestData.password)
                 .acceptCookies()
                 .clickLogInWithPass()

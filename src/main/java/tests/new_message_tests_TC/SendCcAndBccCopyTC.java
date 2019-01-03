@@ -8,10 +8,10 @@ import tests_property_managers.new_message_tests_PM.SendCcAndBccCopyPM;
 
 public class SendCcAndBccCopyTC extends BaseTestTC {
     private static class TestData {
-        private static ValidLoginAndPasswordPM loginTestDataPM = new ValidLoginAndPasswordPM();
-        private static String accountName = loginTestDataPM.getAccountName();
-        private static String password = loginTestDataPM.getPassword();
-        private static String validLoginAndPasswordAssert = loginTestDataPM.getValidLoginAndPasswordAssert();
+        private static ValidLoginAndPasswordPM validLoginAndPasswordPM = new ValidLoginAndPasswordPM();
+        private static String login = validLoginAndPasswordPM.getLogin();
+        private static String password = validLoginAndPasswordPM.getPassword();
+        private static String validLoginAndPasswordAssert = validLoginAndPasswordPM.getValidLoginAndPasswordAssert();
         private static SendCcAndBccCopyPM sendCcAndBccEmailPM = new SendCcAndBccCopyPM();
         private static String messageTo = sendCcAndBccEmailPM.getMessageTo();
         private static String ccMessageTo = sendCcAndBccEmailPM.getCcMessageTo();
@@ -31,7 +31,7 @@ public class SendCcAndBccCopyTC extends BaseTestTC {
 
         //*************PAGE METHODS********************
         homePage.goToHomePage()
-                .enterAccountName(TestData.accountName)
+                .enterAccountName(TestData.login)
                 .enterPassword(TestData.password)
                 .acceptCookies()
                 .clickLogInWithPass()

@@ -8,8 +8,8 @@ import tests_property_managers.login_tests_PM.GoToHelpPagePM;
 public class GoToHelpPageTC extends BaseTestTC {
 
     private static class TestData {
-        private static GoToHelpPagePM testDataPM = new GoToHelpPagePM();
-        private static String title = testDataPM.getTitle();
+        private static GoToHelpPagePM goToHelpPagePM = new GoToHelpPagePM();
+        private static String title = goToHelpPagePM.getTitle();
     }
 
     @Test(priority = 3)

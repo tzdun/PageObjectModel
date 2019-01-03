@@ -8,15 +8,16 @@ import tests_property_managers.new_message_tests_PM.InsertImagePM;
 
 public class InsertImageTC extends BaseTestTC {
     private static class TestData {
-        private static ValidLoginAndPasswordPM loginTestDataPM = new ValidLoginAndPasswordPM();
-        private static String accountName = loginTestDataPM.getAccountName();
-        private static String password = loginTestDataPM.getPassword();
-        private static String validLoginAndPasswordAssert = loginTestDataPM.getValidLoginAndPasswordAssert();
-        private static InsertImagePM insertImageTestDataPM = new InsertImagePM();
-        private static String canonicalPathToImage = insertImageTestDataPM.getCanonicalImagePath();
-        private static String insertImageAssert = insertImageTestDataPM.getInsertImageAssert();
+        private static ValidLoginAndPasswordPM validLoginAndPasswordPM = new ValidLoginAndPasswordPM();
+        private static String login = validLoginAndPasswordPM.getLogin();
+        private static String password = validLoginAndPasswordPM.getPassword();
+        private static String validLoginAndPasswordAssert = validLoginAndPasswordPM.getValidLoginAndPasswordAssert();
+        private static InsertImagePM insertImagePM = new InsertImagePM();
+        private static String canonicalPathToImage = insertImagePM.getCanonicalImagePath();
+        private static String insertImageAssert = insertImagePM.getInsertImageAssert();
 
     }
+
     @Test(priority = 1)
     public void insertImage() {
 
@@ -25,7 +26,7 @@ public class InsertImageTC extends BaseTestTC {
 
         //*************PAGE METHODS********************
         homePage.goToHomePage()
-                .enterAccountName(TestData.accountName)
+                .enterAccountName(TestData.login)
                 .enterPassword(TestData.password)
                 .acceptCookies()
                 .clickLogInWithPass()

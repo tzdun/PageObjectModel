@@ -8,10 +8,10 @@ import tests_property_managers.login_tests_PM.InvalidLoginPM;
 public class InvalidLoginTC extends BaseTestTC {
 
     private static class TestData {
-        private static InvalidLoginPM testDataPM = new InvalidLoginPM();
-        private static String login = testDataPM.getLogin();
-        private static String password = testDataPM.getPassword();
-        private static String invalidLoginOrPasswordError = testDataPM.getInvalidLoginOrPasswordError();
+        private static InvalidLoginPM invalidLoginPM = new InvalidLoginPM();
+        private static String login = invalidLoginPM.getLogin();
+        private static String password = invalidLoginPM.getPassword();
+        private static String invalidLoginOrPasswordError = invalidLoginPM.getInvalidLoginOrPasswordError();
     }
 
     @Test(priority = 1)

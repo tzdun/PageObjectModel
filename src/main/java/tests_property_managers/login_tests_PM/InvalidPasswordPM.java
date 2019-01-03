@@ -4,9 +4,10 @@ import tests_property_managers.BasePropertyManager;
 
 public class InvalidPasswordPM extends BasePropertyManager {
     private static final String propertyFilePath = "src/main/resources/login_tests_properties/invalidPassword";
-    private static String login;
-    private static String password;
-    private static String invalidLoginOrPasswordError;
+    private String login;
+    private String password;
+    private String invalidLoginOrPasswordError;
+
     public InvalidPasswordPM() {
         super(propertyFilePath);
         login = getProperties().getProperty("login");

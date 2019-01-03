@@ -1,0 +1,4 @@
+messageTo=login.testowy@int.pl
+messageSubject=Temat wiadomo\u015Bci
+messageText=Tre\u015B\u0107 wiadomo\u015Bci
+sendEmailWithoutAttachmentAssert=Wiadomo\u015B\u0107 wys\u0142ana

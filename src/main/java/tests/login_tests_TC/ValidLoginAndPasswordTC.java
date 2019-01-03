@@ -8,10 +8,10 @@ import tests_property_managers.login_tests_PM.ValidLoginAndPasswordPM;
 public class ValidLoginAndPasswordTC extends BaseTestTC {
 
     private static class TestData {
-        private static ValidLoginAndPasswordPM testDataPM = new ValidLoginAndPasswordPM();
-        private static String login = testDataPM.getAccountName();
-        private static String password = testDataPM.getPassword();
-        private static String validLoginAndPasswordAssert = testDataPM.getValidLoginAndPasswordAssert();
+        private static ValidLoginAndPasswordPM validLoginAndPasswordPM = new ValidLoginAndPasswordPM();
+        private static String login = validLoginAndPasswordPM.getLogin();
+        private static String password = validLoginAndPasswordPM.getPassword();
+        private static String validLoginAndPasswordAssert = validLoginAndPasswordPM.getValidLoginAndPasswordAssert();
     }
 
     @Test (priority = 2)

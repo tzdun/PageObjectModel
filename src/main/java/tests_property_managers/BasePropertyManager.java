@@ -11,7 +11,7 @@ import java.util.Properties;
 public class BasePropertyManager {
 
     private static String propertyFilePath;
-    private static Properties properties;
+    private Properties properties;
 
     public BasePropertyManager(String propertyFilePath) {
         BasePropertyManager.propertyFilePath = propertyFilePath;

@@ -4,9 +4,10 @@ import tests_property_managers.BasePropertyManager;
 
 public class ValidLoginAndPasswordPM extends BasePropertyManager {
     private static final String propertyFilePath = "src/main/resources/login_tests_properties/validLoginAndPassword";
-    private static String login;
-    private static String password;
-    private static String validLoginAndPasswordAssert;
+    private String login;
+    private String password;
+    private String validLoginAndPasswordAssert;
+
     public ValidLoginAndPasswordPM() {
         super(propertyFilePath);
         login = getProperties().getProperty("login");
@@ -14,7 +15,7 @@ public class ValidLoginAndPasswordPM extends BasePropertyManager {
         validLoginAndPasswordAssert = getProperties().getProperty("validLoginAndPasswordAssert");
     }
 
-    public String getAccountName() {
+    public String getLogin() {
         return login;
     }
 
