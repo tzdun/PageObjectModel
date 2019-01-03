@@ -2,20 +2,20 @@ package tests_property_managers.login_tests_PM;
 
 import tests_property_managers.BasePropertyManager;
 
-public class InvalidAccountNamePM extends BasePropertyManager {
-    private static final String propertyFilePath = "src/main/resources/login_tests_properties/invalidAccountName.properties";
-    private String accountName;
+public class InvalidLoginPM extends BasePropertyManager {
+    private static final String propertyFilePath = "src/main/resources/login_tests_properties/invalidLogin";
+    private String login;
     private String password;
     private String invalidLoginOrPasswordError;
-    public InvalidAccountNamePM() {
+    public InvalidLoginPM() {
         super(propertyFilePath);
-        accountName = getProperties().getProperty("accountName");
+        login = getProperties().getProperty("login");
         password = getProperties().getProperty("password");
         invalidLoginOrPasswordError = getProperties().getProperty("invalidLoginOrPasswordError");
     }
 
-    public String getAccountName() {
-        return accountName;
+    public String getLogin() {
+        return login;
     }
 
     public String getPassword() {

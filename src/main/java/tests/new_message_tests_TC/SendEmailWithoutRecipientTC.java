@@ -4,20 +4,20 @@ import org.testng.annotations.Test;
 import pages.HomePage;
 import tests.BaseTestTC;
 import tests_property_managers.login_tests_PM.ValidLoginAndPasswordPM;
-import tests_property_managers.new_message_tests_PM.FontColorPM;
+import tests_property_managers.new_message_tests_PM.SendEmailWithoutRecipientPM;
 
-public class FontColorTC extends BaseTestTC {
+public class SendEmailWithoutRecipientTC extends BaseTestTC {
     private static class TestData {
         private static ValidLoginAndPasswordPM loginTestDataPM = new ValidLoginAndPasswordPM();
         private static String accountName = loginTestDataPM.getAccountName();
         private static String password = loginTestDataPM.getPassword();
         private static String validLoginAndPasswordAssert = loginTestDataPM.getValidLoginAndPasswordAssert();
-        private static FontColorPM colorTextTestDataPM = new FontColorPM();
-        private static String textAreaFieldMessage = colorTextTestDataPM.getTextAreaFieldMessage();
-        private static String fontColorAssert = colorTextTestDataPM.getFontColorAssert();
+        private static SendEmailWithoutRecipientPM sendEmailWithoutRecipientPM = new SendEmailWithoutRecipientPM();
+        private static String sendEmailWithoutRecipientAssert = sendEmailWithoutRecipientPM.getSendEmailWithoutRecipientAssert();
     }
-    @Test (priority = 1)
-    public void fontColor() {
+
+    @Test(priority = 1)
+    public void sendEmailWithoutRecipient() {
 
         //*************PAGE INSTANTIATIONS*************
         HomePage homePage = new HomePage(driver);
@@ -30,17 +30,8 @@ public class FontColorTC extends BaseTestTC {
                 .clickLogInWithPass()
                 .verifyValidLogin(TestData.validLoginAndPasswordAssert)
                 .clickNewMessageButton()
-                .enterMessageTextAreaField(TestData.textAreaFieldMessage)
-                .keyPress_Ctrl_A()
-                .clickFontColorButton()
-                .clickRedFontColorButton()
-                .clickMessageTextFrame()
-                .verifyTextFontStyle(TestData.fontColorAssert)
-                .clickMessageTextFrame()
-                .keyPress_Ctrl_A()
-                .clickFontColorButton()
-                .clickBlackFontColorButton()
-                .clickMessageTextFrame()
+                .clickSendButton()
+                .verifyNoRecipientsError(TestData.sendEmailWithoutRecipientAssert)
                 .logOut();
     }
 }

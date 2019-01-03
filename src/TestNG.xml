@@ -4,8 +4,8 @@
     <test name="LoginTests">
         <classes>
             <class name="tests.login_tests_TC.InvalidPasswordTC"/>
-            <class name="tests.login_tests_TC.InvalidAccountNameTC"/>
-            <class name="tests.login_tests_TC.ValidAccountNameAndPasswordTC"/>
+            <class name="tests.login_tests_TC.InvalidLoginTC"/>
+            <class name="tests.login_tests_TC.ValidLoginAndPasswordTC"/>
             <class name="tests.login_tests_TC.GoToHelpPageTC"/>
         </classes>
     </test>
@@ -13,7 +13,7 @@
         <classes>
             <class name="tests.new_message_tests_TC.ResizePopupTC"/>
             <class name="tests.new_message_tests_TC.SaveMessageAsADraftTC"/>
-            <class name="tests.new_message_tests_TC.SendEmailWithNoRecipients"/>
+            <class name="tests.new_message_tests_TC.SendEmailWithoutRecipientTC"/>
             <class name="tests.new_message_tests_TC.SendEmailWithoutAttachment"/>
             <class name="tests.new_message_tests_TC.SendEmailWithAttachmentTC"/>
             <class name="tests.new_message_tests_TC.SendCcAndBccCopyTC"/>

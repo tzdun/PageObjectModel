@@ -3,13 +3,13 @@ package tests.login_tests_TC;
 import org.testng.annotations.Test;
 import pages.HomePage;
 import tests.BaseTestTC;
-import tests_property_managers.login_tests_PM.InvalidAccountNamePM;
+import tests_property_managers.login_tests_PM.InvalidLoginPM;
 
-public class InvalidAccountNameTC extends BaseTestTC {
+public class InvalidLoginTC extends BaseTestTC {
 
     private static class TestData {
-        private static InvalidAccountNamePM testDataPM = new InvalidAccountNamePM();
-        private static String accountName = testDataPM.getAccountName();
+        private static InvalidLoginPM testDataPM = new InvalidLoginPM();
+        private static String login = testDataPM.getLogin();
         private static String password = testDataPM.getPassword();
         private static String invalidLoginOrPasswordError = testDataPM.getInvalidLoginOrPasswordError();
     }
@@ -22,7 +22,7 @@ public class InvalidAccountNameTC extends BaseTestTC {
 
         //*************PAGE METHODS********************
         homePage.goToHomePage()
-                .enterAccountName(TestData.accountName)
+                .enterAccountName(TestData.login)
                 .enterPassword(TestData.password)
                 .acceptCookies()
                 .clickLogInWithFail()

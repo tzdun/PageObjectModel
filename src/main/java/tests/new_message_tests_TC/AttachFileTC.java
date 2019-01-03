@@ -4,11 +4,11 @@ import org.testng.annotations.Test;
 import pages.HomePage;
 import tests.BaseTestTC;
 import tests_property_managers.new_message_tests_PM.AttachFilePM;
-import tests_property_managers.login_tests_PM.ValidAccountNameAndPasswordPM;
+import tests_property_managers.login_tests_PM.ValidLoginAndPasswordPM;
 
 public class AttachFileTC extends BaseTestTC {
     private static class TestData{
-        private static ValidAccountNameAndPasswordPM loginTestDataPM = new ValidAccountNameAndPasswordPM();
+        private static ValidLoginAndPasswordPM loginTestDataPM = new ValidLoginAndPasswordPM();
         private static String accountName = loginTestDataPM.getAccountName();
         private static String password = loginTestDataPM.getPassword();
         private static String validLoginAndPasswordAssert = loginTestDataPM.getValidLoginAndPasswordAssert();

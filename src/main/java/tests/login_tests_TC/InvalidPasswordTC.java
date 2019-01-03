@@ -9,7 +9,7 @@ public class InvalidPasswordTC extends BaseTestTC {
 
     private static class TestData {
         private static InvalidPasswordPM testDataPM = new InvalidPasswordPM();
-        private static String accountName = testDataPM.getAccountName();
+        private static String login = testDataPM.getAccountName();
         private static String password = testDataPM.getPassword();
         private static String invalidLoginOrPasswordError = testDataPM.getInvalidLoginOrPasswordError();
     }
@@ -22,7 +22,7 @@ public class InvalidPasswordTC extends BaseTestTC {
 
         //*************PAGE METHODS********************
         homePage.goToHomePage()
-                .enterAccountName(TestData.accountName)
+                .enterAccountName(TestData.login)
                 .enterPassword(TestData.password)
                 .acceptCookies()
                 .clickLogInWithFail()

@@ -3,13 +3,13 @@ package tests.login_tests_TC;
 import org.testng.annotations.Test;
 import pages.HomePage;
 import tests.BaseTestTC;
-import tests_property_managers.login_tests_PM.ValidAccountNameAndPasswordPM;
+import tests_property_managers.login_tests_PM.ValidLoginAndPasswordPM;
 
-public class ValidAccountNameAndPasswordTC extends BaseTestTC {
+public class ValidLoginAndPasswordTC extends BaseTestTC {
 
     private static class TestData {
-        private static ValidAccountNameAndPasswordPM testDataPM = new ValidAccountNameAndPasswordPM();
-        private static String accountName = testDataPM.getAccountName();
+        private static ValidLoginAndPasswordPM testDataPM = new ValidLoginAndPasswordPM();
+        private static String login = testDataPM.getAccountName();
         private static String password = testDataPM.getPassword();
         private static String validLoginAndPasswordAssert = testDataPM.getValidLoginAndPasswordAssert();
     }
@@ -22,7 +22,7 @@ public class ValidAccountNameAndPasswordTC extends BaseTestTC {
 
         //*************PAGE METHODS********************
         homePage.goToHomePage()
-                .enterAccountName(TestData.accountName)
+                .enterAccountName(TestData.login)
                 .enterPassword(TestData.password)
                 .acceptCookies()
                 .clickLogInWithPass()
