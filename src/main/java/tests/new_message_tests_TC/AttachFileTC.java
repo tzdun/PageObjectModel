@@ -24,14 +24,14 @@ public class AttachFileTC extends BaseTestTC {
 
         //*************PAGE METHODS********************
         homePage.goToHomePage()
-                .enterAccountName(TestData.login)
-                .enterPassword(TestData.password)
+                .fillInLoginField(TestData.login)
+                .fillInPasswordField(TestData.password)
                 .acceptCookies()
-                .clickLogInWithPass()
-                .verifyValidLogin(TestData.validLoginAndPasswordAssert)
+                .clickLogInButtonWithPass()
+                .verifyValidLoginAndPassword(TestData.validLoginAndPasswordAssert)
                 .clickNewMessageButton()
                 .clickAttachFileButton(TestData.pathToFile)
-                .verifyAttachmentsAdded(TestData.attachFileAssert)
+                .verifyAttachFile(TestData.attachFileAssert)
                 .logOut();
     }
 }

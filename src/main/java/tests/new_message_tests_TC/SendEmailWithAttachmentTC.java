@@ -29,17 +29,17 @@ public class SendEmailWithAttachmentTC extends BaseTestTC {
 
         //*************PAGE METHODS********************
         homePage.goToHomePage()
-                .enterAccountName(TestData.login)
-                .enterPassword(TestData.password)
+                .fillInLoginField(TestData.login)
+                .fillInPasswordField(TestData.password)
                 .acceptCookies()
-                .clickLogInWithPass()
-                .verifyValidLogin(TestData.validLoginAndPasswordAssert)
+                .clickLogInButtonWithPass()
+                .verifyValidLoginAndPassword(TestData.validLoginAndPasswordAssert)
                 .clickNewMessageButton()
                 .enterMessageToField(TestData.messageTo)
                 .enterMessageSubjectField(TestData.messageSubject)
-                .enterMessageTextAreaField(TestData.messageText)
+                .fillInMessageTextArea(TestData.messageText)
                 .clickAttachFileButton(TestData.canonicalAttachmentPath)
-                .verifyAttachmentsAdded(TestData.attachFileAssert)
+                .verifyAttachFile(TestData.attachFileAssert)
                 .clickSendButton()
                 .verifyMessageSent(TestData.sendEmailWithAttachmentAssert)
                 .logOut();

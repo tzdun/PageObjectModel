@@ -27,15 +27,15 @@ public class SendEmailWithoutAttachmentTC extends BaseTestTC {
 
         //*************PAGE METHODS********************
         homePage.goToHomePage()
-                .enterAccountName(TestData.login)
-                .enterPassword(TestData.password)
+                .fillInLoginField(TestData.login)
+                .fillInPasswordField(TestData.password)
                 .acceptCookies()
-                .clickLogInWithPass()
-                .verifyValidLogin(TestData.validLoginAndPasswordAssert)
+                .clickLogInButtonWithPass()
+                .verifyValidLoginAndPassword(TestData.validLoginAndPasswordAssert)
                 .clickNewMessageButton()
                 .enterMessageToField(TestData.messageTo)
                 .enterMessageSubjectField(TestData.messageSubject)
-                .enterMessageTextAreaField(TestData.messageText)
+                .fillInMessageTextArea(TestData.messageText)
                 .clickSendButton()
                 .verifyMessageSent(TestData.sendEmailWithoutAttachmentAssert)
                 .logOut();

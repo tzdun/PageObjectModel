@@ -23,7 +23,7 @@ public class InboxPage extends BasePage {
     }
 
     // Verify Valid Login
-    public InboxPage verifyValidLogin(String expectedText) {
+    public InboxPage verifyValidLoginAndPassword(String expectedText) {
         try {
             Assert.assertEquals(driver.findElement(validLoginBy).getText(), expectedText);
         } catch (AssertionError e) {

@@ -47,14 +47,14 @@ public class HomePage extends BasePage {
     }
 
     //Input Account Name
-    public HomePage enterAccountName(String accountName) {
+    public HomePage fillInLoginField(String accountName) {
         //Enter Account Name
         writeText(myAccountNameInputBy, accountName);
         return this;
     }
 
     //Input Password
-    public HomePage enterPassword(String password) {
+    public HomePage fillInPasswordField(String password) {
         //Enter Password
         writeText(passwordInputBy, password);
         return this;
@@ -75,7 +75,7 @@ public class HomePage extends BasePage {
     }
 
     //Log In Successful
-    public InboxPage clickLogInWithPass() {
+    public InboxPage clickLogInButtonWithPass() {
         //Click Login Button
         click(logInButtonBy);
         return new InboxPage(driver);

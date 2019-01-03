@@ -83,7 +83,7 @@ public class NewMessagePopupPage extends BasePage {
     }
 
     // Enter Message Text Area Field
-    public NewMessagePopupPage enterMessageTextAreaField(String messageText) {
+    public NewMessagePopupPage fillInMessageTextArea(String messageText) {
         waitVisibility(messageTextFrameBy);
         driver.switchTo().frame(driver.findElement(messageTextFrameBy));
         By messageTextAreaBy = By.xpath("//body");
@@ -139,7 +139,7 @@ public class NewMessagePopupPage extends BasePage {
     }
 
     // Verify Attachment Added
-    public NewMessagePopupPage verifyAttachmentsAdded(String expectedText) {
+    public NewMessagePopupPage verifyAttachFile(String expectedText) {
         waitVisibility(attachmentsAddedInfoBy);
         try {
             assertEquals(attachmentsAddedInfoBy, expectedText);
@@ -332,7 +332,7 @@ public class NewMessagePopupPage extends BasePage {
     }
 
     // Click List And Alignment Text Button
-    public NewMessagePopupPage clickListAndAlignmentTextButton() {
+    public NewMessagePopupPage clickListAndAlignTextButton() {
         click(listAndAlignmentTextButtonBy);
         return this;
     }
@@ -350,19 +350,19 @@ public class NewMessagePopupPage extends BasePage {
     }
 
     // Click Left Alignment Option
-    public NewMessagePopupPage clickLeftAlignmentOption() {
+    public NewMessagePopupPage clickLeftAlignOption() {
         click(leftAlignmentBy);
         return this;
     }
 
     // Click Center Alignment Option
-    public NewMessagePopupPage clickCenterAlignmentOption() {
+    public NewMessagePopupPage clickCenterAlignOption() {
         click(centerAlignmentBy);
         return this;
     }
 
     // Click Right Alignment Option
-    public NewMessagePopupPage clickRightAlignmentOption() {
+    public NewMessagePopupPage clickRightAlignOption() {
         click(rightAlignmentBy);
         return this;
     }
@@ -415,7 +415,7 @@ public class NewMessagePopupPage extends BasePage {
     }
 
     // Verify Text Is Bold
-    public NewMessagePopupPage verifyTextIsBold(String expectedText) {
+    public NewMessagePopupPage verifyBoldFont(String expectedText) {
         waitVisibility(messageTextFrameBy);
         driver.switchTo().frame(driver.findElement(messageTextFrameBy));
         By messageTextAreaBy = By.xpath("//*[contains(text(),'Czcionka')]");
@@ -430,7 +430,7 @@ public class NewMessagePopupPage extends BasePage {
     }
 
     // Verify Text Is Italic
-    public NewMessagePopupPage verifyTextIsItalic(String expectedText) {
+    public NewMessagePopupPage verifyItalicFont(String expectedText) {
         waitVisibility(messageTextFrameBy);
         driver.switchTo().frame(driver.findElement(messageTextFrameBy));
         By messageTextAreaBy = By.xpath("//*[contains(text(),'Czcionka')]");
@@ -445,7 +445,7 @@ public class NewMessagePopupPage extends BasePage {
     }
 
     // Verify Text Font Style
-    public NewMessagePopupPage verifyTextFontStyle(String expectedText) {
+    public NewMessagePopupPage verifyTextFontColorAndStyle(String expectedText) {
         waitVisibility(messageTextFrameBy);
         driver.switchTo().frame(driver.findElement(messageTextFrameBy));
         By messageTextAreaBy = By.xpath("//*[contains(text(),'Czcionka')]");

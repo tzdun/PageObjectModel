@@ -13,7 +13,7 @@ public class ItalicFontTC extends BaseTestTC {
         private static String password = validLoginAndPasswordPM.getPassword();
         private static String validLoginAndPasswordAssert = validLoginAndPasswordPM.getValidLoginAndPasswordAssert();
         private static ItalicFontPM italicFontPM = new ItalicFontPM();
-        private static String textAreaFieldMessage = italicFontPM.getTextAreaFieldMessage();
+        private static String messageTextArea = italicFontPM.getTextAreaFieldMessage();
         private static String italicFontAssert = italicFontPM.getItalicFontAssert();
     }
 
@@ -25,17 +25,17 @@ public class ItalicFontTC extends BaseTestTC {
 
         //*************PAGE METHODS********************
         homePage.goToHomePage()
-                .enterAccountName(TestData.login)
-                .enterPassword(TestData.password)
+                .fillInLoginField(TestData.login)
+                .fillInPasswordField(TestData.password)
                 .acceptCookies()
-                .clickLogInWithPass()
-                .verifyValidLogin(TestData.validLoginAndPasswordAssert)
+                .clickLogInButtonWithPass()
+                .verifyValidLoginAndPassword(TestData.validLoginAndPasswordAssert)
                 .clickNewMessageButton()
-                .enterMessageTextAreaField(TestData.textAreaFieldMessage)
+                .fillInMessageTextArea(TestData.messageTextArea)
                 .keyPress_Ctrl_A()
                 .clickItalicButton()
                 .clickMessageTextFrame()
-                .verifyTextIsItalic(TestData.italicFontAssert)
+                .verifyItalicFont(TestData.italicFontAssert)
                 .clickMessageTextFrame()
                 .keyPress_Ctrl_A()
                 .clickItalicButton()
