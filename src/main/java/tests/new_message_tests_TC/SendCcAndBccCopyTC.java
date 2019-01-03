@@ -1,0 +1,53 @@
+package tests.new_message_tests_TC;
+
+import org.testng.annotations.Test;
+import pages.HomePage;
+import tests.BaseTestTC;
+import tests_property_managers.login_tests_PM.ValidAccountNameAndPasswordPM;
+import tests_property_managers.new_message_tests_PM.SendCcAndBccCopyPM;
+
+public class SendCcAndBccCopyTC extends BaseTestTC {
+    private static class TestData {
+        private static ValidAccountNameAndPasswordPM loginTestDataPM = new ValidAccountNameAndPasswordPM();
+        private static String accountName = loginTestDataPM.getAccountName();
+        private static String password = loginTestDataPM.getPassword();
+        private static String validLoginAndPasswordAssert = loginTestDataPM.getValidLoginAndPasswordAssert();
+        private static SendCcAndBccCopyPM sendCcAndBccEmailPM = new SendCcAndBccCopyPM();
+        private static String messageTo = sendCcAndBccEmailPM.getMessageTo();
+        private static String ccMessageTo = sendCcAndBccEmailPM.getCcMessageTo();
+        private static String bccMessageTo = sendCcAndBccEmailPM.getBccMessageTo();
+        private static String messageSubject = sendCcAndBccEmailPM.getMessageSubject();
+        private static String messageText = sendCcAndBccEmailPM.getMessageText();
+        private static String canonicalAttachmentPath = sendCcAndBccEmailPM.getCanonicalAttachmentPath();
+        private static String attachFileAssert = sendCcAndBccEmailPM.getAttachFileAssert();
+        private static String sendCcAndBccCopyAssert = sendCcAndBccEmailPM.getSendCcAndBccCopyAssert();
+    }
+
+    @Test(priority = 1)
+    public void sendCcAndBccEmail() {
+
+        //*************PAGE INSTANTIATIONS*************
+        HomePage homePage = new HomePage(driver);
+
+        //*************PAGE METHODS********************
+        homePage.goToHomePage()
+                .enterAccountName(TestData.accountName)
+                .enterPassword(TestData.password)
+                .acceptCookies()
+                .clickLogInWithPass()
+                .verifyValidLogin(TestData.validLoginAndPasswordAssert)
+                .clickNewMessageButton()
+                .enterMessageToField(TestData.messageTo)
+                .clickCCButton()
+                .enterCCInputField(TestData.ccMessageTo)
+                .clickBCCButton()
+                .enterBCCInputField(TestData.bccMessageTo)
+                .enterMessageSubjectField(TestData.messageSubject)
+                .enterMessageTextAreaField(TestData.messageText)
+                .clickAttachFileButton(TestData.canonicalAttachmentPath)
+                .verifyAttachmentsAdded(TestData.attachFileAssert)
+                .clickSendButton()
+                .verifyMessageSent(TestData.sendCcAndBccCopyAssert)
+                .logOut();
+    }
+}

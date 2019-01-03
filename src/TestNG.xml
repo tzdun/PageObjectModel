@@ -16,7 +16,7 @@
             <class name="tests.new_message_tests_TC.SendEmailWithNoRecipients"/>
             <class name="tests.new_message_tests_TC.SendEmailWithoutAttachment"/>
             <class name="tests.new_message_tests_TC.SendEmailWithAttachmentTC"/>
-            <class name="tests.new_message_tests_TC.SendEmailWithCCandBCC"/>
+            <class name="tests.new_message_tests_TC.SendCcAndBccCopyTC"/>
             <class name="tests.new_message_tests_TC.AlignTextTC"/>
             <class name="tests.new_message_tests_TC.BoldFontTC"/>
             <class name="tests.new_message_tests_TC.FontColorTC"/>

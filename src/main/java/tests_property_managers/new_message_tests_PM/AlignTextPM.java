@@ -2,14 +2,14 @@ package tests_property_managers.new_message_tests_PM;
 
 import tests_property_managers.BasePropertyManager;
 
-public class AlignmentTextPM extends BasePropertyManager {
+public class AlignTextPM extends BasePropertyManager {
     private static final String propertyFilePath = "src/main/resources/new_message_tests_properties/alignText";
     private String textAreaFieldMessage;
     private String leftAlignAssert;
     private String centerAlignAssert;
     private String rightAlignAssert;
 
-    public AlignmentTextPM() {
+    public AlignTextPM() {
         super(propertyFilePath);
         textAreaFieldMessage = getProperties().getProperty("textAreaFieldMessage");
         leftAlignAssert = getProperties().getProperty("leftAlignAssert");

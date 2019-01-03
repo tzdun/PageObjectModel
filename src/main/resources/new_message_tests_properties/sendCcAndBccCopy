@@ -1,0 +1,8 @@
+messageTo=login.testowy@int.pl
+ccMessageTo=login.testowy@int.pl
+bccMessageTo=login.testowy@int.pl
+messageSubject=Temat wiadomo\u015Bci
+messageText=Tre\u015B\u0107 wiadomo\u015Bci
+relativeAttachmentPath=src/main/resources/images/image.png
+attachFileAssert=Za\u0142\u0105czniki zosta\u0142y dodane.
+sendCcAndBccCopyAssert=Wiadomo\u015B\u0107 wys\u0142ana

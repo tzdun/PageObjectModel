@@ -4,7 +4,7 @@ import org.testng.annotations.Test;
 import pages.HomePage;
 import tests.BaseTestTC;
 import tests_property_managers.login_tests_PM.ValidAccountNameAndPasswordPM;
-import tests_property_managers.new_message_tests_PM.AlignmentTextPM;
+import tests_property_managers.new_message_tests_PM.AlignTextPM;
 
 public class AlignTextTC extends BaseTestTC {
 
@@ -13,7 +13,7 @@ public class AlignTextTC extends BaseTestTC {
         private static String accountName = loginTestDataPM.getAccountName();
         private static String password = loginTestDataPM.getPassword();
         private static String validLoginAndPasswordAssert = loginTestDataPM.getValidLoginAndPasswordAssert();
-        private static AlignmentTextPM alignmentTextTestDataPM = new AlignmentTextPM();
+        private static AlignTextPM alignmentTextTestDataPM = new AlignTextPM();
         private static String textAreaFieldMessage = alignmentTextTestDataPM.getTextAreaFieldMessage();
         private static String leftAlignAssert = alignmentTextTestDataPM.getLeftAlignAssert();
         private static String centerAlignAssert = alignmentTextTestDataPM.getCenterAlignAssert();
