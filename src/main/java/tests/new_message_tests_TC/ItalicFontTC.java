@@ -17,7 +17,7 @@ public class ItalicFontTC extends BaseTestTC {
         private static String italicFontAssert = italicFontTestDataPM.getItalicFontAssert();
     }
     @Test (priority = 1)
-    public void italicText() {
+    public void italicFont() {
 
         //*************PAGE INSTANTIATIONS*************
         HomePage homePage = new HomePage(driver);

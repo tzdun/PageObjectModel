@@ -18,7 +18,7 @@ public class BoldFontTC extends BaseTestTC {
     }
 
     @Test(priority = 1)
-    public void boldText() {
+    public void boldFont() {
 
         //*************PAGE INSTANTIATIONS*************
         HomePage homePage = new HomePage(driver);

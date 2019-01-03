@@ -20,7 +20,7 @@ public class AlignTextTC extends BaseTestTC {
         private static String rightAlignAssert = alignmentTextTestDataPM.getRightAlignAssert();
     }
     @Test (priority = 1)
-    public void alignmentText() {
+    public void alignText() {
 
         //*************PAGE INSTANTIATIONS*************
         HomePage homePage = new HomePage(driver);

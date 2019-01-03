@@ -1,2 +1,2 @@
-relativePathToImage=src/main/resources/images/image.png
+relativeImagePath=src/main/resources/images/image.png
 insertImageAssert=Za\u0142\u0105czniki zosta\u0142y dodane.

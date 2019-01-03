@@ -3,7 +3,7 @@ package tests_property_managers.new_message_tests_PM;
 import tests_property_managers.BasePropertyManager;
 
 public class UnderlineFontPM extends BasePropertyManager {
-    private static final String propertyFilePath = "src/main/resources/new_message_tests_properties/underlineFont.properties";
+    private static final String propertyFilePath = "src/main/resources/new_message_tests_properties/underlineFont";
     private String textAreaFieldMessage;
     private String underlineFontAssert;
 

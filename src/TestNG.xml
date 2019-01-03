@@ -11,8 +11,8 @@
     </test>
     <test name="NewMessageTests">
         <classes>
-            <class name="tests.new_message_tests_TC.ResizeNewMessagePopupTC"/>
-            <class name="tests.new_message_tests_TC.SaveMessageAsADraft"/>
+            <class name="tests.new_message_tests_TC.ResizePopupTC"/>
+            <class name="tests.new_message_tests_TC.SaveMessageAsADraftTC"/>
             <class name="tests.new_message_tests_TC.SendEmailWithNoRecipients"/>
             <class name="tests.new_message_tests_TC.SendEmailWithoutAttachment"/>
             <class name="tests.new_message_tests_TC.SendEmailWithAttachment"/>

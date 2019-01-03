@@ -3,7 +3,7 @@ package tests_property_managers.new_message_tests_PM;
 import tests_property_managers.BasePropertyManager;
 
 public class FontStylePM extends BasePropertyManager {
-    private static final String propertyFilePath = "src/main/resources/new_message_tests_properties/fontStyle.properties";
+    private static final String propertyFilePath = "src/main/resources/new_message_tests_properties/fontStyle";
     private String textAreaFieldMessage;
     private String fontStyleAssert;
 

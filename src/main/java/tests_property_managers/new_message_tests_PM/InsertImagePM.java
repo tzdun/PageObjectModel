@@ -6,14 +6,14 @@ import java.io.File;
 import java.io.IOException;
 
 public class InsertImagePM extends BasePropertyManager {
-    private static final String propertyFilePath = "src/main/resources/new_message_tests_properties/insertImage.properties";
-    private String relativePathToImage;
-    private String canonicalPathToImage;
+    private static final String propertyFilePath = "src/main/resources/new_message_tests_properties/insertImage";
+    private String relativeImagePath;
+    private String canonicalImagePath;
     private String insertImageAssert;
 
     public InsertImagePM() {
         super(propertyFilePath);
-        relativePathToImage = getProperties().getProperty("relativePathToImage");
+        relativeImagePath = getProperties().getProperty("relativeImagePath");
         insertImageAssert = getProperties().getProperty("insertImageAssert");
     }
 
@@ -25,17 +25,17 @@ public class InsertImagePM extends BasePropertyManager {
         return insertImageAssert;
     }
 
-    public void setCanonicalPathToImage(String relativePathToImage) throws IOException {
+    public void setCanonicalImagePath(String relativePathToImage) throws IOException {
         String canonicalPathToImage = new File(relativePathToImage).getCanonicalPath();
-        this.canonicalPathToImage = canonicalPathToImage;
+        this.canonicalImagePath = canonicalPathToImage;
     }
 
-    public String getCanonicalPathToImage(){
+    public String getCanonicalImagePath(){
         try {
-            setCanonicalPathToImage(this.relativePathToImage);
+            setCanonicalImagePath(this.relativeImagePath);
         } catch (IOException e) {
             e.printStackTrace();
         }
-        return canonicalPathToImage;
+        return canonicalImagePath;
     }
 }

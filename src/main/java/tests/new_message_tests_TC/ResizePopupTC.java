@@ -4,23 +4,23 @@ import org.testng.annotations.Test;
 import pages.HomePage;
 import tests.BaseTestTC;
 import tests_property_managers.login_tests_PM.ValidAccountNameAndPasswordPM;
-import tests_property_managers.new_message_tests_PM.ResizeNewMessagePopupPM;
+import tests_property_managers.new_message_tests_PM.ResizePopupPM;
 
-public class ResizeNewMessagePopupTC extends BaseTestTC {
+public class ResizePopupTC extends BaseTestTC {
     private static class TestData {
         private static ValidAccountNameAndPasswordPM loginTestDataPM = new ValidAccountNameAndPasswordPM();
         private static String accountName = loginTestDataPM.getAccountName();
         private static String password = loginTestDataPM.getPassword();
         private static String validLoginAndPasswordAssert = loginTestDataPM.getValidLoginAndPasswordAssert();
-        private static ResizeNewMessagePopupPM resizeNewMessagePopupTestDataPM = new ResizeNewMessagePopupPM();
-        private static String minAssert = resizeNewMessagePopupTestDataPM.getMinAssert();
-        private static String maxAssert = resizeNewMessagePopupTestDataPM.getMaxAssert();
-        private static String resMinAssert = resizeNewMessagePopupTestDataPM.getResMinAssert();
-        private static String resMaxAssert = resizeNewMessagePopupTestDataPM.getResMaxAssert();
+        private static ResizePopupPM resizePopupPM = new ResizePopupPM();
+        private static String minAssert = resizePopupPM.getMinAssert();
+        private static String maxAssert = resizePopupPM.getMaxAssert();
+        private static String resMinAssert = resizePopupPM.getResMinAssert();
+        private static String resMaxAssert = resizePopupPM.getResMaxAssert();
     }
 
     @Test (priority = 1)
-    public void resizeNewMessagePopup() {
+    public void resizePopup() {
 
         //*************PAGE INSTANTIATIONS*************
         HomePage homePage = new HomePage(driver);

@@ -13,12 +13,12 @@ public class InsertImageTC extends BaseTestTC {
         private static String password = loginTestDataPM.getPassword();
         private static String validLoginAndPasswordAssert = loginTestDataPM.getValidLoginAndPasswordAssert();
         private static InsertImagePM insertImageTestDataPM = new InsertImagePM();
-        private static String canonicalPathToImage = insertImageTestDataPM.getCanonicalPathToImage();
+        private static String canonicalPathToImage = insertImageTestDataPM.getCanonicalImagePath();
         private static String insertImageAssert = insertImageTestDataPM.getInsertImageAssert();
 
     }
     @Test(priority = 1)
-    public void mailContentInsertImage() {
+    public void insertImage() {
 
         //*************PAGE INSTANTIATIONS*************
         HomePage homePage = new HomePage(driver);

@@ -17,7 +17,7 @@ public class FontColorTC extends BaseTestTC {
         private static String fontColorAssert = colorTextTestDataPM.getFontColorAssert();
     }
     @Test (priority = 1)
-    public void colorText() {
+    public void fontColor() {
 
         //*************PAGE INSTANTIATIONS*************
         HomePage homePage = new HomePage(driver);
