@@ -13,7 +13,7 @@ public class AttachFileTC extends BaseTestTC {
         private static String password = validLoginAndPasswordPM.getPassword();
         private static String validLoginAndPasswordAssert = validLoginAndPasswordPM.getValidLoginAndPasswordAssert();
         private static AttachFilePM attachFilePM = new AttachFilePM();
-        private static String pathToFile = attachFilePM.getPathToFile();
+        private static String attachFilePath = attachFilePM.getAttachFilePath();
         private static String attachFileAssert = attachFilePM.getAttachFileAssert();
     }
     @Test (priority = 1)
@@ -30,7 +30,7 @@ public class AttachFileTC extends BaseTestTC {
                 .clickLogInButtonWithPass()
                 .verifyValidLoginAndPassword(TestData.validLoginAndPasswordAssert)
                 .clickNewMessageButton()
-                .clickAttachFileButton(TestData.pathToFile)
+                .clickAttachFileButton(TestData.attachFilePath)
                 .verifyAttachFile(TestData.attachFileAssert)
                 .logOut();
     }

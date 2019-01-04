@@ -11,15 +11,15 @@ import java.io.IOException;
 
 public class BaseTestTC {
     public WebDriver driver;
-    private String propertyPathFile = "src/main/resources/webDriver/webDriverSettings";
+    private String propertyFilePath = "src/main/resources/webDriver/webDriverSettings";
     private String chromeDriver;
-    private String pathToChromeDriver;
+    private String chromeDriverFilePath;
 
     @BeforeMethod
     public void setup () {
         //Create a Chrome driver. All test classes use this.
-        setWebDriverProperty(this.propertyPathFile);
-        System.setProperty(chromeDriver,pathToChromeDriver);
+        setWebDriverProperty(this.propertyFilePath);
+        System.setProperty(chromeDriver, chromeDriverFilePath);
         driver = new ChromeDriver();
 
         //Maximize Window
@@ -35,16 +35,16 @@ public class BaseTestTC {
     public void setWebDriverProperty(String propertyPathFile){
         BasePropertyManager basePropertyManager = new BasePropertyManager(propertyPathFile);
         setChromeDriver(basePropertyManager.getProperties().getProperty("chromeDriver"));
-        setPathToChromeDriver(basePropertyManager.getProperties().getProperty("pathToChromeDriver"));
+        setChromeDriverFilePath(basePropertyManager.getProperties().getProperty("chromeDriverFilePath"));
     }
 
     public void setChromeDriver(String chromeDriver) {
         this.chromeDriver = chromeDriver;
     }
 
-    public void setPathToChromeDriver(String pathToChromeDriver){
+    public void setChromeDriverFilePath(String chromeDriverFilePath){
         try {
-            this.pathToChromeDriver = new File(pathToChromeDriver).getCanonicalPath();
+            this.chromeDriverFilePath = new File(chromeDriverFilePath).getCanonicalPath();
         } catch (IOException e) {
             e.printStackTrace();
         }
