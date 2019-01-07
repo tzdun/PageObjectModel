@@ -8,6 +8,7 @@ import tests_property_managers.BasePropertyManager;
 
 import java.io.File;
 import java.io.IOException;
+import java.lang.reflect.Method;
 
 public class BaseTestTC {
     public WebDriver driver;
@@ -16,7 +17,8 @@ public class BaseTestTC {
     private String chromeDriverFilePath;
 
     @BeforeMethod
-    public void setup () {
+    public void setup (Method testMethod) {
+        System.out.println("Setup for TC method: " + testMethod.getName() + ".");
         //Create a Chrome driver. All test classes use this.
         setWebDriverProperty(this.propertyFilePath);
         System.setProperty(chromeDriver, chromeDriverFilePath);
@@ -24,12 +26,14 @@ public class BaseTestTC {
 
         //Maximize Window
         driver.manage().window().maximize();
+        System.out.println("Setup is done.");
     }
 
     @AfterMethod
-    public void teardown () {
+    public void teardown (Method testMethod) {
         driver.quit();
-        System.out.println("Koniec testu...");
+        System.out.println("TC method: " + testMethod.getName() + " is finished.");
+        System.out.println("------------------------------------------------------");
     }
 
     public void setWebDriverProperty(String propertyPathFile){

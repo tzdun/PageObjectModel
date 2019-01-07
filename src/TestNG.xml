@@ -11,11 +11,11 @@
     </test>
     <test name="NewMessageTests">
         <classes>
+            <class name="tests.new_message_tests_TC.SendEmailWithAttachmentTC"/>
             <class name="tests.new_message_tests_TC.ResizePopupTC"/>
             <class name="tests.new_message_tests_TC.SaveMessageAsADraftTC"/>
             <class name="tests.new_message_tests_TC.SendEmailWithoutRecipientTC"/>
             <class name="tests.new_message_tests_TC.SendEmailWithoutAttachmentTC"/>
-            <class name="tests.new_message_tests_TC.SendEmailWithAttachmentTC"/>
             <class name="tests.new_message_tests_TC.SendCcAndBccCopyTC"/>
             <class name="tests.new_message_tests_TC.AlignTextTC"/>
             <class name="tests.new_message_tests_TC.BoldFontTC"/>
