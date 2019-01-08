@@ -18,7 +18,8 @@ public class BaseTestTC {
 
     @BeforeMethod
     public void setup (Method testMethod) {
-        System.out.println("Setup for TC method: " + testMethod.getName() + ".");
+        System.out.println("Starting TC: " + testMethod.getDeclaringClass().getSimpleName() + "...");
+        System.out.println("Setup...");
         //Create a Chrome driver. All test classes use this.
         setWebDriverProperty(this.propertyFilePath);
         System.setProperty(chromeDriver, chromeDriverFilePath);
@@ -27,13 +28,14 @@ public class BaseTestTC {
         //Maximize Window
         driver.manage().window().maximize();
         System.out.println("Setup is done.");
+        System.out.println("Doing TC...");
     }
 
     @AfterMethod
     public void teardown (Method testMethod) {
         driver.quit();
-        System.out.println("TC method: " + testMethod.getName() + " is finished.");
-        System.out.println("------------------------------------------------------");
+        System.out.println("TC " + testMethod.getDeclaringClass().getSimpleName() + " is finished.");
+        System.out.println("-------------------------------------------------------");
     }
 
     public void setWebDriverProperty(String propertyPathFile){

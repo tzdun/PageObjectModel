@@ -29,13 +29,13 @@ public class BasePage {
 
     //Wait Wrapper Method
     public void waitVisibility(By elementBy) {
-            try {
-                wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(elementBy));
-             } catch(Exception e) {
-                System.out.println("Error: czekam na element: " + elementBy);
-                e.printStackTrace();
-                printScreen(driver);
-            }
+        try {
+            wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(elementBy));
+        } catch(Exception e) {
+            System.out.println("Error: czekam na element: " + elementBy);
+            e.printStackTrace();
+            printScreen(driver);
+        }
     }
 
     //Click Method
@@ -60,6 +60,7 @@ public class BasePage {
 
     //LogOut
     public HomePage logOut() {
+        System.out.println("step: " + Thread.currentThread().getStackTrace()[1].getMethodName());
         waitVisibility(contactPanelExpandButtonBy);
         click(contactPanelExpandButtonBy);
         waitVisibility(logoutButtonBy);

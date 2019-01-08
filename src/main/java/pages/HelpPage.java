@@ -32,6 +32,7 @@ public class HelpPage extends BasePage{
 
     // Verify Help Page
     public HelpPage verifyHelpPage(String expectedText){
+        System.out.println("step: " + Thread.currentThread().getStackTrace()[1].getMethodName());
         waitVisibility(logInButton);
         try {
             Assert.assertEquals(driver.findElement(titleBy).getAttribute("innerText"), expectedText);

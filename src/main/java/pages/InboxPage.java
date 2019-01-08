@@ -18,12 +18,14 @@ public class InboxPage extends BasePage {
     // *********Page Methods*********
     // Click New Message
     public NewMessagePopupPage clickNewMessageButton() {
+        System.out.println("step: " + Thread.currentThread().getStackTrace()[1].getMethodName());
         click(newEmailBy);
         return new NewMessagePopupPage(driver);
     }
 
     // Verify Valid Login
     public InboxPage verifyValidLoginAndPassword(String expectedText) {
+        System.out.println("step: " + Thread.currentThread().getStackTrace()[1].getMethodName());
         try {
             Assert.assertEquals(driver.findElement(validLoginBy).getText(), expectedText);
         } catch (AssertionError e) {

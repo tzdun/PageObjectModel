@@ -60,30 +60,35 @@ public class NewMessagePopupPage extends BasePage {
     // *********Page Methods*********
     // Enter Message To Input Field
     public NewMessagePopupPage enterMessageToField(String messageTo) {
+        System.out.println("step: " + Thread.currentThread().getStackTrace()[1].getMethodName());
         writeText(messageToInputBy, messageTo);
         return this;
     }
 
     // Enter CC Input Field
     public NewMessagePopupPage enterCCInputField(String ccRecipient) {
+        System.out.println("step: " + Thread.currentThread().getStackTrace()[1].getMethodName());
         writeText(ccInputBy, ccRecipient);
         return this;
     }
 
     // Enter BCC Input Field
     public NewMessagePopupPage enterBCCInputField(String bccRecipient) {
+        System.out.println("step: " + Thread.currentThread().getStackTrace()[1].getMethodName());
         writeText(bccInputBy, bccRecipient);
         return this;
     }
 
     // Enter Message Subject Input Field
     public NewMessagePopupPage enterMessageSubjectField(String messageSubject) {
+        System.out.println("step: " + Thread.currentThread().getStackTrace()[1].getMethodName());
         writeText(messageSubjectInputBy, messageSubject);
         return this;
     }
 
     // Enter Message Text Area Field
     public NewMessagePopupPage fillInMessageTextArea(String messageText) {
+        System.out.println("step: " + Thread.currentThread().getStackTrace()[1].getMethodName());
         waitVisibility(messageTextFrameBy);
         driver.switchTo().frame(driver.findElement(messageTextFrameBy));
         By messageTextAreaBy = By.xpath("//body");
@@ -94,6 +99,7 @@ public class NewMessagePopupPage extends BasePage {
 
     // Click Send Button
     public NewMessagePopupPage clickSendButton() {
+        System.out.println("step: " + Thread.currentThread().getStackTrace()[1].getMethodName());
         click(sendMessageButtonBy);
         return this;
     }
@@ -101,6 +107,7 @@ public class NewMessagePopupPage extends BasePage {
     // Click Attach File Button
     public NewMessagePopupPage
     clickAttachFileButton(String pathToLocalFile) {
+        System.out.println("step: " + Thread.currentThread().getStackTrace()[1].getMethodName());
         click(attachFileButtonBy);
         try {
             Thread.sleep(10000);
@@ -124,6 +131,7 @@ public class NewMessagePopupPage extends BasePage {
 
     // KeyPress Ctrl + A
     public NewMessagePopupPage keyPress_Ctrl_A() {
+        System.out.println("step: " + Thread.currentThread().getStackTrace()[1].getMethodName());
         waitVisibility(messageTextFrameBy);
         driver.switchTo().frame(driver.findElement(messageTextFrameBy));
         By messageTextAreaBy = By.xpath("//body");
@@ -134,12 +142,14 @@ public class NewMessagePopupPage extends BasePage {
 
     // Click Close Button
     public InboxPage clickCloseNewMessagePopupButton() {
+        System.out.println("step: " + Thread.currentThread().getStackTrace()[1].getMethodName());
         click(closeNewMessagePopupButtonBy);
         return new InboxPage(driver);
     }
 
     // Verify Attachment Added
     public NewMessagePopupPage verifyAttachFile(String expectedText) {
+        System.out.println("step: " + Thread.currentThread().getStackTrace()[1].getMethodName());
         waitVisibility(attachmentsAddedInfoBy);
         try {
             assertEquals(attachmentsAddedInfoBy, expectedText);
@@ -152,6 +162,7 @@ public class NewMessagePopupPage extends BasePage {
 
     // Verify Message Sent
     public NewMessagePopupPage verifyMessageSent(String expectedText) {
+        System.out.println("step: " + Thread.currentThread().getStackTrace()[1].getMethodName());
         waitVisibility(messageSentInfoBy);
         try {
             assertEquals(messageSentInfoBy, expectedText);
@@ -164,6 +175,7 @@ public class NewMessagePopupPage extends BasePage {
 
     // Verify No Recipients Error
     public NewMessagePopupPage verifyNoRecipientsError(String expectedText) {
+        System.out.println("step: " + Thread.currentThread().getStackTrace()[1].getMethodName());
         waitVisibility(errorMessageInfoBy);
         try {
             assertEquals(errorMessageInfoBy, expectedText);
@@ -176,6 +188,7 @@ public class NewMessagePopupPage extends BasePage {
 
     // Verify Message Saved As A Draft
     public NewMessagePopupPage verifyMessageSavedAsADraft(String expectedText) {
+        System.out.println("step: " + Thread.currentThread().getStackTrace()[1].getMethodName());
         waitVisibility(messageSavedAsADraftInfoBy);
         try {
             assertEquals(messageSavedAsADraftInfoBy, expectedText);
@@ -188,54 +201,63 @@ public class NewMessagePopupPage extends BasePage {
 
     // Click Message Options Button
     public NewMessagePopupPage clickMessageOptionsButton() {
+        System.out.println("step: " + Thread.currentThread().getStackTrace()[1].getMethodName());
         click(messageOptionsButtonBy);
         return this;
     }
 
     // Click Save Message As A Draft Button
     public NewMessagePopupPage clickSaveMessageAsADraftButton() {
+        System.out.println("step: " + Thread.currentThread().getStackTrace()[1].getMethodName());
         click(saveMessageAsADraftButtonBy);
         return this;
     }
 
     // Click Min Message Popup Button
     public NewMessagePopupPage clickMinMessagePopupButton() {
+        System.out.println("step: " + Thread.currentThread().getStackTrace()[1].getMethodName());
         click(minMessagePopupButtonBy);
         return this;
     }
 
     // Click Max Message Popup Button
     public NewMessagePopupPage clickMaxMessagePopupButton() {
+        System.out.println("step: " + Thread.currentThread().getStackTrace()[1].getMethodName());
         click(maxMessagePopupButtonBy);
         return this;
     }
 
     // Click Close Max Message Popup Button
     public NewMessagePopupPage clickCloseMaxMessagePopupButton() {
+        System.out.println("step: " + Thread.currentThread().getStackTrace()[1].getMethodName());
         click(closeMaxMessagePopupButtonBy);
         return this;
     }
 
     // Click Res Min Message Popup Button
     public NewMessagePopupPage clickResMinMessagePopupButton() {
+        System.out.println("step: " + Thread.currentThread().getStackTrace()[1].getMethodName());
         click(resMinMessagePopupButtonBy);
         return this;
     }
 
     // Click CC Message Button
     public NewMessagePopupPage clickCCButton() {
+        System.out.println("step: " + Thread.currentThread().getStackTrace()[1].getMethodName());
         click(ccButtonBy);
         return this;
     }
 
     // Click BCC Message Button
     public NewMessagePopupPage clickBCCButton() {
+        System.out.println("step: " + Thread.currentThread().getStackTrace()[1].getMethodName());
         click(bccButtonBy);
         return this;
     }
 
     // Verify Message Popup Is Max
     public NewMessagePopupPage verifyMessagePopupIsMax(String expectedText) {
+        System.out.println("step: " + Thread.currentThread().getStackTrace()[1].getMethodName());
         waitVisibility(closeMaxMessagePopupButtonBy);
         try {
             Assert.assertEquals(driver.findElement(closeMaxMessagePopupButtonBy).getAttribute("data-tooltip"), expectedText);
@@ -248,6 +270,7 @@ public class NewMessagePopupPage extends BasePage {
 
     // Verify Message Popup Is Min
     public NewMessagePopupPage verifyMessagePopupIsMin(String expectedText) {
+        System.out.println("step: " + Thread.currentThread().getStackTrace()[1].getMethodName());
         waitVisibility(resMinMessagePopupButtonBy);
         try {
             Assert.assertEquals(driver.findElement(resMinMessagePopupButtonBy).getAttribute("data-tooltip"), expectedText);
@@ -260,6 +283,7 @@ public class NewMessagePopupPage extends BasePage {
 
     // Verify Message Popup Is Res
     public NewMessagePopupPage verifyMessagePopupIsRes(String expectedTextMin, String expectedTextMax) {
+        System.out.println("step: " + Thread.currentThread().getStackTrace()[1].getMethodName());
         waitVisibility(minMessagePopupButtonBy);
         try {
             Assert.assertEquals(driver.findElement(minMessagePopupButtonBy).getAttribute("data-tooltip"), expectedTextMin);
@@ -279,120 +303,140 @@ public class NewMessagePopupPage extends BasePage {
 
     // Click Bold Button
     public NewMessagePopupPage clickBoldButton() {
+        System.out.println("step: " + Thread.currentThread().getStackTrace()[1].getMethodName());
         click(boldButtonBy);
         return this;
     }
 
     // Click Italic Button
     public NewMessagePopupPage clickItalicButton() {
+        System.out.println("step: " + Thread.currentThread().getStackTrace()[1].getMethodName());
         click(italicButtonBy);
         return this;
     }
 
     // Click Style And Size Button
     public NewMessagePopupPage clickFontStyleAndSizeButton() {
+        System.out.println("step: " + Thread.currentThread().getStackTrace()[1].getMethodName());
         click(styleAndSizeButtonBy);
         return this;
     }
 
     // Click Georgia Font
     public NewMessagePopupPage clickGeorgiaFontStyle() {
+        System.out.println("step: " + Thread.currentThread().getStackTrace()[1].getMethodName());
         click(georgiaFontBy);
         return this;
     }
 
     // Click Huge Font
     public NewMessagePopupPage clickHugeFontSize() {
+        System.out.println("step: " + Thread.currentThread().getStackTrace()[1].getMethodName());
         click(hugeFontBy);
         return this;
     }
 
     // Click Underline Button
     public NewMessagePopupPage clickUnderlineButton() {
+        System.out.println("step: " + Thread.currentThread().getStackTrace()[1].getMethodName());
         click(underlineButtonBy);
         return this;
     }
 
     // Click Font Color Button
     public NewMessagePopupPage clickFontColorButton() {
+        System.out.println("step: " + Thread.currentThread().getStackTrace()[1].getMethodName());
         click(fontColorButtonBy);
         return this;
     }
 
     // Click Red Font Color Button
     public NewMessagePopupPage clickRedFontColorButton() {
+        System.out.println("step: " + Thread.currentThread().getStackTrace()[1].getMethodName());
         click(redFontColorButtonBy);
         return this;
     }
 
     // Click Black Font Color Button
     public NewMessagePopupPage clickBlackFontColorButton() {
+        System.out.println("step: " + Thread.currentThread().getStackTrace()[1].getMethodName());
         click(blackFontColorButtonBy);
         return this;
     }
 
     // Click List And Alignment Text Button
     public NewMessagePopupPage clickListAndAlignTextButton() {
+        System.out.println("step: " + Thread.currentThread().getStackTrace()[1].getMethodName());
         click(listAndAlignmentTextButtonBy);
         return this;
     }
 
     // Click Numeric List Option
     public NewMessagePopupPage clickNumericListOption() {
+        System.out.println("step: " + Thread.currentThread().getStackTrace()[1].getMethodName());
         click(numericListBy);
         return this;
     }
 
     // Click Point List Option
     public NewMessagePopupPage clickPointListOption() {
+        System.out.println("step: " + Thread.currentThread().getStackTrace()[1].getMethodName());
         click(pointedListBy);
         return this;
     }
 
     // Click Left Alignment Option
     public NewMessagePopupPage clickLeftAlignOption() {
+        System.out.println("step: " + Thread.currentThread().getStackTrace()[1].getMethodName());
         click(leftAlignmentBy);
         return this;
     }
 
     // Click Center Alignment Option
     public NewMessagePopupPage clickCenterAlignOption() {
+        System.out.println("step: " + Thread.currentThread().getStackTrace()[1].getMethodName());
         click(centerAlignmentBy);
         return this;
     }
 
     // Click Right Alignment Option
     public NewMessagePopupPage clickRightAlignOption() {
+        System.out.println("step: " + Thread.currentThread().getStackTrace()[1].getMethodName());
         click(rightAlignmentBy);
         return this;
     }
 
     // Click Stationery Button
     public NewMessagePopupPage clickStationeryButton() {
+        System.out.println("step: " + Thread.currentThread().getStackTrace()[1].getMethodName());
         click(mailContentStationeryButtonBy);
         return this;
     }
 
     // Click Stationery Option
     public NewMessagePopupPage clickStationeryOption() {
+        System.out.println("step: " + Thread.currentThread().getStackTrace()[1].getMethodName());
         click(mailContentStationeryOptionBy);
         return this;
     }
 
     // Click Stationery Reset Option
     public NewMessagePopupPage clickStationeryResetOption() {
+        System.out.println("step: " + Thread.currentThread().getStackTrace()[1].getMethodName());
         click(mailContentStationeryResetBy);
         return this;
     }
 
     // Click Message Text Frame
     public NewMessagePopupPage clickMessageTextFrame() {
+        System.out.println("step: " + Thread.currentThread().getStackTrace()[1].getMethodName());
         click(messageTextFrameBy);
         return this;
     }
 
     // Click Insert Image Button
     public NewMessagePopupPage clickInsertImageButton(String pathToLocalFile) {
+        System.out.println("step: " + Thread.currentThread().getStackTrace()[1].getMethodName());
         click(attachFileButtonBy);
         try {
             Thread.sleep(9000);
@@ -416,6 +460,7 @@ public class NewMessagePopupPage extends BasePage {
 
     // Verify Text Is Bold
     public NewMessagePopupPage verifyBoldFont(String expectedText) {
+        System.out.println("step: " + Thread.currentThread().getStackTrace()[1].getMethodName());
         waitVisibility(messageTextFrameBy);
         driver.switchTo().frame(driver.findElement(messageTextFrameBy));
         By messageTextAreaBy = By.xpath("//*[contains(text(),'Czcionka')]");
@@ -431,6 +476,7 @@ public class NewMessagePopupPage extends BasePage {
 
     // Verify Text Is Italic
     public NewMessagePopupPage verifyItalicFont(String expectedText) {
+        System.out.println("step: " + Thread.currentThread().getStackTrace()[1].getMethodName());
         waitVisibility(messageTextFrameBy);
         driver.switchTo().frame(driver.findElement(messageTextFrameBy));
         By messageTextAreaBy = By.xpath("//*[contains(text(),'Czcionka')]");
@@ -446,6 +492,7 @@ public class NewMessagePopupPage extends BasePage {
 
     // Verify Text Font Style
     public NewMessagePopupPage verifyTextFontColorAndStyle(String expectedText) {
+        System.out.println("step: " + Thread.currentThread().getStackTrace()[1].getMethodName());
         waitVisibility(messageTextFrameBy);
         driver.switchTo().frame(driver.findElement(messageTextFrameBy));
         By messageTextAreaBy = By.xpath("//*[contains(text(),'Czcionka')]");
@@ -461,6 +508,7 @@ public class NewMessagePopupPage extends BasePage {
 
     // Verify Text Font Size
     public NewMessagePopupPage verifyTextFontSize(String expectedText) {
+        System.out.println("step: " + Thread.currentThread().getStackTrace()[1].getMethodName());
         waitVisibility(messageTextFrameBy);
         driver.switchTo().frame(driver.findElement(messageTextFrameBy));
         By messageTextAreaBy = By.xpath("//*[contains(text(),'Czcionka')]");
@@ -476,6 +524,7 @@ public class NewMessagePopupPage extends BasePage {
 
     // Verify Text Is Underlined
     public NewMessagePopupPage verifyTextIsUnderlined(String expectedText) {
+        System.out.println("step: " + Thread.currentThread().getStackTrace()[1].getMethodName());
         waitVisibility(messageTextFrameBy);
         driver.switchTo().frame(driver.findElement(messageTextFrameBy));
         By messageTextAreaBy = By.xpath("//*[contains(text(),'Czcionka')]");
@@ -491,6 +540,7 @@ public class NewMessagePopupPage extends BasePage {
 
     // Verify Text Is Colored
     public NewMessagePopupPage verifyTextIsColored(String expectedText) {
+        System.out.println("step: " + Thread.currentThread().getStackTrace()[1].getMethodName());
         waitVisibility(messageTextFrameBy);
         driver.switchTo().frame(driver.findElement(messageTextFrameBy));
         By messageTextAreaBy = By.xpath("//*[contains(text(),'Czcionka')]");
@@ -506,6 +556,7 @@ public class NewMessagePopupPage extends BasePage {
 
     // Verify Numeric List
     public NewMessagePopupPage verifyNumericList(String liExpectedText, String olExpectedText) {
+        System.out.println("step: " + Thread.currentThread().getStackTrace()[1].getMethodName());
         waitVisibility(messageTextFrameBy);
         driver.switchTo().frame(driver.findElement(messageTextFrameBy));
         By messageTextAreaLiBy = By.xpath("//*[contains(text(),'Czcionka')]");
@@ -523,6 +574,7 @@ public class NewMessagePopupPage extends BasePage {
 
     // Verify Pointed List
     public NewMessagePopupPage verifyPointedList(String liExpectedText, String ulExpectedText) {
+        System.out.println("step: " + Thread.currentThread().getStackTrace()[1].getMethodName());
         waitVisibility(messageTextFrameBy);
         driver.switchTo().frame(driver.findElement(messageTextFrameBy));
         By messageTextAreaLiBy = By.xpath("//*[contains(text(),'Czcionka')]");
@@ -540,6 +592,7 @@ public class NewMessagePopupPage extends BasePage {
 
     // Verify Text Left Alignment
     public NewMessagePopupPage verifyTextAlignment(String expectedText) {
+        System.out.println("step: " + Thread.currentThread().getStackTrace()[1].getMethodName());
         waitVisibility(messageTextFrameBy);
         driver.switchTo().frame(driver.findElement(messageTextFrameBy));
         By messageTextAreaBy = By.xpath("//*[contains(text(),'Czcionka')]");
@@ -555,6 +608,7 @@ public class NewMessagePopupPage extends BasePage {
 
     // Verify Stationery Option
     public NewMessagePopupPage verifyStationeryOption(String expectedText) {
+        System.out.println("step: " + Thread.currentThread().getStackTrace()[1].getMethodName());
         waitVisibility(messageTextFrameBy);
         try {
             driver.switchTo().frame(driver.findElement(messageTextFrameBy));
