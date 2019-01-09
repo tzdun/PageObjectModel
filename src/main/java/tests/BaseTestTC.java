@@ -2,6 +2,7 @@ package tests;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import tests_property_managers.BasePropertyManager;
@@ -23,7 +24,9 @@ public class BaseTestTC {
         //Create a Chrome driver. All test classes use this.
         setWebDriverProperty(this.propertyFilePath);
         System.setProperty(chromeDriver, chromeDriverFilePath);
-        driver = new ChromeDriver();
+        ChromeOptions options = new ChromeOptions();
+        options.setExperimentalOption("useAutomationExtension", false);
+        driver = new ChromeDriver(options);
 
         //Maximize Window
         driver.manage().window().maximize();
