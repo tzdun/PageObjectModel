@@ -3,6 +3,9 @@ package pages;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
+import org.sikuli.script.FindFailed;
+import org.sikuli.script.Pattern;
+import org.sikuli.script.Screen;
 import org.testng.Assert;
 
 import java.awt.*;
@@ -109,7 +112,24 @@ public class NewMessagePopupPage extends BasePage {
     clickAttachFileButton(String pathToLocalFile) {
         System.out.println("step: " + Thread.currentThread().getStackTrace()[1].getMethodName());
         click(attachFileButtonBy);
+                String filepath = "C:\\Users\\rb26508\\PageObjectModel\\src\\main\\resources\\images\\";
+        //String inputFilePath = "C:\\Users\\rb26508\\PageObjectModel\\src\\main\\resources\\images\\";
+        Screen s = new Screen();
+        Pattern fileInputTextBox = new Pattern(filepath + "fileNameInput.PNG");
+        Pattern openButton = new Pattern(filepath + "openFileButton.PNG");
+
+        // Click on Browse button and handle windows pop up using Sikuli
+        //driver.findElement(By.xpath(".//*[@id='photoimg']")).click();
         try {
+            s.wait(fileInputTextBox, 20);
+            s.type(fileInputTextBox, "C:\\Users\\rb26508\\PageObjectModel\\src\\main\\resources\\images\\image.png");
+            s.wait(openButton, 20);
+            s.click(openButton);
+        }
+        catch(FindFailed e){
+
+        }
+       /* try {
             Thread.sleep(10000);
             StringSelection stringSelection = new StringSelection(pathToLocalFile);
             Toolkit.getDefaultToolkit().getSystemClipboard().setContents(stringSelection, null);
@@ -125,7 +145,7 @@ public class NewMessagePopupPage extends BasePage {
             robot.keyRelease(KeyEvent.VK_ENTER);
         } catch (Exception e) {
             System.out.println("Problem z załączeniem pliku: " + pathToLocalFile);
-        }
+        }*/
         return this;
     }
 
