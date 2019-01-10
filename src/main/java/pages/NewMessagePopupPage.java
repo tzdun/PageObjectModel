@@ -52,7 +52,8 @@ public class NewMessagePopupPage extends BasePage {
     private By mailContentStationeryButtonBy = By.xpath("//button[@data-tooltip='Papeterie']");
     private By mailContentStationeryOptionBy = By.xpath("//img[@src='https://o.iplsc.com/n/st/thumb_56.png']");
     private By mailContentStationeryResetBy = By.xpath("//img[@src='https://o.iplsc.com/n/st/empty.png']");
-
+    private By emoticonButtonBy = By.xpath("//button[@data-tooltip='Wstaw emotikonę']");
+    private By emotIconOptionBy = By.xpath("//img[@src='https://o.iplsc.com/n/js/tinymce/plugins/emoticons/img/smiley-cool.gif']");
     // *********Page Methods*********
     // Enter Message To Input Field
     public NewMessagePopupPage enterMessageToField(String messageTo) {
@@ -422,6 +423,20 @@ public class NewMessagePopupPage extends BasePage {
         return this;
     }
 
+    // Click Emoticon Button
+    public NewMessagePopupPage clickEmoticonButton() {
+        System.out.println("step: " + Thread.currentThread().getStackTrace()[1].getMethodName());
+        click(emoticonButtonBy);
+        return this;
+    }
+
+    // Click Emoticon Option
+    public NewMessagePopupPage clickEmoticonOption() {
+        System.out.println("step: " + Thread.currentThread().getStackTrace()[1].getMethodName());
+        click(emotIconOptionBy);
+        return this;
+    }
+
     // Verify Text Is Bold
     public NewMessagePopupPage verifyBoldFont(String expectedText) {
         System.out.println("step: " + Thread.currentThread().getStackTrace()[1].getMethodName());
@@ -577,6 +592,21 @@ public class NewMessagePopupPage extends BasePage {
         try {
             driver.switchTo().frame(driver.findElement(messageTextFrameBy));
             Assert.assertEquals(driver.findElement(By.xpath("//body")).getAttribute("class"), expectedText);
+            driver.switchTo().defaultContent();
+        } catch (AssertionError e) {
+            e.printStackTrace();
+            printScreen(driver);
+        }
+        return this;
+    }
+
+    // Verify Emoticon Option
+    public NewMessagePopupPage verifyEmoticonOption(String expectedText) {
+        System.out.println("step: " + Thread.currentThread().getStackTrace()[1].getMethodName());
+        waitVisibility(messageTextFrameBy);
+        try {
+            driver.switchTo().frame(driver.findElement(messageTextFrameBy));
+            Assert.assertEquals(driver.findElement(By.xpath("//body/img")).getAttribute("src"), expectedText);
             driver.switchTo().defaultContent();
         } catch (AssertionError e) {
             e.printStackTrace();
