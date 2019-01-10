@@ -34,6 +34,7 @@ public class TextStationeryTC extends BaseTestTC {
                 .clickStationeryOption()
                 .verifyStationeryOption(TestData.textStationeryAssert)
                 .clickStationeryButton()
-                .clickStationeryResetOption();
+                .clickStationeryResetOption()
+                .logOut();
     }
 }

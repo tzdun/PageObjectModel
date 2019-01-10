@@ -30,7 +30,7 @@ public class AttachFileTC extends BaseTestTC {
                 .clickLogInButtonWithPass()
                 .verifyValidLoginAndPassword(TestData.validLoginAndPasswordAssert)
                 .clickNewMessageButton()
-                .clickAttachFileButton(TestData.attachFilePath)
+                .attachFile(TestData.attachFilePath)
                 .verifyAttachFile(TestData.attachFileAssert)
                 .logOut();
     }

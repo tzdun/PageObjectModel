@@ -32,7 +32,7 @@ public class InsertImageTC extends BaseTestTC {
                 .clickLogInButtonWithPass()
                 .verifyValidLoginAndPassword(TestData.validLoginAndPasswordAssert)
                 .clickNewMessageButton()
-                .clickInsertImageButton(TestData.canonicalPathToImage)
+                .insertImage(TestData.canonicalPathToImage)
                 .verifyAttachFile(TestData.insertImageAssert)
                 .logOut();
     }

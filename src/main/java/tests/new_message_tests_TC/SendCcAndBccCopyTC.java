@@ -44,7 +44,7 @@ public class SendCcAndBccCopyTC extends BaseTestTC {
                 .enterBCCInputField(TestData.bccMessageTo)
                 .enterMessageSubjectField(TestData.messageSubject)
                 .fillInMessageTextArea(TestData.messageText)
-                .clickAttachFileButton(TestData.canonicalAttachmentPath)
+                .attachFile(TestData.canonicalAttachmentPath)
                 .verifyAttachFile(TestData.attachFileAssert)
                 .clickSendButton()
                 .verifyMessageSent(TestData.sendCcAndBccCopyAssert)

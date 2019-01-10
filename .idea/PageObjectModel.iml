@@ -39,6 +39,5 @@
     <orderEntry type="library" name="Maven: com.google.code.gson:gson:2.8.4" level="project" />
     <orderEntry type="library" name="Maven: commons-io:commons-io:2.5" level="project" />
     <orderEntry type="library" name="Maven: org.seleniumhq.selenium:selenium-chrome-driver:3.13.0" level="project" />
-    <orderEntry type="library" name="Maven: com.sikulix:sikulixapi:1.1.4-SNAPSHOT" level="project" />
   </component>
 </module>

@@ -38,7 +38,7 @@ public class SendEmailWithAttachmentTC extends BaseTestTC {
                 .enterMessageToField(TestData.messageTo)
                 .enterMessageSubjectField(TestData.messageSubject)
                 .fillInMessageTextArea(TestData.messageText)
-                .clickAttachFileButton(TestData.canonicalAttachmentPath)
+                .attachFile(TestData.canonicalAttachmentPath)
                 .verifyAttachFile(TestData.attachFileAssert)
                 .clickSendButton()
                 .verifyMessageSent(TestData.sendEmailWithAttachmentAssert)

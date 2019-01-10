@@ -3,14 +3,7 @@ package pages;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
-import org.sikuli.script.FindFailed;
-import org.sikuli.script.Pattern;
-import org.sikuli.script.Screen;
 import org.testng.Assert;
-
-import java.awt.*;
-import java.awt.datatransfer.StringSelection;
-import java.awt.event.KeyEvent;
 
 public class NewMessagePopupPage extends BasePage {
 
@@ -26,7 +19,8 @@ public class NewMessagePopupPage extends BasePage {
     private By messageSubjectInputBy = By.xpath("//*[contains(text(),'Nowa wiadomość')]/../..//input[@placeholder=\"Temat:\"]");
     private By messageTextFrameBy = By.xpath("//iframe[@title]");
     private By sendMessageButtonBy = By.xpath("//*[@nxt-title='Nowa wiadomość']//button[contains(text(),'Wyślij')]");
-    private By attachFileButtonBy = By.xpath("//*[@nxt-title='Nowa wiadomość']//button[@ng-click='fileUploadClick()']");
+    private By uploadFileBy = By.xpath("//div[@ng-if='uploader']/input[@options='{url: uploadUrl}']");
+    private By uploadImageBy = By.xpath("//div[@ng-if='uploader']/input[@options='{isInline: true, url: inlineUploadUrl}']");
     private By closeNewMessagePopupButtonBy = By.xpath("//*[@nxt-title='Nowa wiadomość']//*[@data-tooltip='Zamknij']");
     private By messageSentInfoBy = By.xpath("//*[contains(text(),'Wiadomość wysłana')]");
     private By attachmentsAddedInfoBy = By.xpath("//*[contains(text(),'Załączniki zostały dodane.')]");
@@ -58,7 +52,6 @@ public class NewMessagePopupPage extends BasePage {
     private By mailContentStationeryButtonBy = By.xpath("//button[@data-tooltip='Papeterie']");
     private By mailContentStationeryOptionBy = By.xpath("//img[@src='https://o.iplsc.com/n/st/thumb_56.png']");
     private By mailContentStationeryResetBy = By.xpath("//img[@src='https://o.iplsc.com/n/st/empty.png']");
-    private By mailContentInsImgButtonBy = By.xpath("//button[@data-tooltip='Wstaw obrazek']");
 
     // *********Page Methods*********
     // Enter Message To Input Field
@@ -107,45 +100,12 @@ public class NewMessagePopupPage extends BasePage {
         return this;
     }
 
-    // Click Attach File Button
+    // Attach File
     public NewMessagePopupPage
-    clickAttachFileButton(String pathToLocalFile) {
+    attachFile(String pathToLocalFile) {
         System.out.println("step: " + Thread.currentThread().getStackTrace()[1].getMethodName());
-        click(attachFileButtonBy);
-                String filepath = "C:\\Users\\rb26508\\PageObjectModel\\src\\main\\resources\\images\\";
-        //String inputFilePath = "C:\\Users\\rb26508\\PageObjectModel\\src\\main\\resources\\images\\";
-        Screen s = new Screen();
-        Pattern fileInputTextBox = new Pattern(filepath + "fileNameInput.PNG");
-        Pattern openButton = new Pattern(filepath + "openFileButton.PNG");
-
-        // Click on Browse button and handle windows pop up using Sikuli
-        //driver.findElement(By.xpath(".//*[@id='photoimg']")).click();
-        try {
-            s.wait(fileInputTextBox, 20);
-            s.type(fileInputTextBox, "C:\\Users\\rb26508\\PageObjectModel\\src\\main\\resources\\images\\image.png");
-            s.wait(openButton, 20);
-            s.click(openButton);
-        }
-        catch(FindFailed e){
-
-        }
-       /* try {
-            Thread.sleep(10000);
-            StringSelection stringSelection = new StringSelection(pathToLocalFile);
-            Toolkit.getDefaultToolkit().getSystemClipboard().setContents(stringSelection, null);
-            Thread.sleep(2000);
-            //native key strokes for CTRL, V and ENTER keys
-            Robot robot = new Robot();
-            robot.keyPress(KeyEvent.VK_CONTROL);
-            robot.keyPress(KeyEvent.VK_V);
-            robot.keyRelease(KeyEvent.VK_V);
-            robot.keyRelease(KeyEvent.VK_CONTROL);
-            Thread.sleep(1500);
-            robot.keyPress(KeyEvent.VK_ENTER);
-            robot.keyRelease(KeyEvent.VK_ENTER);
-        } catch (Exception e) {
-            System.out.println("Problem z załączeniem pliku: " + pathToLocalFile);
-        }*/
+        waitVisibility(uploadFileBy);
+        driver.findElement(uploadFileBy).sendKeys(pathToLocalFile);
         return this;
     }
 
@@ -454,27 +414,11 @@ public class NewMessagePopupPage extends BasePage {
         return this;
     }
 
-    // Click Insert Image Button
-    public NewMessagePopupPage clickInsertImageButton(String pathToLocalFile) {
+    // Insert Image
+    public NewMessagePopupPage insertImage(String pathToLocalFile) {
         System.out.println("step: " + Thread.currentThread().getStackTrace()[1].getMethodName());
-        click(attachFileButtonBy);
-        try {
-            Thread.sleep(9000);
-            StringSelection stringSelection = new StringSelection(pathToLocalFile);
-            Toolkit.getDefaultToolkit().getSystemClipboard().setContents(stringSelection, null);
-            Thread.sleep(2000);
-            //native key strokes for CTRL, V and ENTER keys
-            Robot robot = new Robot();
-            robot.keyPress(KeyEvent.VK_CONTROL);
-            robot.keyPress(KeyEvent.VK_V);
-            robot.keyRelease(KeyEvent.VK_V);
-            robot.keyRelease(KeyEvent.VK_CONTROL);
-            Thread.sleep(1500);
-            robot.keyPress(KeyEvent.VK_ENTER);
-            robot.keyRelease(KeyEvent.VK_ENTER);
-        } catch (Exception e) {
-            System.out.println("Problem ze wstawieniem obrazka: " + pathToLocalFile);
-        }
+        waitVisibility(uploadImageBy);
+        driver.findElement(uploadImageBy).sendKeys(pathToLocalFile);
         return this;
     }
 
