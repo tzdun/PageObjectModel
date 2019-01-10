@@ -15,6 +15,7 @@ public class BoldFontTC extends BaseTestTC {
         private static BoldFontPM boldFontPM = new BoldFontPM();
         private static String textAreaFieldMessage = boldFontPM.getTextAreaFieldMessage();
         private static String boldFontAssert = boldFontPM.getBoldFontAssert();
+        private static String boldTextButtonPressedAssert = boldFontPM.getBoldTextButtonPressedAssert();
     }
 
     @Test(priority = 1)
@@ -36,6 +37,7 @@ public class BoldFontTC extends BaseTestTC {
                 .clickBoldButton()
                 .clickMessageTextFrame()
                 .verifyBoldFont(TestData.boldFontAssert)
+                .verifyBoldTextButtonPressed(TestData.boldTextButtonPressedAssert)
                 .clickMessageTextFrame()
                 .keyPress_Ctrl_A()
                 .clickBoldButton()

@@ -34,10 +34,10 @@ public class NewMessagePopupPage extends BasePage {
     private By closeMaxMessagePopupButtonBy = By.xpath("//*[@data-tooltip='Zamknij pełny ekran']");
     private By ccButtonBy = By.xpath("//*[contains(text(),'Nowa wiadomość')]/../..//*[text()='DW']");
     private By bccButtonBy = By.xpath("//*[contains(text(),'Nowa wiadomość')]/../..//*[text()='UDW']");
-    private By boldButtonBy = By.xpath("//button[@data-tooltip='Pogrubienie']");
+    private By boldButtonBy = By.xpath("//button[@data-tooltip='Pogrubienie']/..");
     private By italicButtonBy = By.xpath("//button[@data-tooltip='Kursywa']");
     private By underlineButtonBy = By.xpath("//button[@data-tooltip='Podkreślenie']");
-    private By fontColorButtonBy = By.xpath("//button[@data-tooltip='Kolor tekstu']");
+    private By fontColorButtonBy = By.xpath("//button[@data-tooltip='Kolor tekstu']/i");
     private By redFontColorButtonBy = By.xpath("//div[@style='background-color: #F90000']");
     private By blackFontColorButtonBy = By.xpath("//div[@style='background-color: #000000']");
     private By styleAndSizeButtonBy = By.xpath("//button[@data-tooltip='Rodzaj i wielkość czcionki']");
@@ -453,6 +453,18 @@ public class NewMessagePopupPage extends BasePage {
         return this;
     }
 
+    // Verify Bold Button Is Pressed
+    public NewMessagePopupPage verifyBoldTextButtonPressed(String expectedText) {
+        System.out.println("step: " + Thread.currentThread().getStackTrace()[1].getMethodName());
+        try {
+            Assert.assertEquals(driver.findElement(boldButtonBy).getAttribute("aria-pressed"), expectedText);
+        } catch (AssertionError e) {
+            e.printStackTrace();
+            printScreen(driver);
+        }
+        return this;
+    }
+
     // Verify Text Is Italic
     public NewMessagePopupPage verifyItalicFont(String expectedText) {
         System.out.println("step: " + Thread.currentThread().getStackTrace()[1].getMethodName());
@@ -469,8 +481,8 @@ public class NewMessagePopupPage extends BasePage {
         return this;
     }
 
-    // Verify Text Font Style
-    public NewMessagePopupPage verifyTextFontColorAndStyle(String expectedText) {
+    // Verify Font Color And Style
+    public NewMessagePopupPage verifyFontColorAndStyle(String expectedText) {
         System.out.println("step: " + Thread.currentThread().getStackTrace()[1].getMethodName());
         waitVisibility(messageTextFrameBy);
         driver.switchTo().frame(driver.findElement(messageTextFrameBy));
@@ -482,6 +494,18 @@ public class NewMessagePopupPage extends BasePage {
             printScreen(driver);
         }
         driver.switchTo().defaultContent();
+        return this;
+    }
+
+    // Verify Font Button Color
+    public NewMessagePopupPage verifyFontButtonColor(String expectedText) {
+        System.out.println("step: " + Thread.currentThread().getStackTrace()[1].getMethodName());
+        try {
+            Assert.assertEquals(driver.findElement(fontColorButtonBy).getAttribute("style"), expectedText);
+        } catch (AssertionError e) {
+            e.printStackTrace();
+            printScreen(driver);
+        }
         return this;
     }
 

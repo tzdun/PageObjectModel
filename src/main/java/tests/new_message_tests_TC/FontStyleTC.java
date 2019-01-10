@@ -36,7 +36,7 @@ public class FontStyleTC extends BaseTestTC {
                 .clickFontStyleAndSizeButton()
                 .clickGeorgiaFontStyle()
                 .clickMessageTextFrame()
-                .verifyTextFontColorAndStyle(TestData.fontStyleAssert)
+                .verifyFontColorAndStyle(TestData.fontStyleAssert)
                 .clickMessageTextFrame()
                 .keyPress_Ctrl_A()
                 .clickFontStyleAndSizeButton()
