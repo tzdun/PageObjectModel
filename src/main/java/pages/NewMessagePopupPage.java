@@ -3,12 +3,9 @@ package pages;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
-import org.testng.Assert;
-import tests_assertions.new_message_tests_AS.AlignTextAS;
-import tests_assertions.new_message_tests_AS.AttachFileAS;
-import tests_assertions.new_message_tests_AS.InsertImageAS;
+import tests_assertions.new_message_tests_AS.*;
 
-public class NewMessagePopupPage extends BasePage {
+public class NewMessagePopupPage extends TextFrameWidget {
 
     //region *********Constructor*********
     public NewMessagePopupPage(WebDriver driver) {
@@ -21,7 +18,6 @@ public class NewMessagePopupPage extends BasePage {
     private By ccInputBy = By.xpath("(//*[contains(text(),'Nowa wiadomość')]/../..//input)[2]");
     private By bccInputBy = By.xpath("(//*[contains(text(),'Nowa wiadomość')]/../..//input)[3]");
     private By messageSubjectInputBy = By.xpath("//*[contains(text(),'Nowa wiadomość')]/../..//input[@placeholder=\"Temat:\"]");
-    private By messageTextFrameBy = By.xpath("//iframe[@title]");
     private By sendMessageButtonBy = By.xpath("//*[@nxt-title='Nowa wiadomość']//button[contains(text(),'Wyślij')]");
     private By uploadFileBy = By.xpath("//div[@ng-if='uploader']/input[@options='{url: uploadUrl}']");
     private By uploadImageBy = By.xpath("//div[@ng-if='uploader']/input[@options='{isInline: true, url: inlineUploadUrl}']");
@@ -61,42 +57,6 @@ public class NewMessagePopupPage extends BasePage {
     //endregion
 
     //region *********Getters*********
-    public By getMessageToInputBy() {
-        return messageToInputBy;
-    }
-
-    public By getCcInputBy() {
-        return ccInputBy;
-    }
-
-    public By getBccInputBy() {
-        return bccInputBy;
-    }
-
-    public By getMessageSubjectInputBy() {
-        return messageSubjectInputBy;
-    }
-
-    public By getMessageTextFrameBy() {
-        return messageTextFrameBy;
-    }
-
-    public By getSendMessageButtonBy() {
-        return sendMessageButtonBy;
-    }
-
-    public By getUploadFileBy() {
-        return uploadFileBy;
-    }
-
-    public By getUploadImageBy() {
-        return uploadImageBy;
-    }
-
-    public By getCloseNewMessagePopupButtonBy() {
-        return closeNewMessagePopupButtonBy;
-    }
-
     public By getMessageSentInfoBy() {
         return messageSentInfoBy;
     }
@@ -107,14 +67,6 @@ public class NewMessagePopupPage extends BasePage {
 
     public By getErrorMessageInfoBy() {
         return errorMessageInfoBy;
-    }
-
-    public By getMessageOptionsButtonBy() {
-        return messageOptionsButtonBy;
-    }
-
-    public By getSaveMessageAsADraftButtonBy() {
-        return saveMessageAsADraftButtonBy;
     }
 
     public By getMessageSavedAsADraftInfoBy() {
@@ -137,92 +89,12 @@ public class NewMessagePopupPage extends BasePage {
         return closeMaxMessagePopupButtonBy;
     }
 
-    public By getCcButtonBy() {
-        return ccButtonBy;
-    }
-
-    public By getBccButtonBy() {
-        return bccButtonBy;
-    }
-
     public By getBoldButtonBy() {
         return boldButtonBy;
     }
 
-    public By getItalicButtonBy() {
-        return italicButtonBy;
-    }
-
-    public By getUnderlineButtonBy() {
-        return underlineButtonBy;
-    }
-
     public By getFontColorButtonBy() {
         return fontColorButtonBy;
-    }
-
-    public By getRedFontColorButtonBy() {
-        return redFontColorButtonBy;
-    }
-
-    public By getBlackFontColorButtonBy() {
-        return blackFontColorButtonBy;
-    }
-
-    public By getStyleAndSizeButtonBy() {
-        return styleAndSizeButtonBy;
-    }
-
-    public By getGeorgiaFontBy() {
-        return georgiaFontBy;
-    }
-
-    public By getHugeFontBy() {
-        return hugeFontBy;
-    }
-
-    public By getListAndAlignmentTextButtonBy() {
-        return listAndAlignmentTextButtonBy;
-    }
-
-    public By getNumericListBy() {
-        return numericListBy;
-    }
-
-    public By getPointedListBy() {
-        return pointedListBy;
-    }
-
-    public By getLeftAlignmentBy() {
-        return leftAlignmentBy;
-    }
-
-    public By getCenterAlignmentBy() {
-        return centerAlignmentBy;
-    }
-
-    public By getRightAlignmentBy() {
-        return rightAlignmentBy;
-    }
-
-    public By getMailContentStationeryButtonBy() {
-        return mailContentStationeryButtonBy;
-    }
-
-    public By getMailContentStationeryOptionBy() {
-        return mailContentStationeryOptionBy;
-    }
-
-    public By getMailContentStationeryResetBy() {
-        return mailContentStationeryResetBy;
-    }
-
-    public By getEmoticonButtonBy() {
-        return emoticonButtonBy;
-    }
-
-    public By getEmoticonOptionBy() {
-        return emoticonOptionBy;
     }
     //endregion
 
@@ -255,38 +127,34 @@ public class NewMessagePopupPage extends BasePage {
         return this;
     }
 
-    // Enter Message Text Area Field
-    public NewMessagePopupPage fillInMessageTextArea(String messageText) {
-        System.out.println("step: " + Thread.currentThread().getStackTrace()[1].getMethodName());
-        waitVisibility(messageTextFrameBy);
-        driver.switchTo().frame(driver.findElement(messageTextFrameBy));
-        By messageTextAreaBy = By.xpath("//body");
-        writeText(messageTextAreaBy, messageText);
-        driver.switchTo().defaultContent();
-        return this;
-    }
-
-    // Click Send Button
-    public NewMessagePopupPage clickSendButton() {
+    // Click Send Button With Pass
+    public MessageSentAS clickSendButtonWithPass() {
         System.out.println("step: " + Thread.currentThread().getStackTrace()[1].getMethodName());
         click(sendMessageButtonBy);
-        return this;
+        return new MessageSentAS(driver);
+    }
+
+    // Click Send Button With Fail
+    public SendEmailWithoutRecipientAS clickSendButtonWithFail() {
+        System.out.println("step: " + Thread.currentThread().getStackTrace()[1].getMethodName());
+        click(sendMessageButtonBy);
+        return new SendEmailWithoutRecipientAS(driver);
     }
 
     // Attach File
-    public AttachFileAS
+    public AttachFileAndInsertImageAS
     attachFile(String pathToLocalFile) {
         System.out.println("step: " + Thread.currentThread().getStackTrace()[1].getMethodName());
         waitVisibility(uploadFileBy);
         driver.findElement(uploadFileBy).sendKeys(pathToLocalFile);
-        return new AttachFileAS(driver);
+        return new AttachFileAndInsertImageAS(driver);
     }
 
     // KeyPress Ctrl + A
     public NewMessagePopupPage keyPress_Ctrl_A() {
         System.out.println("step: " + Thread.currentThread().getStackTrace()[1].getMethodName());
-        waitVisibility(messageTextFrameBy);
-        driver.switchTo().frame(driver.findElement(messageTextFrameBy));
+        waitVisibility(getMessageTextFrameBy());
+        driver.switchTo().frame(driver.findElement(getMessageTextFrameBy()));
         By messageTextAreaBy = By.xpath("//body");
         driver.findElement(messageTextAreaBy).sendKeys(Keys.LEFT_CONTROL + "a");
         driver.switchTo().defaultContent();
@@ -300,45 +168,6 @@ public class NewMessagePopupPage extends BasePage {
         return new InboxPage(driver);
     }
 
-    // Verify Message Sent
-    public NewMessagePopupPage verifyMessageSent(String expectedText) {
-        System.out.println("step: " + Thread.currentThread().getStackTrace()[1].getMethodName());
-        waitVisibility(messageSentInfoBy);
-        try {
-            assertEquals(messageSentInfoBy, expectedText);
-        } catch (AssertionError e) {
-            e.printStackTrace();
-            printScreen(driver);
-        }
-        return this;
-    }
-
-    // Verify No Recipients Error
-    public NewMessagePopupPage verifyNoRecipientsError(String expectedText) {
-        System.out.println("step: " + Thread.currentThread().getStackTrace()[1].getMethodName());
-        waitVisibility(errorMessageInfoBy);
-        try {
-            assertEquals(errorMessageInfoBy, expectedText);
-        } catch (AssertionError e) {
-            e.printStackTrace();
-            printScreen(driver);
-        }
-        return this;
-    }
-
-    // Verify Message Saved As A Draft
-    public NewMessagePopupPage verifyMessageSavedAsADraft(String expectedText) {
-        System.out.println("step: " + Thread.currentThread().getStackTrace()[1].getMethodName());
-        waitVisibility(messageSavedAsADraftInfoBy);
-        try {
-            assertEquals(messageSavedAsADraftInfoBy, expectedText);
-        } catch (AssertionError e) {
-            e.printStackTrace();
-            printScreen(driver);
-        }
-        return this;
-    }
-
     // Click Message Options Button
     public NewMessagePopupPage clickMessageOptionsButton() {
         System.out.println("step: " + Thread.currentThread().getStackTrace()[1].getMethodName());
@@ -347,24 +176,24 @@ public class NewMessagePopupPage extends BasePage {
     }
 
     // Click Save Message As A Draft Button
-    public NewMessagePopupPage clickSaveMessageAsADraftButton() {
+    public SaveMessageAsADraftAS clickSaveMessageAsADraftButton() {
         System.out.println("step: " + Thread.currentThread().getStackTrace()[1].getMethodName());
         click(saveMessageAsADraftButtonBy);
-        return this;
+        return new SaveMessageAsADraftAS(driver);
     }
 
     // Click Min Message Popup Button
-    public NewMessagePopupPage clickMinMessagePopupButton() {
+    public ResizePopupAS clickMinMessagePopupButton() {
         System.out.println("step: " + Thread.currentThread().getStackTrace()[1].getMethodName());
         click(minMessagePopupButtonBy);
-        return this;
+        return new ResizePopupAS(driver);
     }
 
     // Click Max Message Popup Button
-    public NewMessagePopupPage clickMaxMessagePopupButton() {
+    public ResizePopupAS clickMaxMessagePopupButton() {
         System.out.println("step: " + Thread.currentThread().getStackTrace()[1].getMethodName());
         click(maxMessagePopupButtonBy);
-        return this;
+        return new ResizePopupAS(driver);
     }
 
     // Click Close Max Message Popup Button
@@ -375,10 +204,10 @@ public class NewMessagePopupPage extends BasePage {
     }
 
     // Click Res Min Message Popup Button
-    public NewMessagePopupPage clickResMinMessagePopupButton() {
+    public ResizePopupAS clickResMinMessagePopupButton() {
         System.out.println("step: " + Thread.currentThread().getStackTrace()[1].getMethodName());
         click(resMinMessagePopupButtonBy);
-        return this;
+        return new ResizePopupAS(driver);
     }
 
     // Click CC Message Button
@@ -395,64 +224,19 @@ public class NewMessagePopupPage extends BasePage {
         return this;
     }
 
-    // Verify Message Popup Is Max
-    public NewMessagePopupPage verifyMessagePopupIsMax(String expectedText) {
-        System.out.println("step: " + Thread.currentThread().getStackTrace()[1].getMethodName());
-        waitVisibility(closeMaxMessagePopupButtonBy);
-        try {
-            Assert.assertEquals(driver.findElement(closeMaxMessagePopupButtonBy).getAttribute("data-tooltip"), expectedText);
-        } catch (AssertionError e) {
-            e.printStackTrace();
-            printScreen(driver);
-        }
-        return this;
-    }
-
-    // Verify Message Popup Is Min
-    public NewMessagePopupPage verifyMessagePopupIsMin(String expectedText) {
-        System.out.println("step: " + Thread.currentThread().getStackTrace()[1].getMethodName());
-        waitVisibility(resMinMessagePopupButtonBy);
-        try {
-            Assert.assertEquals(driver.findElement(resMinMessagePopupButtonBy).getAttribute("data-tooltip"), expectedText);
-        } catch (AssertionError e) {
-            e.printStackTrace();
-            printScreen(driver);
-        }
-        return this;
-    }
-
-    // Verify Message Popup Is Res
-    public NewMessagePopupPage verifyMessagePopupIsRes(String expectedTextMin, String expectedTextMax) {
-        System.out.println("step: " + Thread.currentThread().getStackTrace()[1].getMethodName());
-        waitVisibility(minMessagePopupButtonBy);
-        try {
-            Assert.assertEquals(driver.findElement(minMessagePopupButtonBy).getAttribute("data-tooltip"), expectedTextMin);
-        } catch (AssertionError e) {
-            e.printStackTrace();
-            printScreen(driver);
-        }
-        waitVisibility(maxMessagePopupButtonBy);
-        try {
-            Assert.assertEquals(driver.findElement(maxMessagePopupButtonBy).getAttribute("data-tooltip"), expectedTextMax);
-        } catch (AssertionError e) {
-            e.printStackTrace();
-            printScreen(driver);
-        }
-        return this;
-    }
 
     // Click Bold Button
-    public NewMessagePopupPage clickBoldButton() {
+    public BoldFontAS clickBoldButton() {
         System.out.println("step: " + Thread.currentThread().getStackTrace()[1].getMethodName());
         click(boldButtonBy);
-        return this;
+        return new BoldFontAS(driver);
     }
 
     // Click Italic Button
-    public NewMessagePopupPage clickItalicButton() {
+    public ItalicFontAS clickItalicButton() {
         System.out.println("step: " + Thread.currentThread().getStackTrace()[1].getMethodName());
         click(italicButtonBy);
-        return this;
+        return new ItalicFontAS(driver);
     }
 
     // Click Style And Size Button
@@ -463,24 +247,24 @@ public class NewMessagePopupPage extends BasePage {
     }
 
     // Click Georgia Font
-    public NewMessagePopupPage clickGeorgiaFontStyle() {
+    public FontColorAndStyleAS clickGeorgiaFontStyle() {
         System.out.println("step: " + Thread.currentThread().getStackTrace()[1].getMethodName());
         click(georgiaFontBy);
-        return this;
+        return new FontColorAndStyleAS(driver);
     }
 
     // Click Huge Font
-    public NewMessagePopupPage clickHugeFontSize() {
+    public FontSizeAS clickHugeFontSize() {
         System.out.println("step: " + Thread.currentThread().getStackTrace()[1].getMethodName());
         click(hugeFontBy);
-        return this;
+        return new FontSizeAS(driver);
     }
 
     // Click Underline Button
-    public NewMessagePopupPage clickUnderlineButton() {
+    public UnderlineFontAS clickUnderlineButton() {
         System.out.println("step: " + Thread.currentThread().getStackTrace()[1].getMethodName());
         click(underlineButtonBy);
-        return this;
+        return new UnderlineFontAS(driver);
     }
 
     // Click Font Color Button
@@ -491,10 +275,10 @@ public class NewMessagePopupPage extends BasePage {
     }
 
     // Click Red Font Color Button
-    public NewMessagePopupPage clickRedFontColorButton() {
+    public FontColorAndStyleAS clickRedFontColorButton() {
         System.out.println("step: " + Thread.currentThread().getStackTrace()[1].getMethodName());
         click(redFontColorButtonBy);
-        return this;
+        return new FontColorAndStyleAS(driver);
     }
 
     // Click Black Font Color Button
@@ -512,38 +296,38 @@ public class NewMessagePopupPage extends BasePage {
     }
 
     // Click Numeric List Option
-    public NewMessagePopupPage clickNumericListOption() {
+    public ListTextAS clickNumericListOption() {
         System.out.println("step: " + Thread.currentThread().getStackTrace()[1].getMethodName());
         click(numericListBy);
-        return this;
+        return new ListTextAS(driver);
     }
 
     // Click Point List Option
-    public NewMessagePopupPage clickPointListOption() {
+    public ListTextAS clickPointListOption() {
         System.out.println("step: " + Thread.currentThread().getStackTrace()[1].getMethodName());
         click(pointedListBy);
-        return this;
+        return new ListTextAS(driver);
     }
 
     // Click Left Alignment Option
-    public NewMessagePopupPage clickLeftAlignOption() {
+    public AlignTextAS clickLeftAlignOption() {
         System.out.println("step: " + Thread.currentThread().getStackTrace()[1].getMethodName());
         click(leftAlignmentBy);
-        return this;
+        return new AlignTextAS(driver);
     }
 
     // Click Center Alignment Option
-    public NewMessagePopupPage clickCenterAlignOption() {
+    public AlignTextAS clickCenterAlignOption() {
         System.out.println("step: " + Thread.currentThread().getStackTrace()[1].getMethodName());
         click(centerAlignmentBy);
-        return this;
+        return new AlignTextAS(driver);
     }
 
     // Click Right Alignment Option
-    public NewMessagePopupPage clickRightAlignOption() {
+    public AlignTextAS clickRightAlignOption() {
         System.out.println("step: " + Thread.currentThread().getStackTrace()[1].getMethodName());
         click(rightAlignmentBy);
-        return this;
+        return new AlignTextAS(driver);
     }
 
     // Click Stationery Button
@@ -554,10 +338,10 @@ public class NewMessagePopupPage extends BasePage {
     }
 
     // Click Stationery Option
-    public NewMessagePopupPage clickStationeryOption() {
+    public TextStationeryAS clickStationeryOption() {
         System.out.println("step: " + Thread.currentThread().getStackTrace()[1].getMethodName());
         click(mailContentStationeryOptionBy);
-        return this;
+        return new TextStationeryAS(driver);
     }
 
     // Click Stationery Reset Option
@@ -567,19 +351,12 @@ public class NewMessagePopupPage extends BasePage {
         return this;
     }
 
-    // Click Message Text Frame
-    public AlignTextAS clickMessageTextFrame() {
-        System.out.println("step: " + Thread.currentThread().getStackTrace()[1].getMethodName());
-        click(messageTextFrameBy);
-        return new AlignTextAS(driver);
-    }
-
     // Insert Image
-    public InsertImageAS insertImage(String pathToLocalFile) {
+    public AttachFileAndInsertImageAS insertImage(String pathToLocalFile) {
         System.out.println("step: " + Thread.currentThread().getStackTrace()[1].getMethodName());
         waitVisibility(uploadImageBy);
         driver.findElement(uploadImageBy).sendKeys(pathToLocalFile);
-        return new InsertImageAS(driver);
+        return new AttachFileAndInsertImageAS(driver);
     }
 
     // Click Emoticon Button
@@ -588,198 +365,12 @@ public class NewMessagePopupPage extends BasePage {
         click(emoticonButtonBy);
         return this;
     }
-    // Verify Text Is Bold
-    public NewMessagePopupPage verifyBoldFont(String expectedText) {
-        System.out.println("step: " + Thread.currentThread().getStackTrace()[1].getMethodName());
-        waitVisibility(getMessageTextFrameBy());
-        driver.switchTo().frame(driver.findElement(getMessageTextFrameBy()));
-        By messageTextAreaBy = By.xpath("//*[contains(text(),'Czcionka')]");
-        try {
-            Assert.assertEquals(driver.findElement(messageTextAreaBy).getTagName(), expectedText);
-        } catch (AssertionError e) {
-            e.printStackTrace();
-            printScreen(driver);
-        }
-        driver.switchTo().defaultContent();
-        return this;
-    }
+
     // Click Emoticon Option
-    public NewMessagePopupPage clickEmoticonOption() {
+    public InsertEmoticonAS clickEmoticonOption() {
         System.out.println("step: " + Thread.currentThread().getStackTrace()[1].getMethodName());
         click(emoticonOptionBy);
-        return this;
-    }
-
-    // Verify Bold Button Is Pressed
-    public NewMessagePopupPage verifyBoldTextButtonPressed(String expectedText) {
-        System.out.println("step: " + Thread.currentThread().getStackTrace()[1].getMethodName());
-        try {
-            Assert.assertEquals(driver.findElement(boldButtonBy).getAttribute("aria-pressed"), expectedText);
-        } catch (AssertionError e) {
-            e.printStackTrace();
-            printScreen(driver);
-        }
-        return this;
-    }
-
-    // Verify Text Is Italic
-    public NewMessagePopupPage verifyItalicFont(String expectedText) {
-        System.out.println("step: " + Thread.currentThread().getStackTrace()[1].getMethodName());
-        waitVisibility(messageTextFrameBy);
-        driver.switchTo().frame(driver.findElement(messageTextFrameBy));
-        By messageTextAreaBy = By.xpath("//*[contains(text(),'Czcionka')]");
-        try {
-            Assert.assertEquals(driver.findElement(messageTextAreaBy).getTagName(), expectedText);
-        } catch (AssertionError e) {
-            e.printStackTrace();
-            printScreen(driver);
-        }
-        driver.switchTo().defaultContent();
-        return this;
-    }
-
-    // Verify Font Color And Style
-    public NewMessagePopupPage verifyFontColorAndStyle(String expectedText) {
-        System.out.println("step: " + Thread.currentThread().getStackTrace()[1].getMethodName());
-        waitVisibility(messageTextFrameBy);
-        driver.switchTo().frame(driver.findElement(messageTextFrameBy));
-        By messageTextAreaBy = By.xpath("//*[contains(text(),'Czcionka')]");
-        try {
-            Assert.assertEquals(driver.findElement(messageTextAreaBy).getAttribute("style"), expectedText);
-        } catch (AssertionError e) {
-            e.printStackTrace();
-            printScreen(driver);
-        }
-        driver.switchTo().defaultContent();
-        return this;
-    }
-
-    // Verify Font Button Color
-    public NewMessagePopupPage verifyFontButtonColor(String expectedText) {
-        System.out.println("step: " + Thread.currentThread().getStackTrace()[1].getMethodName());
-        try {
-            Assert.assertEquals(driver.findElement(fontColorButtonBy).getAttribute("style"), expectedText);
-        } catch (AssertionError e) {
-            e.printStackTrace();
-            printScreen(driver);
-        }
-        return this;
-    }
-
-    // Verify Text Font Size
-    public NewMessagePopupPage verifyTextFontSize(String expectedText) {
-        System.out.println("step: " + Thread.currentThread().getStackTrace()[1].getMethodName());
-        waitVisibility(messageTextFrameBy);
-        driver.switchTo().frame(driver.findElement(messageTextFrameBy));
-        By messageTextAreaBy = By.xpath("//*[contains(text(),'Czcionka')]");
-        try {
-            Assert.assertEquals(driver.findElement(messageTextAreaBy).getAttribute("style"), expectedText);
-        } catch (AssertionError e) {
-            e.printStackTrace();
-            printScreen(driver);
-        }
-        driver.switchTo().defaultContent();
-        return this;
-    }
-
-    // Verify Text Is Underlined
-    public NewMessagePopupPage verifyTextIsUnderlined(String expectedText) {
-        System.out.println("step: " + Thread.currentThread().getStackTrace()[1].getMethodName());
-        waitVisibility(messageTextFrameBy);
-        driver.switchTo().frame(driver.findElement(messageTextFrameBy));
-        By messageTextAreaBy = By.xpath("//*[contains(text(),'Czcionka')]");
-        try {
-            Assert.assertEquals(driver.findElement(messageTextAreaBy).getAttribute("style"), expectedText);
-        } catch (AssertionError e) {
-            e.printStackTrace();
-            printScreen(driver);
-        }
-        driver.switchTo().defaultContent();
-        return this;
-    }
-
-    // Verify Text Is Colored
-    public NewMessagePopupPage verifyTextIsColored(String expectedText) {
-        System.out.println("step: " + Thread.currentThread().getStackTrace()[1].getMethodName());
-        waitVisibility(messageTextFrameBy);
-        driver.switchTo().frame(driver.findElement(messageTextFrameBy));
-        By messageTextAreaBy = By.xpath("//*[contains(text(),'Czcionka')]");
-        try {
-            Assert.assertEquals(driver.findElement(messageTextAreaBy).getAttribute("style"), expectedText);
-        } catch (AssertionError e) {
-            e.printStackTrace();
-            printScreen(driver);
-        }
-        driver.switchTo().defaultContent();
-        return this;
-    }
-
-    // Verify Numeric List
-    public NewMessagePopupPage verifyNumericList(String liExpectedText, String olExpectedText) {
-        System.out.println("step: " + Thread.currentThread().getStackTrace()[1].getMethodName());
-        waitVisibility(messageTextFrameBy);
-        driver.switchTo().frame(driver.findElement(messageTextFrameBy));
-        By messageTextAreaLiBy = By.xpath("//*[contains(text(),'Czcionka')]");
-        By messageTextAreaOlBy = By.xpath("//*[contains(text(),'Czcionka')]/..");
-        try {
-            Assert.assertEquals(driver.findElement(messageTextAreaLiBy).getTagName(), liExpectedText);
-            Assert.assertEquals(driver.findElement(messageTextAreaOlBy).getTagName(), olExpectedText);
-        } catch (AssertionError e) {
-            e.printStackTrace();
-            printScreen(driver);
-        }
-        driver.switchTo().defaultContent();
-        return this;
-    }
-
-    // Verify Pointed List
-    public NewMessagePopupPage verifyPointedList(String liExpectedText, String ulExpectedText) {
-        System.out.println("step: " + Thread.currentThread().getStackTrace()[1].getMethodName());
-        waitVisibility(messageTextFrameBy);
-        driver.switchTo().frame(driver.findElement(messageTextFrameBy));
-        By messageTextAreaLiBy = By.xpath("//*[contains(text(),'Czcionka')]");
-        By messageTextAreaOlBy = By.xpath("//*[contains(text(),'Czcionka')]/..");
-        try {
-            Assert.assertEquals(driver.findElement(messageTextAreaLiBy).getTagName(), liExpectedText);
-            Assert.assertEquals(driver.findElement(messageTextAreaOlBy).getTagName(), ulExpectedText);
-        } catch (AssertionError e) {
-            e.printStackTrace();
-            printScreen(driver);
-        }
-        driver.switchTo().defaultContent();
-        return this;
-    }
-
-
-
-    // Verify Stationery Option
-    public NewMessagePopupPage verifyStationeryOption(String expectedText) {
-        System.out.println("step: " + Thread.currentThread().getStackTrace()[1].getMethodName());
-        waitVisibility(messageTextFrameBy);
-        try {
-            driver.switchTo().frame(driver.findElement(messageTextFrameBy));
-            Assert.assertEquals(driver.findElement(By.xpath("//body")).getAttribute("class"), expectedText);
-            driver.switchTo().defaultContent();
-        } catch (AssertionError e) {
-            e.printStackTrace();
-            printScreen(driver);
-        }
-        return this;
-    }
-
-    // Verify Emoticon Option
-    public NewMessagePopupPage verifyEmoticonOption(String expectedText) {
-        System.out.println("step: " + Thread.currentThread().getStackTrace()[1].getMethodName());
-        waitVisibility(messageTextFrameBy);
-        try {
-            driver.switchTo().frame(driver.findElement(messageTextFrameBy));
-            Assert.assertEquals(driver.findElement(By.xpath("//body/img")).getAttribute("src"), expectedText);
-            driver.switchTo().defaultContent();
-        } catch (AssertionError e) {
-            e.printStackTrace();
-            printScreen(driver);
-        }
-        return this;
+        return new InsertEmoticonAS(driver);
     }
     //endregion
 }

@@ -5,13 +5,13 @@ import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 import pages.NewMessagePopupPage;
 
-public class AlignTextAS extends NewMessagePopupPage{
-    public AlignTextAS(WebDriver driver) {
+public class UnderlineFontAS extends NewMessagePopupPage{
+    public UnderlineFontAS(WebDriver driver) {
         super(driver);
     }
 
-    // Verify Text Alignment
-    public NewMessagePopupPage alignTextAssertion(String expectedText) {
+    // Verify Text Is Underlined
+    public NewMessagePopupPage underlineFontAssertion(String expectedText) {
         System.out.println("step: " + Thread.currentThread().getStackTrace()[1].getMethodName());
         clickMessageTextFrame();
         driver.switchTo().frame(driver.findElement(getMessageTextFrameBy()));

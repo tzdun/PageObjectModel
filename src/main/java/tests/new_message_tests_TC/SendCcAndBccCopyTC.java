@@ -3,7 +3,6 @@ package tests.new_message_tests_TC;
 import org.testng.annotations.Test;
 import pages.HomePage;
 import tests.BaseTestTC;
-import tests_assertions.login_tests.ValidLoginAndPasswordAS;
 import tests_property_managers.login_tests_PM.ValidLoginAndPasswordPM;
 import tests_property_managers.new_message_tests_PM.SendCcAndBccCopyPM;
 
@@ -35,8 +34,7 @@ public class SendCcAndBccCopyTC extends BaseTestTC {
                 .fillInLoginField(TestData.login)
                 .fillInPasswordField(TestData.password)
                 .acceptCookies()
-                .clickLogInButtonWithPass();
-                new ValidLoginAndPasswordAS(driver)
+                .clickLogInButtonWithPass()
                 .validLoginAndPasswordAssertion(TestData.validLoginAndPasswordAssert)
                 .clickNewMessageButton()
                 .enterMessageToField(TestData.messageTo)
@@ -47,9 +45,9 @@ public class SendCcAndBccCopyTC extends BaseTestTC {
                 .enterMessageSubjectField(TestData.messageSubject)
                 .fillInMessageTextArea(TestData.messageText)
                 .attachFile(TestData.canonicalAttachmentPath)
-                .verifyAttachFile(TestData.attachFileAssert)
-                .clickSendButton()
-                .verifyMessageSent(TestData.sendCcAndBccCopyAssert)
+                .attachFileAndInsertImageAssertion(TestData.attachFileAssert)
+                .clickSendButtonWithPass()
+                .messageSentAssertion(TestData.sendCcAndBccCopyAssert)
                 .logOut();
     }
 }

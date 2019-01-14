@@ -28,13 +28,12 @@ public class TextStationeryTC extends BaseTestTC {
                 .fillInLoginField(TestData.login)
                 .fillInPasswordField(TestData.password)
                 .acceptCookies()
-                .clickLogInButtonWithPass();
-                new ValidLoginAndPasswordAS(driver)
+                .clickLogInButtonWithPass()
                 .validLoginAndPasswordAssertion(TestData.validLoginAndPasswordAssert)
                 .clickNewMessageButton()
                 .clickStationeryButton()
                 .clickStationeryOption()
-                .verifyStationeryOption(TestData.textStationeryAssert)
+                .textStationeryAssertion(TestData.textStationeryAssert)
                 .clickStationeryButton()
                 .clickStationeryResetOption()
                 .logOut();

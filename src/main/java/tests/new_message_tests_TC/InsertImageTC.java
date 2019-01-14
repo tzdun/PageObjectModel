@@ -33,7 +33,7 @@ public class InsertImageTC extends BaseTestTC {
                 .validLoginAndPasswordAssertion(TestData.validLoginAndPasswordAssert)
                 .clickNewMessageButton()
                 .insertImage(TestData.canonicalPathToImage)
-                .verifyAttachFile(TestData.insertImageAssert)
+                .attachFileAndInsertImageAssertion(TestData.insertImageAssert)
                 .logOut();
     }
 }

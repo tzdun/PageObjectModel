@@ -31,7 +31,7 @@ public class AttachFileTC extends BaseTestTC {
                 .validLoginAndPasswordAssertion(TestData.validLoginAndPasswordAssert)
                 .clickNewMessageButton()
                 .attachFile(TestData.attachFilePath)
-                .verifyAttachFile(TestData.attachFileAssert)
+                .attachFileAndInsertImageAssertion(TestData.attachFileAssert)
                 .logOut();
     }
 }

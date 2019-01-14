@@ -3,7 +3,6 @@ package tests.new_message_tests_TC;
 import org.testng.annotations.Test;
 import pages.HomePage;
 import tests.BaseTestTC;
-import tests_assertions.login_tests.ValidLoginAndPasswordAS;
 import tests_property_managers.login_tests_PM.ValidLoginAndPasswordPM;
 import tests_property_managers.new_message_tests_PM.FontColorPM;
 
@@ -29,18 +28,15 @@ public class FontColorTC extends BaseTestTC {
                 .fillInLoginField(TestData.login)
                 .fillInPasswordField(TestData.password)
                 .acceptCookies()
-                .clickLogInButtonWithPass();
-                new ValidLoginAndPasswordAS(driver)
+                .clickLogInButtonWithPass()
                 .validLoginAndPasswordAssertion(TestData.validLoginAndPasswordAssert)
                 .clickNewMessageButton()
                 .fillInMessageTextArea(TestData.textAreaFieldMessage)
                 .keyPress_Ctrl_A()
                 .clickFontColorButton()
                 .clickRedFontColorButton()
-                .clickMessageTextFrame()
-                .verifyFontColorAndStyle(TestData.fontColorAssert)
-                .verifyFontButtonColor(TestData.fontColorAssert)
-                .clickMessageTextFrame()
+                .fontColorAndStyleAssertion(TestData.fontColorAssert)
+                .fontButtonColorAssertion(TestData.fontColorAssert)
                 .keyPress_Ctrl_A()
                 .clickFontColorButton()
                 .clickBlackFontColorButton()
