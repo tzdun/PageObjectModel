@@ -26,7 +26,7 @@ public class ValidLoginAndPasswordTC extends BaseTestTC {
                 .fillInPasswordField(TestData.password)
                 .acceptCookies()
                 .clickLogInButtonWithPass()
-                .verifyValidLoginAndPassword(TestData.validLoginAndPasswordAssert)
+                .validLoginAndPasswordAssertion(TestData.validLoginAndPasswordAssert)
                 .logOut();
     }
 }

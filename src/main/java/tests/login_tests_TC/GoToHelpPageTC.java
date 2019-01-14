@@ -15,12 +15,13 @@ public class GoToHelpPageTC extends BaseTestTC {
     @Test(priority = 3)
     public void goToHelpPage (){
         System.out.println(this.getClass().getName());
+
         //*************PAGE INSTANTIATIONS*************
         HomePage homePage = new HomePage(driver);
 
         //*************PAGE METHODS********************
         homePage.goToHomePage()
                 .goToHelpPage()
-                .verifyHelpPage(TestData.title);
+                .goToHelpPageAssert(TestData.title);
     }
 }

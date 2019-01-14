@@ -30,7 +30,7 @@ public class InsertImageTC extends BaseTestTC {
                 .fillInPasswordField(TestData.password)
                 .acceptCookies()
                 .clickLogInButtonWithPass()
-                .verifyValidLoginAndPassword(TestData.validLoginAndPasswordAssert)
+                .validLoginAndPasswordAssertion(TestData.validLoginAndPasswordAssert)
                 .clickNewMessageButton()
                 .insertImage(TestData.canonicalPathToImage)
                 .verifyAttachFile(TestData.insertImageAssert)

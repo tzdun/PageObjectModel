@@ -26,6 +26,6 @@ public class InvalidLoginTC extends BaseTestTC {
                 .fillInPasswordField(TestData.password)
                 .acceptCookies()
                 .clickLogInWithFail()
-                .verifyInvalidLoginOrPassword(TestData.invalidLoginOrPasswordError);
+                .invalidLoginOrPasswordAssertion(TestData.invalidLoginOrPasswordError);
     }
 }

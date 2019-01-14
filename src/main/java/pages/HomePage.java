@@ -2,6 +2,9 @@ package pages;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import tests_assertions.login_tests.GoToHelpPageAS;
+import tests_assertions.login_tests.InvalidLoginOrPasswordAS;
+import tests_assertions.login_tests.ValidLoginAndPasswordAS;
 
 import java.util.ArrayList;
 
@@ -32,12 +35,12 @@ public class HomePage extends BasePage {
     }
 
     //Go to Login Page
-    public HelpPage goToHelpPage() {
+    public GoToHelpPageAS goToHelpPage() {
         System.out.println("step: " + Thread.currentThread().getStackTrace()[1].getMethodName());
         click(helpButtonBy);
         ArrayList<String> newTab = new ArrayList<String>(driver.getWindowHandles());
         // change focus to new tab
-        return new HelpPage(driver.switchTo().window(newTab.get(1)));
+        return new GoToHelpPageAS(driver.switchTo().window(newTab.get(1)));
     }
 
     //Input Account Name
@@ -65,32 +68,19 @@ public class HomePage extends BasePage {
     }
 
     //Log In Not Successful
-    public HomePage clickLogInWithFail() {
+    public InvalidLoginOrPasswordAS clickLogInWithFail() {
         System.out.println("step: " + Thread.currentThread().getStackTrace()[1].getMethodName());
         //Click Login Button
         click(logInButtonBy);
-        return this;
+        return new InvalidLoginOrPasswordAS(driver);
     }
 
     //Log In Successful
-    public InboxPage clickLogInButtonWithPass() {
+    public ValidLoginAndPasswordAS clickLogInButtonWithPass() {
         System.out.println("step: " + Thread.currentThread().getStackTrace()[1].getMethodName());
         //Click Login Button
         click(logInButtonBy);
-        return new InboxPage(driver);
-    }
-
-    //Verify Invalid Login Or Password
-    public HomePage verifyInvalidLoginOrPassword(String expectedText) {
-        System.out.println("step: " + Thread.currentThread().getStackTrace()[1].getMethodName());
-        try {
-            assertEquals(errorMessageUsernameOrPasswordBy, expectedText);
-        } catch (AssertionError e) {
-            e.printStackTrace();
-            printScreen(driver);
-            throw e;
-        }
-        return this;
+        return new ValidLoginAndPasswordAS(driver);
     }
 
     //Verify Invalid Account Name
@@ -105,4 +95,35 @@ public class HomePage extends BasePage {
         return this;
     }
 
+    public String getBaseURL() {
+        return baseURL;
+    }
+
+    public By getHelpButtonBy() {
+        return helpButtonBy;
+    }
+
+    public By getMyAccountNameInputBy() {
+        return myAccountNameInputBy;
+    }
+
+    public By getPasswordInputBy() {
+        return passwordInputBy;
+    }
+
+    public By getCookiesOKButtonBy() {
+        return cookiesOKButtonBy;
+    }
+
+    public By getLogInButtonBy() {
+        return logInButtonBy;
+    }
+
+    public By getErrorMessageUsernameOrPasswordBy() {
+        return errorMessageUsernameOrPasswordBy;
+    }
+
+    public By getErrorMessageUsernameBy() {
+        return errorMessageUsernameBy;
+    }
 }

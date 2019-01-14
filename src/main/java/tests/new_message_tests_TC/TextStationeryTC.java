@@ -3,6 +3,7 @@ package tests.new_message_tests_TC;
 import org.testng.annotations.Test;
 import pages.HomePage;
 import tests.BaseTestTC;
+import tests_assertions.login_tests.ValidLoginAndPasswordAS;
 import tests_property_managers.login_tests_PM.ValidLoginAndPasswordPM;
 import tests_property_managers.new_message_tests_PM.TextStationeryPM;
 
@@ -27,8 +28,9 @@ public class TextStationeryTC extends BaseTestTC {
                 .fillInLoginField(TestData.login)
                 .fillInPasswordField(TestData.password)
                 .acceptCookies()
-                .clickLogInButtonWithPass()
-                .verifyValidLoginAndPassword(TestData.validLoginAndPasswordAssert)
+                .clickLogInButtonWithPass();
+                new ValidLoginAndPasswordAS(driver)
+                .validLoginAndPasswordAssertion(TestData.validLoginAndPasswordAssert)
                 .clickNewMessageButton()
                 .clickStationeryButton()
                 .clickStationeryOption()

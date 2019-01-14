@@ -4,15 +4,19 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
+import tests_assertions.new_message_tests_AS.AlignTextAS;
+import tests_assertions.new_message_tests_AS.AttachFileAS;
+import tests_assertions.new_message_tests_AS.InsertImageAS;
 
 public class NewMessagePopupPage extends BasePage {
 
-    // *********Constructor*********
+    //region *********Constructor*********
     public NewMessagePopupPage(WebDriver driver) {
         super(driver);
     }
+    //endregion
 
-    // *********Web Elements*********
+    //region *********Web Elements*********
     private By messageToInputBy = By.xpath("(//*[contains(text(),'Nowa wiadomość')]/../..//input)[1]");
     private By ccInputBy = By.xpath("(//*[contains(text(),'Nowa wiadomość')]/../..//input)[2]");
     private By bccInputBy = By.xpath("(//*[contains(text(),'Nowa wiadomość')]/../..//input)[3]");
@@ -53,8 +57,176 @@ public class NewMessagePopupPage extends BasePage {
     private By mailContentStationeryOptionBy = By.xpath("//img[@src='https://o.iplsc.com/n/st/thumb_56.png']");
     private By mailContentStationeryResetBy = By.xpath("//img[@src='https://o.iplsc.com/n/st/empty.png']");
     private By emoticonButtonBy = By.xpath("//button[@data-tooltip='Wstaw emotikonę']");
-    private By emotIconOptionBy = By.xpath("//img[@src='https://o.iplsc.com/n/js/tinymce/plugins/emoticons/img/smiley-cool.gif']");
-    // *********Page Methods*********
+    private By emoticonOptionBy = By.xpath("//img[@src='https://o.iplsc.com/n/js/tinymce/plugins/emoticons/img/smiley-cool.gif']");
+    //endregion
+
+    //region *********Getters*********
+    public By getMessageToInputBy() {
+        return messageToInputBy;
+    }
+
+    public By getCcInputBy() {
+        return ccInputBy;
+    }
+
+    public By getBccInputBy() {
+        return bccInputBy;
+    }
+
+    public By getMessageSubjectInputBy() {
+        return messageSubjectInputBy;
+    }
+
+    public By getMessageTextFrameBy() {
+        return messageTextFrameBy;
+    }
+
+    public By getSendMessageButtonBy() {
+        return sendMessageButtonBy;
+    }
+
+    public By getUploadFileBy() {
+        return uploadFileBy;
+    }
+
+    public By getUploadImageBy() {
+        return uploadImageBy;
+    }
+
+    public By getCloseNewMessagePopupButtonBy() {
+        return closeNewMessagePopupButtonBy;
+    }
+
+    public By getMessageSentInfoBy() {
+        return messageSentInfoBy;
+    }
+
+    public By getAttachmentsAddedInfoBy() {
+        return attachmentsAddedInfoBy;
+    }
+
+    public By getErrorMessageInfoBy() {
+        return errorMessageInfoBy;
+    }
+
+    public By getMessageOptionsButtonBy() {
+        return messageOptionsButtonBy;
+    }
+
+    public By getSaveMessageAsADraftButtonBy() {
+        return saveMessageAsADraftButtonBy;
+    }
+
+    public By getMessageSavedAsADraftInfoBy() {
+        return messageSavedAsADraftInfoBy;
+    }
+
+    public By getMinMessagePopupButtonBy() {
+        return minMessagePopupButtonBy;
+    }
+
+    public By getResMinMessagePopupButtonBy() {
+        return resMinMessagePopupButtonBy;
+    }
+
+    public By getMaxMessagePopupButtonBy() {
+        return maxMessagePopupButtonBy;
+    }
+
+    public By getCloseMaxMessagePopupButtonBy() {
+        return closeMaxMessagePopupButtonBy;
+    }
+
+    public By getCcButtonBy() {
+        return ccButtonBy;
+    }
+
+    public By getBccButtonBy() {
+        return bccButtonBy;
+    }
+
+    public By getBoldButtonBy() {
+        return boldButtonBy;
+    }
+
+    public By getItalicButtonBy() {
+        return italicButtonBy;
+    }
+
+    public By getUnderlineButtonBy() {
+        return underlineButtonBy;
+    }
+
+    public By getFontColorButtonBy() {
+        return fontColorButtonBy;
+    }
+
+    public By getRedFontColorButtonBy() {
+        return redFontColorButtonBy;
+    }
+
+    public By getBlackFontColorButtonBy() {
+        return blackFontColorButtonBy;
+    }
+
+    public By getStyleAndSizeButtonBy() {
+        return styleAndSizeButtonBy;
+    }
+
+    public By getGeorgiaFontBy() {
+        return georgiaFontBy;
+    }
+
+    public By getHugeFontBy() {
+        return hugeFontBy;
+    }
+
+    public By getListAndAlignmentTextButtonBy() {
+        return listAndAlignmentTextButtonBy;
+    }
+
+    public By getNumericListBy() {
+        return numericListBy;
+    }
+
+    public By getPointedListBy() {
+        return pointedListBy;
+    }
+
+    public By getLeftAlignmentBy() {
+        return leftAlignmentBy;
+    }
+
+    public By getCenterAlignmentBy() {
+        return centerAlignmentBy;
+    }
+
+    public By getRightAlignmentBy() {
+        return rightAlignmentBy;
+    }
+
+    public By getMailContentStationeryButtonBy() {
+        return mailContentStationeryButtonBy;
+    }
+
+    public By getMailContentStationeryOptionBy() {
+        return mailContentStationeryOptionBy;
+    }
+
+    public By getMailContentStationeryResetBy() {
+        return mailContentStationeryResetBy;
+    }
+
+    public By getEmoticonButtonBy() {
+        return emoticonButtonBy;
+    }
+
+    public By getEmoticonOptionBy() {
+        return emoticonOptionBy;
+    }
+    //endregion
+
+    //region *********Page Methods*********
     // Enter Message To Input Field
     public NewMessagePopupPage enterMessageToField(String messageTo) {
         System.out.println("step: " + Thread.currentThread().getStackTrace()[1].getMethodName());
@@ -102,12 +274,12 @@ public class NewMessagePopupPage extends BasePage {
     }
 
     // Attach File
-    public NewMessagePopupPage
+    public AttachFileAS
     attachFile(String pathToLocalFile) {
         System.out.println("step: " + Thread.currentThread().getStackTrace()[1].getMethodName());
         waitVisibility(uploadFileBy);
         driver.findElement(uploadFileBy).sendKeys(pathToLocalFile);
-        return this;
+        return new AttachFileAS(driver);
     }
 
     // KeyPress Ctrl + A
@@ -126,19 +298,6 @@ public class NewMessagePopupPage extends BasePage {
         System.out.println("step: " + Thread.currentThread().getStackTrace()[1].getMethodName());
         click(closeNewMessagePopupButtonBy);
         return new InboxPage(driver);
-    }
-
-    // Verify Attachment Added
-    public NewMessagePopupPage verifyAttachFile(String expectedText) {
-        System.out.println("step: " + Thread.currentThread().getStackTrace()[1].getMethodName());
-        waitVisibility(attachmentsAddedInfoBy);
-        try {
-            assertEquals(attachmentsAddedInfoBy, expectedText);
-        } catch (AssertionError e) {
-            e.printStackTrace();
-            printScreen(driver);
-        }
-        return this;
     }
 
     // Verify Message Sent
@@ -409,18 +568,18 @@ public class NewMessagePopupPage extends BasePage {
     }
 
     // Click Message Text Frame
-    public NewMessagePopupPage clickMessageTextFrame() {
+    public AlignTextAS clickMessageTextFrame() {
         System.out.println("step: " + Thread.currentThread().getStackTrace()[1].getMethodName());
         click(messageTextFrameBy);
-        return this;
+        return new AlignTextAS(driver);
     }
 
     // Insert Image
-    public NewMessagePopupPage insertImage(String pathToLocalFile) {
+    public InsertImageAS insertImage(String pathToLocalFile) {
         System.out.println("step: " + Thread.currentThread().getStackTrace()[1].getMethodName());
         waitVisibility(uploadImageBy);
         driver.findElement(uploadImageBy).sendKeys(pathToLocalFile);
-        return this;
+        return new InsertImageAS(driver);
     }
 
     // Click Emoticon Button
@@ -429,19 +588,11 @@ public class NewMessagePopupPage extends BasePage {
         click(emoticonButtonBy);
         return this;
     }
-
-    // Click Emoticon Option
-    public NewMessagePopupPage clickEmoticonOption() {
-        System.out.println("step: " + Thread.currentThread().getStackTrace()[1].getMethodName());
-        click(emotIconOptionBy);
-        return this;
-    }
-
     // Verify Text Is Bold
     public NewMessagePopupPage verifyBoldFont(String expectedText) {
         System.out.println("step: " + Thread.currentThread().getStackTrace()[1].getMethodName());
-        waitVisibility(messageTextFrameBy);
-        driver.switchTo().frame(driver.findElement(messageTextFrameBy));
+        waitVisibility(getMessageTextFrameBy());
+        driver.switchTo().frame(driver.findElement(getMessageTextFrameBy()));
         By messageTextAreaBy = By.xpath("//*[contains(text(),'Czcionka')]");
         try {
             Assert.assertEquals(driver.findElement(messageTextAreaBy).getTagName(), expectedText);
@@ -450,6 +601,12 @@ public class NewMessagePopupPage extends BasePage {
             printScreen(driver);
         }
         driver.switchTo().defaultContent();
+        return this;
+    }
+    // Click Emoticon Option
+    public NewMessagePopupPage clickEmoticonOption() {
+        System.out.println("step: " + Thread.currentThread().getStackTrace()[1].getMethodName());
+        click(emoticonOptionBy);
         return this;
     }
 
@@ -593,21 +750,7 @@ public class NewMessagePopupPage extends BasePage {
         return this;
     }
 
-    // Verify Text Left Alignment
-    public NewMessagePopupPage verifyTextAlignment(String expectedText) {
-        System.out.println("step: " + Thread.currentThread().getStackTrace()[1].getMethodName());
-        waitVisibility(messageTextFrameBy);
-        driver.switchTo().frame(driver.findElement(messageTextFrameBy));
-        By messageTextAreaBy = By.xpath("//*[contains(text(),'Czcionka')]");
-        try {
-            Assert.assertEquals(driver.findElement(messageTextAreaBy).getAttribute("style"), expectedText);
-        } catch (AssertionError e) {
-            e.printStackTrace();
-            printScreen(driver);
-        }
-        driver.switchTo().defaultContent();
-        return this;
-    }
+
 
     // Verify Stationery Option
     public NewMessagePopupPage verifyStationeryOption(String expectedText) {
@@ -638,4 +781,5 @@ public class NewMessagePopupPage extends BasePage {
         }
         return this;
     }
+    //endregion
 }

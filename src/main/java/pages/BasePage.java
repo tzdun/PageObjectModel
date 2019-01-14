@@ -33,7 +33,7 @@ public class BasePage {
             wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(elementBy));
         } catch(Exception e) {
             System.out.println("Error: czekam na element: " + elementBy);
-            e.printStackTrace();
+            //e.printStackTrace();
             printScreen(driver);
         }
     }
