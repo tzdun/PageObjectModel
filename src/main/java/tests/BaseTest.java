@@ -21,7 +21,7 @@ public class BaseTest {
     public void setup (Method testMethod) {
         System.out.println("Starting TC: " + testMethod.getDeclaringClass().getSimpleName() + "...");
         System.out.println("Setup...");
-        //Create a Chrome driver. All test classes use this.
+        //Create tests_properties Chrome driver. All test classes use this.
         setWebDriverProperty(this.propertyFilePath);
         System.setProperty(chromeDriver, chromeDriverFilePath);
         ChromeOptions options = new ChromeOptions();

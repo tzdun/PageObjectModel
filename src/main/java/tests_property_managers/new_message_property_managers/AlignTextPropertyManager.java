@@ -3,7 +3,7 @@ package tests_property_managers.new_message_property_managers;
 import tests_property_managers.BasePropertyManager;
 
 public class AlignTextPropertyManager extends BasePropertyManager {
-    private static final String propertyFilePath = "src/main/resources/new_message_tests_properties/alignText";
+    private static final String propertyFilePath = "src/main/resources/tests_properties/new_message_properties/alignText";
     private String textAreaFieldMessage;
     private String leftAlignAssert;
     private String centerAlignAssert;

@@ -6,7 +6,7 @@ import java.io.File;
 import java.io.IOException;
 
 public class InsertImagePropertyManager extends BasePropertyManager {
-    private static final String propertyFilePath = "src/main/resources/new_message_tests_properties/insertImage";
+    private static final String propertyFilePath = "src/main/resources/tests_properties/new_message_properties/insertImage";
     private String relativeImagePath;
     private String canonicalImagePath;
     private String insertImageAssert;

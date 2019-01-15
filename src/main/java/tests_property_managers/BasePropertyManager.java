@@ -11,6 +11,7 @@ import java.util.Properties;
 public class BasePropertyManager {
 
     private static String propertyFilePath;
+    private static String loginPropertyFilePath = "src/main/resources/tests_properties/login_properties/";
     private Properties properties;
 
     public BasePropertyManager(String propertyFilePath) {
@@ -25,7 +26,7 @@ public class BasePropertyManager {
 
     //Get all configuration data and assign to related fields.
     private void loadData() {
-        //Declare a properties object
+        //Declare tests_properties properties object
         properties = new Properties();
 
         //Read configuration.properties file
