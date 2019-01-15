@@ -3,31 +3,31 @@
 <suite name="Poczta Int.pl Tests">
     <test name="LoginTests">
         <classes>
-            <class name="tests.login_tests_TC.InvalidPasswordTC"/>
-            <class name="tests.login_tests_TC.InvalidLoginTC"/>
-            <class name="tests.login_tests_TC.ValidLoginAndPasswordTC"/>
-            <class name="tests.login_tests_TC.GoToHelpPageTC"/>
+            <class name="tests.login_tests.InvalidPasswordTest"/>
+            <class name="tests.login_tests.InvalidLoginTest"/>
+            <class name="tests.login_tests.ValidLoginAndPasswordTest"/>
+            <class name="tests.login_tests.GoToHelpPageTest"/>
         </classes>
     </test>
     <test name="NewMessageTests">
         <classes>
-            <class name="tests.new_message_tests_TC.SendEmailWithAttachmentTC"/>
-            <class name="tests.new_message_tests_TC.ResizePopupTC"/>
-            <class name="tests.new_message_tests_TC.SaveMessageAsADraftTC"/>
-            <class name="tests.new_message_tests_TC.SendEmailWithoutRecipientTC"/>
-            <class name="tests.new_message_tests_TC.SendEmailWithoutAttachmentTC"/>
-            <class name="tests.new_message_tests_TC.SendCcAndBccCopyTC"/>
-            <class name="tests.new_message_tests_TC.AlignTextTC"/>
-            <class name="tests.new_message_tests_TC.BoldFontTC"/>
-            <class name="tests.new_message_tests_TC.FontColorTC"/>
-            <class name="tests.new_message_tests_TC.FontSizeTC"/>
-            <class name="tests.new_message_tests_TC.FontStyleTC"/>
-            <class name="tests.new_message_tests_TC.ItalicFontTC"/>
-            <class name="tests.new_message_tests_TC.ListTextTC"/>
-            <class name="tests.new_message_tests_TC.TextStationeryTC"/>
-            <class name="tests.new_message_tests_TC.UnderlineFontTC"/>
-            <class name="tests.new_message_tests_TC.AttachFileTC"/>
-            <class name="tests.new_message_tests_TC.InsertImageTC"/>
+            <class name="tests.new_message_tests.SendEmailWithAttachmentTest"/>
+            <class name="tests.new_message_tests.ResizePopupTest"/>
+            <class name="tests.new_message_tests.SaveMessageAsADraftTest"/>
+            <class name="tests.new_message_tests.SendEmailWithoutRecipientTest"/>
+            <class name="tests.new_message_tests.SendEmailWithoutAttachmentTest"/>
+            <class name="tests.new_message_tests.SendCcAndBccCopyTest"/>
+            <class name="tests.new_message_tests.AlignTextTest"/>
+            <class name="tests.new_message_tests.BoldFontTest"/>
+            <class name="tests.new_message_tests.FontColorTest"/>
+            <class name="tests.new_message_tests.FontSizeTest"/>
+            <class name="tests.new_message_tests.FontStyleTest"/>
+            <class name="tests.new_message_tests.ItalicFontTest"/>
+            <class name="tests.new_message_tests.ListTextTest"/>
+            <class name="tests.new_message_tests.TextStationeryTest"/>
+            <class name="tests.new_message_tests.UnderlineFontTest"/>
+            <class name="tests.new_message_tests.AttachFileTest"/>
+            <class name="tests.new_message_tests.InsertImageTest"/>
         </classes>
     </test>
 </suite>

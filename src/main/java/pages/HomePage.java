@@ -2,9 +2,9 @@ package pages;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import tests_assertions.login_tests.GoToHelpPageAS;
-import tests_assertions.login_tests.InvalidLoginOrPasswordAS;
-import tests_assertions.login_tests.ValidLoginAndPasswordAS;
+import tests_assertions.login_assertions.GoToHelpPageAssert;
+import tests_assertions.login_assertions.InvalidLoginOrPasswordAssert;
+import tests_assertions.login_assertions.ValidLoginAndPasswordAssert;
 
 import java.util.ArrayList;
 
@@ -35,12 +35,12 @@ public class HomePage extends BasePage {
     }
 
     //Go to Login Page
-    public GoToHelpPageAS goToHelpPage() {
+    public GoToHelpPageAssert goToHelpPage() {
         System.out.println("step: " + Thread.currentThread().getStackTrace()[1].getMethodName());
         click(helpButtonBy);
         ArrayList<String> newTab = new ArrayList<String>(driver.getWindowHandles());
         // change focus to new tab
-        return new GoToHelpPageAS(driver.switchTo().window(newTab.get(1)));
+        return new GoToHelpPageAssert(driver.switchTo().window(newTab.get(1)));
     }
 
     //Input Account Name
@@ -68,19 +68,19 @@ public class HomePage extends BasePage {
     }
 
     //Log In Not Successful
-    public InvalidLoginOrPasswordAS clickLogInWithFail() {
+    public InvalidLoginOrPasswordAssert clickLogInWithFail() {
         System.out.println("step: " + Thread.currentThread().getStackTrace()[1].getMethodName());
         //Click Login Button
         click(logInButtonBy);
-        return new InvalidLoginOrPasswordAS(driver);
+        return new InvalidLoginOrPasswordAssert(driver);
     }
 
     //Log In Successful
-    public ValidLoginAndPasswordAS clickLogInButtonWithPass() {
+    public ValidLoginAndPasswordAssert clickLogInButtonWithPass() {
         System.out.println("step: " + Thread.currentThread().getStackTrace()[1].getMethodName());
         //Click Login Button
         click(logInButtonBy);
-        return new ValidLoginAndPasswordAS(driver);
+        return new ValidLoginAndPasswordAssert(driver);
     }
 
     //Verify Invalid Account Name

@@ -3,9 +3,9 @@ package pages;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
-import tests_assertions.new_message_tests_AS.*;
+import tests_assertions.new_message_assertions.*;
 
-public class NewMessagePopupPage extends TextFrameWidget {
+public class NewMessagePopupPage extends BasePage {
 
     //region *********Constructor*********
     public NewMessagePopupPage(WebDriver driver) {
@@ -54,9 +54,14 @@ public class NewMessagePopupPage extends TextFrameWidget {
     private By mailContentStationeryResetBy = By.xpath("//img[@src='https://o.iplsc.com/n/st/empty.png']");
     private By emoticonButtonBy = By.xpath("//button[@data-tooltip='Wstaw emotikonę']");
     private By emoticonOptionBy = By.xpath("//img[@src='https://o.iplsc.com/n/js/tinymce/plugins/emoticons/img/smiley-cool.gif']");
+    private By messageTextFrameBy = By.xpath("//iframe[@title]");
     //endregion
 
     //region *********Getters*********
+    public By getMessageTextFrameBy() {
+        return messageTextFrameBy;
+    }
+
     public By getMessageSentInfoBy() {
         return messageSentInfoBy;
     }
@@ -99,6 +104,24 @@ public class NewMessagePopupPage extends TextFrameWidget {
     //endregion
 
     //region *********Page Methods*********
+    // Click Message Text Frame
+    public InsertEmoticonAssert clickMessageTextFrame() {
+        System.out.println("step: " + Thread.currentThread().getStackTrace()[1].getMethodName());
+        click(getMessageTextFrameBy());
+        return new InsertEmoticonAssert(driver);
+    }
+
+    // Enter Message Text Area Field
+    public NewMessagePopupPage fillInMessageTextArea(String messageText) {
+        System.out.println("step: " + Thread.currentThread().getStackTrace()[1].getMethodName());
+        waitVisibility(getMessageTextFrameBy());
+        driver.switchTo().frame(driver.findElement(getMessageTextFrameBy()));
+        By messageTextAreaBy = By.xpath("//body");
+        writeText(messageTextAreaBy, messageText);
+        driver.switchTo().defaultContent();
+        return new NewMessagePopupPage(driver);
+    }
+
     // Enter Message To Input Field
     public NewMessagePopupPage enterMessageToField(String messageTo) {
         System.out.println("step: " + Thread.currentThread().getStackTrace()[1].getMethodName());
@@ -128,26 +151,26 @@ public class NewMessagePopupPage extends TextFrameWidget {
     }
 
     // Click Send Button With Pass
-    public MessageSentAS clickSendButtonWithPass() {
+    public MessageSentAssert clickSendButtonWithPass() {
         System.out.println("step: " + Thread.currentThread().getStackTrace()[1].getMethodName());
         click(sendMessageButtonBy);
-        return new MessageSentAS(driver);
+        return new MessageSentAssert(driver);
     }
 
     // Click Send Button With Fail
-    public SendEmailWithoutRecipientAS clickSendButtonWithFail() {
+    public SendEmailWithoutRecipientAssert clickSendButtonWithFail() {
         System.out.println("step: " + Thread.currentThread().getStackTrace()[1].getMethodName());
         click(sendMessageButtonBy);
-        return new SendEmailWithoutRecipientAS(driver);
+        return new SendEmailWithoutRecipientAssert(driver);
     }
 
     // Attach File
-    public AttachFileAndInsertImageAS
+    public AttachFileAndInsertImageAssert
     attachFile(String pathToLocalFile) {
         System.out.println("step: " + Thread.currentThread().getStackTrace()[1].getMethodName());
         waitVisibility(uploadFileBy);
         driver.findElement(uploadFileBy).sendKeys(pathToLocalFile);
-        return new AttachFileAndInsertImageAS(driver);
+        return new AttachFileAndInsertImageAssert(driver);
     }
 
     // KeyPress Ctrl + A
@@ -176,24 +199,24 @@ public class NewMessagePopupPage extends TextFrameWidget {
     }
 
     // Click Save Message As A Draft Button
-    public SaveMessageAsADraftAS clickSaveMessageAsADraftButton() {
+    public SaveMessageAsADraftAssert clickSaveMessageAsADraftButton() {
         System.out.println("step: " + Thread.currentThread().getStackTrace()[1].getMethodName());
         click(saveMessageAsADraftButtonBy);
-        return new SaveMessageAsADraftAS(driver);
+        return new SaveMessageAsADraftAssert(driver);
     }
 
     // Click Min Message Popup Button
-    public ResizePopupAS clickMinMessagePopupButton() {
+    public ResizePopupAssert clickMinMessagePopupButton() {
         System.out.println("step: " + Thread.currentThread().getStackTrace()[1].getMethodName());
         click(minMessagePopupButtonBy);
-        return new ResizePopupAS(driver);
+        return new ResizePopupAssert(driver);
     }
 
     // Click Max Message Popup Button
-    public ResizePopupAS clickMaxMessagePopupButton() {
+    public ResizePopupAssert clickMaxMessagePopupButton() {
         System.out.println("step: " + Thread.currentThread().getStackTrace()[1].getMethodName());
         click(maxMessagePopupButtonBy);
-        return new ResizePopupAS(driver);
+        return new ResizePopupAssert(driver);
     }
 
     // Click Close Max Message Popup Button
@@ -204,10 +227,10 @@ public class NewMessagePopupPage extends TextFrameWidget {
     }
 
     // Click Res Min Message Popup Button
-    public ResizePopupAS clickResMinMessagePopupButton() {
+    public ResizePopupAssert clickResMinMessagePopupButton() {
         System.out.println("step: " + Thread.currentThread().getStackTrace()[1].getMethodName());
         click(resMinMessagePopupButtonBy);
-        return new ResizePopupAS(driver);
+        return new ResizePopupAssert(driver);
     }
 
     // Click CC Message Button
@@ -226,17 +249,17 @@ public class NewMessagePopupPage extends TextFrameWidget {
 
 
     // Click Bold Button
-    public BoldFontAS clickBoldButton() {
+    public BoldFontAssert clickBoldButton() {
         System.out.println("step: " + Thread.currentThread().getStackTrace()[1].getMethodName());
         click(boldButtonBy);
-        return new BoldFontAS(driver);
+        return new BoldFontAssert(driver);
     }
 
     // Click Italic Button
-    public ItalicFontAS clickItalicButton() {
+    public ItalicFontAssert clickItalicButton() {
         System.out.println("step: " + Thread.currentThread().getStackTrace()[1].getMethodName());
         click(italicButtonBy);
-        return new ItalicFontAS(driver);
+        return new ItalicFontAssert(driver);
     }
 
     // Click Style And Size Button
@@ -247,24 +270,24 @@ public class NewMessagePopupPage extends TextFrameWidget {
     }
 
     // Click Georgia Font
-    public FontColorAndStyleAS clickGeorgiaFontStyle() {
+    public FontColorAndStyleAssert clickGeorgiaFontStyle() {
         System.out.println("step: " + Thread.currentThread().getStackTrace()[1].getMethodName());
         click(georgiaFontBy);
-        return new FontColorAndStyleAS(driver);
+        return new FontColorAndStyleAssert(driver);
     }
 
     // Click Huge Font
-    public FontSizeAS clickHugeFontSize() {
+    public FontSizeAssert clickHugeFontSize() {
         System.out.println("step: " + Thread.currentThread().getStackTrace()[1].getMethodName());
         click(hugeFontBy);
-        return new FontSizeAS(driver);
+        return new FontSizeAssert(driver);
     }
 
     // Click Underline Button
-    public UnderlineFontAS clickUnderlineButton() {
+    public UnderlineFontAssert clickUnderlineButton() {
         System.out.println("step: " + Thread.currentThread().getStackTrace()[1].getMethodName());
         click(underlineButtonBy);
-        return new UnderlineFontAS(driver);
+        return new UnderlineFontAssert(driver);
     }
 
     // Click Font Color Button
@@ -275,10 +298,10 @@ public class NewMessagePopupPage extends TextFrameWidget {
     }
 
     // Click Red Font Color Button
-    public FontColorAndStyleAS clickRedFontColorButton() {
+    public FontColorAndStyleAssert clickRedFontColorButton() {
         System.out.println("step: " + Thread.currentThread().getStackTrace()[1].getMethodName());
         click(redFontColorButtonBy);
-        return new FontColorAndStyleAS(driver);
+        return new FontColorAndStyleAssert(driver);
     }
 
     // Click Black Font Color Button
@@ -296,38 +319,38 @@ public class NewMessagePopupPage extends TextFrameWidget {
     }
 
     // Click Numeric List Option
-    public ListTextAS clickNumericListOption() {
+    public ListTextAssert clickNumericListOption() {
         System.out.println("step: " + Thread.currentThread().getStackTrace()[1].getMethodName());
         click(numericListBy);
-        return new ListTextAS(driver);
+        return new ListTextAssert(driver);
     }
 
     // Click Point List Option
-    public ListTextAS clickPointListOption() {
+    public ListTextAssert clickPointListOption() {
         System.out.println("step: " + Thread.currentThread().getStackTrace()[1].getMethodName());
         click(pointedListBy);
-        return new ListTextAS(driver);
+        return new ListTextAssert(driver);
     }
 
     // Click Left Alignment Option
-    public AlignTextAS clickLeftAlignOption() {
+    public AlignTextAssert clickLeftAlignOption() {
         System.out.println("step: " + Thread.currentThread().getStackTrace()[1].getMethodName());
         click(leftAlignmentBy);
-        return new AlignTextAS(driver);
+        return new AlignTextAssert(driver);
     }
 
     // Click Center Alignment Option
-    public AlignTextAS clickCenterAlignOption() {
+    public AlignTextAssert clickCenterAlignOption() {
         System.out.println("step: " + Thread.currentThread().getStackTrace()[1].getMethodName());
         click(centerAlignmentBy);
-        return new AlignTextAS(driver);
+        return new AlignTextAssert(driver);
     }
 
     // Click Right Alignment Option
-    public AlignTextAS clickRightAlignOption() {
+    public AlignTextAssert clickRightAlignOption() {
         System.out.println("step: " + Thread.currentThread().getStackTrace()[1].getMethodName());
         click(rightAlignmentBy);
-        return new AlignTextAS(driver);
+        return new AlignTextAssert(driver);
     }
 
     // Click Stationery Button
@@ -338,10 +361,10 @@ public class NewMessagePopupPage extends TextFrameWidget {
     }
 
     // Click Stationery Option
-    public TextStationeryAS clickStationeryOption() {
+    public TextStationeryAssert clickStationeryOption() {
         System.out.println("step: " + Thread.currentThread().getStackTrace()[1].getMethodName());
         click(mailContentStationeryOptionBy);
-        return new TextStationeryAS(driver);
+        return new TextStationeryAssert(driver);
     }
 
     // Click Stationery Reset Option
@@ -352,11 +375,11 @@ public class NewMessagePopupPage extends TextFrameWidget {
     }
 
     // Insert Image
-    public AttachFileAndInsertImageAS insertImage(String pathToLocalFile) {
+    public AttachFileAndInsertImageAssert insertImage(String pathToLocalFile) {
         System.out.println("step: " + Thread.currentThread().getStackTrace()[1].getMethodName());
         waitVisibility(uploadImageBy);
         driver.findElement(uploadImageBy).sendKeys(pathToLocalFile);
-        return new AttachFileAndInsertImageAS(driver);
+        return new AttachFileAndInsertImageAssert(driver);
     }
 
     // Click Emoticon Button
@@ -367,10 +390,10 @@ public class NewMessagePopupPage extends TextFrameWidget {
     }
 
     // Click Emoticon Option
-    public InsertEmoticonAS clickEmoticonOption() {
+    public InsertEmoticonAssert clickEmoticonOption() {
         System.out.println("step: " + Thread.currentThread().getStackTrace()[1].getMethodName());
         click(emoticonOptionBy);
-        return new InsertEmoticonAS(driver);
+        return new InsertEmoticonAssert(driver);
     }
     //endregion
 }
