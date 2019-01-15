@@ -6,7 +6,7 @@ import java.io.File;
 import java.io.IOException;
 
 public class SendEmailWithAttachmentPropertyManager extends BasePropertyManager {
-    private static final String propertyFilePath = "src/main/resources/tests_properties/new_message_properties/sendEmailWithAttachment";
+    private static final String propertyFilePath = BasePropertyManager.getNewMessagePropertyFilePath() + "sendEmailWithAttachment";
     private String messageTo;
     private String messageSubject;
     private String messageText;

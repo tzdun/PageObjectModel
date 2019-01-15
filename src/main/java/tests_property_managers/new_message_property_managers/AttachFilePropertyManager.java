@@ -6,7 +6,7 @@ import java.io.File;
 import java.io.IOException;
 
 public class AttachFilePropertyManager extends BasePropertyManager {
-    private static final String propertyFilePath = "src/main/resources/tests_properties/new_message_properties/attachFile";
+    private static final String propertyFilePath = BasePropertyManager.getNewMessagePropertyFilePath() + "attachFile";
     private String attachFilePath;
     private String attachFileAssert;
 

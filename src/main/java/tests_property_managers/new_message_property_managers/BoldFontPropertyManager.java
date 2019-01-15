@@ -3,7 +3,7 @@ package tests_property_managers.new_message_property_managers;
 import tests_property_managers.BasePropertyManager;
 
 public class BoldFontPropertyManager extends BasePropertyManager {
-    private static final String propertyFilePath = "src/main/resources/tests_properties/new_message_properties/boldFont";
+    private static final String propertyFilePath = BasePropertyManager.getNewMessagePropertyFilePath() + "boldFont";
     private String textAreaFieldMessage;
     private String boldFontAssert;
     private String boldTextButtonPressedAssert;

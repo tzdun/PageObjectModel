@@ -11,7 +11,8 @@ import java.util.Properties;
 public class BasePropertyManager {
 
     private static String propertyFilePath;
-    private static String loginPropertyFilePath = "src/main/resources/tests_properties/login_properties/";
+    private static final String loginPropertyFilePath = "src/main/resources/tests_properties/login_properties/";
+    private static final String newMessagePropertyFilePath = "src/main/resources/tests_properties/new_message_properties/";
     private Properties properties;
 
     public BasePropertyManager(String propertyFilePath) {
@@ -42,5 +43,13 @@ public class BasePropertyManager {
     //Get properties
     public Properties getProperties() {
         return properties;
+    }
+
+    public static String getLoginPropertyFilePath() {
+        return loginPropertyFilePath;
+    }
+
+    public static String getNewMessagePropertyFilePath() {
+        return newMessagePropertyFilePath;
     }
 }

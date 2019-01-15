@@ -3,7 +3,7 @@ package tests_property_managers.new_message_property_managers;
 import tests_property_managers.BasePropertyManager;
 
 public class FontColorPropertyManager extends BasePropertyManager {
-    private static final String propertyFilePath = "src/main/resources/tests_properties/new_message_properties/fontColor";
+    private static final String propertyFilePath = BasePropertyManager.getNewMessagePropertyFilePath() + "fontColor";
     private String textAreaFieldMessage;
     private String fontColorAssert;
 

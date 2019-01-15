@@ -6,7 +6,7 @@ import java.io.File;
 import java.io.IOException;
 
 public class SendCcAndBccCopyPropertyManager extends BasePropertyManager {
-    private static final String propertyFilePath = "src/main/resources/tests_properties/new_message_properties/sendCcAndBccCopy";
+    private static final String propertyFilePath = BasePropertyManager.getNewMessagePropertyFilePath() + "sendCcAndBccCopy";
     private String messageTo;
     private String ccMessageTo;
     private String bccMessageTo;

@@ -6,7 +6,7 @@ import java.io.File;
 import java.io.IOException;
 
 public class SaveMessageAsADraftPropertyManager extends BasePropertyManager {
-    private static final String propertyFilePath = "src/main/resources/tests_properties/new_message_properties/saveMessageAsADraft";
+    private static final String propertyFilePath = BasePropertyManager.getNewMessagePropertyFilePath() + "saveMessageAsADraft";
     private String messageTo;
     private String messageSubject;
     private String messageText;

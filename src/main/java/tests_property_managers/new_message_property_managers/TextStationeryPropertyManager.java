@@ -3,7 +3,7 @@ package tests_property_managers.new_message_property_managers;
 import tests_property_managers.BasePropertyManager;
 
 public class TextStationeryPropertyManager extends BasePropertyManager {
-    private static final String propertyFilePath = "src/main/resources/tests_properties/new_message_properties/textStationery";
+    private static final String propertyFilePath = BasePropertyManager.getNewMessagePropertyFilePath() + "textStationery";
     private String textStationeryAssert;
 
     public TextStationeryPropertyManager() {
