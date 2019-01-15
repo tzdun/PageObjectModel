@@ -11,7 +11,6 @@ public class SendEmailWithoutAttachmentTC extends BaseTestTC {
         private static ValidLoginAndPasswordPM validLoginAndPasswordPM = new ValidLoginAndPasswordPM();
         private static String login = validLoginAndPasswordPM.getLogin();
         private static String password = validLoginAndPasswordPM.getPassword();
-        private static String validLoginAndPasswordAssert = validLoginAndPasswordPM.getValidLoginAndPasswordAssert();
         private static SendEmailWithoutAttachmentPM sendEmailWithoutAttachmentPM = new SendEmailWithoutAttachmentPM();
         private static String messageTo = sendEmailWithoutAttachmentPM.getMessageTo();
         private static String messageSubject = sendEmailWithoutAttachmentPM.getMessageSubject();
@@ -31,7 +30,6 @@ public class SendEmailWithoutAttachmentTC extends BaseTestTC {
                 .fillInPasswordField(TestData.password)
                 .acceptCookies()
                 .clickLogInButtonWithPass()
-                .validLoginAndPasswordAssertion(TestData.validLoginAndPasswordAssert)
                 .clickNewMessageButton()
                 .enterMessageToField(TestData.messageTo)
                 .enterMessageSubjectField(TestData.messageSubject)

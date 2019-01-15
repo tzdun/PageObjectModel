@@ -11,7 +11,6 @@ public class FontStyleTC extends BaseTestTC {
         private static ValidLoginAndPasswordPM validLoginAndPasswordPM = new ValidLoginAndPasswordPM();
         private static String login = validLoginAndPasswordPM.getLogin();
         private static String password = validLoginAndPasswordPM.getPassword();
-        private static String validLoginAndPasswordAssert = validLoginAndPasswordPM.getValidLoginAndPasswordAssert();
         private static FontStylePM fontStylePM = new FontStylePM();
         private static String textAreaFieldMessage = fontStylePM.getTextAreaFieldMessage();
         private static String fontStyleAssert = fontStylePM.getFontStyleAssert();
@@ -29,7 +28,6 @@ public class FontStyleTC extends BaseTestTC {
                 .fillInPasswordField(TestData.password)
                 .acceptCookies()
                 .clickLogInButtonWithPass()
-                .validLoginAndPasswordAssertion(TestData.validLoginAndPasswordAssert)
                 .clickNewMessageButton()
                 .fillInMessageTextArea(TestData.textAreaFieldMessage)
                 .keyPress_Ctrl_A()

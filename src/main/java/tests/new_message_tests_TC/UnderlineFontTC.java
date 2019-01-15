@@ -11,7 +11,6 @@ public class UnderlineFontTC extends BaseTestTC {
         private static ValidLoginAndPasswordPM validLoginAndPasswordPM = new ValidLoginAndPasswordPM();
         private static String login = validLoginAndPasswordPM.getLogin();
         private static String password = validLoginAndPasswordPM.getPassword();
-        private static String validLoginAndPasswordAssert = validLoginAndPasswordPM.getValidLoginAndPasswordAssert();
         private static UnderlineFontPM underlineFontPM = new UnderlineFontPM();
         private static String textAreaFieldMessage = underlineFontPM.getTextAreaFieldMessage();
         private static String underlineFontAssert = underlineFontPM.getUnderlineFontAssert();
@@ -29,7 +28,6 @@ public class UnderlineFontTC extends BaseTestTC {
                 .fillInPasswordField(TestData.password)
                 .acceptCookies()
                 .clickLogInButtonWithPass()
-                .validLoginAndPasswordAssertion(TestData.validLoginAndPasswordAssert)
                 .clickNewMessageButton()
                 .fillInMessageTextArea(TestData.textAreaFieldMessage)
                 .keyPress_Ctrl_A()

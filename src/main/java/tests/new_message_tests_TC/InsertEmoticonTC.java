@@ -11,7 +11,6 @@ public class InsertEmoticonTC extends BaseTestTC {
         private static ValidLoginAndPasswordPM validLoginAndPasswordPM = new ValidLoginAndPasswordPM();
         private static String login = validLoginAndPasswordPM.getLogin();
         private static String password = validLoginAndPasswordPM.getPassword();
-        private static String validLoginAndPasswordAssert = validLoginAndPasswordPM.getValidLoginAndPasswordAssert();
         private static InsertEmoticonPM insertEmoticonPM = new InsertEmoticonPM();
         private static String insertEmoticonAssert = insertEmoticonPM.getInsertEmoticonAssert();
     }
@@ -28,7 +27,6 @@ public class InsertEmoticonTC extends BaseTestTC {
                 .fillInPasswordField(TestData.password)
                 .acceptCookies()
                 .clickLogInButtonWithPass()
-                .validLoginAndPasswordAssertion(TestData.validLoginAndPasswordAssert)
                 .clickNewMessageButton()
                 .clickEmoticonButton()
                 .clickEmoticonOption()

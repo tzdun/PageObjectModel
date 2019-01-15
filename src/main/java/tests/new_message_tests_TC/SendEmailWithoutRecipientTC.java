@@ -11,7 +11,6 @@ public class SendEmailWithoutRecipientTC extends BaseTestTC {
         private static ValidLoginAndPasswordPM validLoginAndPasswordPM = new ValidLoginAndPasswordPM();
         private static String login = validLoginAndPasswordPM.getLogin();
         private static String password = validLoginAndPasswordPM.getPassword();
-        private static String validLoginAndPasswordAssert = validLoginAndPasswordPM.getValidLoginAndPasswordAssert();
         private static SendEmailWithoutRecipientPM sendEmailWithoutRecipientPM = new SendEmailWithoutRecipientPM();
         private static String sendEmailWithoutRecipientAssert = sendEmailWithoutRecipientPM.getSendEmailWithoutRecipientAssert();
     }
@@ -28,7 +27,6 @@ public class SendEmailWithoutRecipientTC extends BaseTestTC {
                 .fillInPasswordField(TestData.password)
                 .acceptCookies()
                 .clickLogInButtonWithPass()
-                .validLoginAndPasswordAssertion(TestData.validLoginAndPasswordAssert)
                 .clickNewMessageButton()
                 .clickSendButtonWithFail()
                 .sendEmailWithoutRecipientAssertion(TestData.sendEmailWithoutRecipientAssert)

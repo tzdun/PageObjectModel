@@ -11,7 +11,6 @@ public class SaveMessageAsADraftTC extends BaseTestTC {
         private static ValidLoginAndPasswordPM validLoginAndPasswordPM = new ValidLoginAndPasswordPM();
         private static String login = validLoginAndPasswordPM.getLogin();
         private static String password = validLoginAndPasswordPM.getPassword();
-        private static String validLoginAndPasswordAssert = validLoginAndPasswordPM.getValidLoginAndPasswordAssert();
         private static SaveMessageAsADraftPM saveMessageAsADraftPM = new SaveMessageAsADraftPM();
         private static String messageTo = saveMessageAsADraftPM.getMessageTo();
         private static String messageSubject = saveMessageAsADraftPM.getMessageSubject();
@@ -33,7 +32,6 @@ public class SaveMessageAsADraftTC extends BaseTestTC {
                 .fillInPasswordField(TestData.password)
                 .acceptCookies()
                 .clickLogInButtonWithPass()
-                .validLoginAndPasswordAssertion(TestData.validLoginAndPasswordAssert)
                 .clickNewMessageButton()
                 .enterMessageToField(TestData.messageTo)
                 .enterMessageSubjectField(TestData.messageSubject)

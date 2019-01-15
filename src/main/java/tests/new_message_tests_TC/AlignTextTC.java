@@ -12,7 +12,6 @@ public class AlignTextTC extends BaseTestTC {
         private static ValidLoginAndPasswordPM validLoginAndPasswordPM = new ValidLoginAndPasswordPM();
         private static String login = validLoginAndPasswordPM.getLogin();
         private static String password = validLoginAndPasswordPM.getPassword();
-        private static String validLoginAndPasswordAssert = validLoginAndPasswordPM.getValidLoginAndPasswordAssert();
         private static AlignTextPM alignTextPM = new AlignTextPM();
         private static String textAreaFieldMessage = alignTextPM.getTextAreaFieldMessage();
         private static String leftAlignAssert = alignTextPM.getLeftAlignAssert();
@@ -31,7 +30,6 @@ public class AlignTextTC extends BaseTestTC {
                 .fillInPasswordField(TestData.password)
                 .acceptCookies()
                 .clickLogInButtonWithPass()
-                .validLoginAndPasswordAssertion(TestData.validLoginAndPasswordAssert)
                 .clickNewMessageButton()
                 .fillInMessageTextArea(TestData.textAreaFieldMessage)
                 .keyPress_Ctrl_A()

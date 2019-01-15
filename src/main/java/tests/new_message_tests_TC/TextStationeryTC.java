@@ -12,7 +12,6 @@ public class TextStationeryTC extends BaseTestTC {
         private static ValidLoginAndPasswordPM validLoginAndPasswordPM = new ValidLoginAndPasswordPM();
         private static String login = validLoginAndPasswordPM.getLogin();
         private static String password = validLoginAndPasswordPM.getPassword();
-        private static String validLoginAndPasswordAssert = validLoginAndPasswordPM.getValidLoginAndPasswordAssert();
         private static TextStationeryPM textStationeryTestDataPM = new TextStationeryPM();
         private static String textStationeryAssert = textStationeryTestDataPM.getTextStationeryAssert();
     }
@@ -29,7 +28,6 @@ public class TextStationeryTC extends BaseTestTC {
                 .fillInPasswordField(TestData.password)
                 .acceptCookies()
                 .clickLogInButtonWithPass()
-                .validLoginAndPasswordAssertion(TestData.validLoginAndPasswordAssert)
                 .clickNewMessageButton()
                 .clickStationeryButton()
                 .clickStationeryOption()

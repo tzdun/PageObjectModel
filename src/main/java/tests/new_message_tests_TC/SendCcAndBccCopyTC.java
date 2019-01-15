@@ -11,7 +11,6 @@ public class SendCcAndBccCopyTC extends BaseTestTC {
         private static ValidLoginAndPasswordPM validLoginAndPasswordPM = new ValidLoginAndPasswordPM();
         private static String login = validLoginAndPasswordPM.getLogin();
         private static String password = validLoginAndPasswordPM.getPassword();
-        private static String validLoginAndPasswordAssert = validLoginAndPasswordPM.getValidLoginAndPasswordAssert();
         private static SendCcAndBccCopyPM sendCcAndBccEmailPM = new SendCcAndBccCopyPM();
         private static String messageTo = sendCcAndBccEmailPM.getMessageTo();
         private static String ccMessageTo = sendCcAndBccEmailPM.getCcMessageTo();
@@ -35,7 +34,6 @@ public class SendCcAndBccCopyTC extends BaseTestTC {
                 .fillInPasswordField(TestData.password)
                 .acceptCookies()
                 .clickLogInButtonWithPass()
-                .validLoginAndPasswordAssertion(TestData.validLoginAndPasswordAssert)
                 .clickNewMessageButton()
                 .enterMessageToField(TestData.messageTo)
                 .clickCCButton()

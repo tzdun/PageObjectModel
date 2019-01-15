@@ -12,7 +12,6 @@ public class ListTextTC extends BaseTestTC {
         private static ValidLoginAndPasswordPM validLoginAndPasswordPM = new ValidLoginAndPasswordPM();
         private static String login = validLoginAndPasswordPM.getLogin();
         private static String password = validLoginAndPasswordPM.getPassword();
-        private static String validLoginAndPasswordAssert = validLoginAndPasswordPM.getValidLoginAndPasswordAssert();
         private static ListTextPM listTextPM = new ListTextPM();
         private static String textAreaFieldMessage = listTextPM.getTextAreaFieldMessage();
         private static String liListTextAssert = listTextPM.getLiListAssert();
@@ -32,7 +31,6 @@ public class ListTextTC extends BaseTestTC {
                 .fillInPasswordField(TestData.password)
                 .acceptCookies()
                 .clickLogInButtonWithPass()
-                .validLoginAndPasswordAssertion(TestData.validLoginAndPasswordAssert)
                 .clickNewMessageButton()
                 .fillInMessageTextArea(TestData.textAreaFieldMessage)
                 .keyPress_Ctrl_A()

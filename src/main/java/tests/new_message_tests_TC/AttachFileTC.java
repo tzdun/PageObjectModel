@@ -11,7 +11,6 @@ public class AttachFileTC extends BaseTestTC {
         private static ValidLoginAndPasswordPM validLoginAndPasswordPM = new ValidLoginAndPasswordPM();
         private static String login = validLoginAndPasswordPM.getLogin();
         private static String password = validLoginAndPasswordPM.getPassword();
-        private static String validLoginAndPasswordAssert = validLoginAndPasswordPM.getValidLoginAndPasswordAssert();
         private static AttachFilePM attachFilePM = new AttachFilePM();
         private static String attachFilePath = attachFilePM.getAttachFilePath();
         private static String attachFileAssert = attachFilePM.getAttachFileAssert();
@@ -28,7 +27,6 @@ public class AttachFileTC extends BaseTestTC {
                 .fillInPasswordField(TestData.password)
                 .acceptCookies()
                 .clickLogInButtonWithPass()
-                .validLoginAndPasswordAssertion(TestData.validLoginAndPasswordAssert)
                 .clickNewMessageButton()
                 .attachFile(TestData.attachFilePath)
                 .attachFileAndInsertImageAssertion(TestData.attachFileAssert)

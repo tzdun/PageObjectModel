@@ -11,7 +11,6 @@ public class ItalicFontTC extends BaseTestTC {
         private static ValidLoginAndPasswordPM validLoginAndPasswordPM = new ValidLoginAndPasswordPM();
         private static String login = validLoginAndPasswordPM.getLogin();
         private static String password = validLoginAndPasswordPM.getPassword();
-        private static String validLoginAndPasswordAssert = validLoginAndPasswordPM.getValidLoginAndPasswordAssert();
         private static ItalicFontPM italicFontPM = new ItalicFontPM();
         private static String messageTextArea = italicFontPM.getTextAreaFieldMessage();
         private static String italicFontAssert = italicFontPM.getItalicFontAssert();
@@ -29,7 +28,6 @@ public class ItalicFontTC extends BaseTestTC {
                 .fillInPasswordField(TestData.password)
                 .acceptCookies()
                 .clickLogInButtonWithPass()
-                .validLoginAndPasswordAssertion(TestData.validLoginAndPasswordAssert)
                 .clickNewMessageButton()
                 .fillInMessageTextArea(TestData.messageTextArea)
                 .keyPress_Ctrl_A()

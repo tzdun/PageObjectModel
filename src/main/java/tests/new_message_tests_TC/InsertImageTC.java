@@ -11,7 +11,6 @@ public class InsertImageTC extends BaseTestTC {
         private static ValidLoginAndPasswordPM validLoginAndPasswordPM = new ValidLoginAndPasswordPM();
         private static String login = validLoginAndPasswordPM.getLogin();
         private static String password = validLoginAndPasswordPM.getPassword();
-        private static String validLoginAndPasswordAssert = validLoginAndPasswordPM.getValidLoginAndPasswordAssert();
         private static InsertImagePM insertImagePM = new InsertImagePM();
         private static String canonicalPathToImage = insertImagePM.getCanonicalImagePath();
         private static String insertImageAssert = insertImagePM.getInsertImageAssert();
@@ -30,7 +29,6 @@ public class InsertImageTC extends BaseTestTC {
                 .fillInPasswordField(TestData.password)
                 .acceptCookies()
                 .clickLogInButtonWithPass()
-                .validLoginAndPasswordAssertion(TestData.validLoginAndPasswordAssert)
                 .clickNewMessageButton()
                 .insertImage(TestData.canonicalPathToImage)
                 .attachFileAndInsertImageAssertion(TestData.insertImageAssert)

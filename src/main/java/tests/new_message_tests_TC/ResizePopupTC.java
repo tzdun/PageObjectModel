@@ -11,7 +11,6 @@ public class ResizePopupTC extends BaseTestTC {
         private static ValidLoginAndPasswordPM validLoginAndPasswordPM = new ValidLoginAndPasswordPM();
         private static String login = validLoginAndPasswordPM.getLogin();
         private static String password = validLoginAndPasswordPM.getPassword();
-        private static String validLoginAndPasswordAssert = validLoginAndPasswordPM.getValidLoginAndPasswordAssert();
         private static ResizePopupPM resizePopupPM = new ResizePopupPM();
         private static String minAssert = resizePopupPM.getMinAssert();
         private static String maxAssert = resizePopupPM.getMaxAssert();
@@ -31,7 +30,6 @@ public class ResizePopupTC extends BaseTestTC {
                 .fillInPasswordField(TestData.password)
                 .acceptCookies()
                 .clickLogInButtonWithPass()
-                .validLoginAndPasswordAssertion(TestData.validLoginAndPasswordAssert)
                 .clickNewMessageButton()
                 .clickMaxMessagePopupButton()
                 .resizePopupMinOrMaxAssertion(TestData.maxAssert)
