@@ -130,14 +130,14 @@ public class NewMessagePopupPage extends BasePage {
     }
 
     // Enter CC Input Field
-    public NewMessagePopupPage enterCCInputField(String ccRecipient) {
+    public NewMessagePopupPage enterCcInputField(String ccRecipient) {
         System.out.println("step: " + Thread.currentThread().getStackTrace()[1].getMethodName());
         writeText(ccInputBy, ccRecipient);
         return this;
     }
 
     // Enter BCC Input Field
-    public NewMessagePopupPage enterBCCInputField(String bccRecipient) {
+    public NewMessagePopupPage enterBccInputField(String bccRecipient) {
         System.out.println("step: " + Thread.currentThread().getStackTrace()[1].getMethodName());
         writeText(bccInputBy, bccRecipient);
         return this;
@@ -234,14 +234,14 @@ public class NewMessagePopupPage extends BasePage {
     }
 
     // Click CC Message Button
-    public NewMessagePopupPage clickCCButton() {
+    public NewMessagePopupPage clickCcButton() {
         System.out.println("step: " + Thread.currentThread().getStackTrace()[1].getMethodName());
         click(ccButtonBy);
         return this;
     }
 
     // Click BCC Message Button
-    public NewMessagePopupPage clickBCCButton() {
+    public NewMessagePopupPage clickBccButton() {
         System.out.println("step: " + Thread.currentThread().getStackTrace()[1].getMethodName());
         click(bccButtonBy);
         return this;
